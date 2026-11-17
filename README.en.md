@@ -1,5 +1,7 @@
 # Mu-Linux Browser Text Game
 
+[![Website](https://img.shields.io/badge/website-mu--linux.com-0ea5e9?logo=googlechrome&logoColor=white)](https://mu-linux.com/en/) [![Documentation](https://img.shields.io/badge/docs-browser%20text%20game-0ea5e9?logo=readthedocs&logoColor=white)](https://mu-linux.com/en/docs/browser-text-game/)
+
 [![Docker Pulls](https://img.shields.io/docker/pulls/emapupi/mu-linux-browser?label=docker&logo=docker)](https://hub.docker.com/r/emapupi/mu-linux-browser) [![Docker Image Size](https://img.shields.io/docker/image-size/emapupi/mu-linux-browser/latest?logo=docker)](https://hub.docker.com/r/emapupi/mu-linux-browser) [![Release](https://img.shields.io/github/v/release/EmanuelCatania/Mu-Linux-Browser-Text-Game?logo=github)](https://github.com/EmanuelCatania/Mu-Linux-Browser-Text-Game/releases) [![Docker](https://github.com/EmanuelCatania/Mu-Linux-Browser-Text-Game/actions/workflows/docker.yml/badge.svg)](https://github.com/EmanuelCatania/Mu-Linux-Browser-Text-Game/actions/workflows/docker.yml)
 
 [🇦🇷 Español](README.md) | 🇺🇸 English | [🇧🇷 Português](README.pt-BR.md)
@@ -29,6 +31,8 @@ A text-based, turn-based MU Online browser game. It is a full rewrite, on PHP 8.
 Opens the game in [GitHub Codespaces](https://github.com/features/codespaces): sign in with your GitHub account, which includes free hours every month, and the game starts by itself on a temporary server. Once it has started, it opens on port **8086** (*Ports* tab). The code to create the admin account is shown in the terminal with `docker compose -f Mu-Browser/docker-compose.images.yml logs mu-web`, but a normal account is enough to play. When you are done, stop the Codespace so it does not use up your hours.
 
 ## Quick start
+
+The full documentation (installation, configuration and development) is at [mu-linux.com](https://mu-linux.com/en/docs/browser-text-game/).
 
 All you need is Docker with the Compose plugin. Using the published image, with nothing to build:
 
