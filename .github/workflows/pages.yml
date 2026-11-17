@@ -1,0 +1,39 @@
+name: Pages
+# Publica la portada estática de site/ en GitHub Pages, con las imágenes que usa tomadas del juego.
+# En Settings → Pages, "Source" tiene que estar en "GitHub Actions".
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "site/**"
+      - "Mu-Browser/public/assets/img/shots/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Armar el sitio
+        run: |
+          mkdir -p _site/img
+          cp -r site/. _site/
+          img=Mu-Browser/public/assets/img
+          cp -r "$img/shots" "$img/flags" _site/img/
+          cp "$img/logo_header.jpg" "$img/mu_online.png" _site/img/
+          cp Mu-Browser/public/favicon.ico _site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+      - id: deployment
+        uses: actions/deploy-pages@v4

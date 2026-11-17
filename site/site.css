@@ -1,0 +1,101 @@
+/* Portada de GitHub Pages con la estética del juego: fondo blanco, cabecera del original y paneles verdes */
+:root {
+    --page: #fff;
+    --text: #222;
+    --line: #9cb59c;
+    --panel: #f3f8f3;
+    --head: #3c6e3c;
+    --title: #2e5c2e;
+    --link: #1f5fa8;
+    --code: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --page: #111;
+        --text: #ddd;
+        --line: #3d553d;
+        --panel: #172017;
+        --head: #2b4f2b;
+        --title: #7fc77f;
+        --link: #8cb8ea;
+        --code: #222;
+    }
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text);
+    font: 13px/1.5 Tahoma, Geneva, Verdana, sans-serif;
+}
+a { color: var(--link); }
+
+.page { max-width: 1050px; margin: 0 auto; padding: 8px 16px 24px; }
+
+.banner {
+    position: relative;
+    height: 84px;
+    border: 1px solid var(--line);
+    background: #fff url("img/logo_header.jpg") no-repeat 0 0;
+    overflow: hidden;
+}
+.langbox {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    gap: 10px;
+    padding: 6px 14px;
+    background: rgb(0 0 0 / 60%);
+}
+.flag { padding: 2px; border: 1px solid transparent; border-radius: 2px; background: none; cursor: pointer; opacity: 0.6; }
+.flag img { display: block; border: 1px solid #000; }
+.flag:hover, .flag:focus-visible { opacity: 1; }
+.flag.current { opacity: 1; border-color: #f2c811; }
+
+.content { display: grid; gap: 14px; margin-top: 14px; }
+
+.intro { display: flex; gap: 16px; align-items: flex-start; }
+.intro h1 { margin: 0 0 6px; font-size: 22px; color: var(--title); }
+.mu-logo { flex: none; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.button {
+    display: inline-block;
+    padding: 5px 14px;
+    border: 1px solid #2b4f2b;
+    border-radius: 3px;
+    background: #3c6e3c;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+.button:hover, .button:focus-visible { background: #4d8a4d; }
+
+.panel h2 {
+    margin: 0;
+    padding: 4px 10px;
+    background: var(--head);
+    color: #fff;
+    font-size: 13px;
+}
+.panel-body { padding: 10px 12px; border: 1px solid var(--line); border-top: 0; background: var(--panel); }
+.panel-body ul { margin: 0; padding-left: 18px; }
+.panel-body p:first-child { margin-top: 0; }
+
+.shots { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.shots a { display: grid; justify-items: center; gap: 4px; text-decoration: none; }
+.shots img { border: 1px solid var(--line); max-width: 100%; height: auto; }
+
+pre { margin: 8px 0; padding: 10px; overflow-x: auto; background: var(--code); border: 1px solid var(--line); }
+code { font: 12px Consolas, Menlo, monospace; }
+
+.footer { margin-top: 18px; text-align: center; color: #888; font-size: 11px; }
+
+@media (max-width: 640px) {
+    .banner { background-position: -40px 0; }
+    .intro { flex-direction: column; align-items: center; text-align: center; }
+    .links { justify-content: center; }
+}
