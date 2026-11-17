@@ -22,6 +22,12 @@ A text-based, turn-based MU Online browser game. It is a full rewrite, on PHP 8.
 - **Admin panel**: game settings, news posts with images for the front page, accounts, character and item editor and forum moderation.
 - **Three languages** (Spanish, English and Portuguese) and an optional dark mode.
 
+## Try it without installing anything
+
+[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/EmanuelCatania/Mu-Linux-Browser-Text-Game/main/Mu-Browser/docker-compose.images.yml)
+
+Opens the game in [Play with Docker](https://labs.play-with-docker.com/): sign in with a (free) Docker account and it starts by itself on a temporary server that lasts 4 hours. Once it has started, click the **8086** port shown at the top. The code to create the admin account is shown in the terminal with `docker logs $(docker ps -qf name=mu-web)`, but a normal account is enough to play.
+
 ## Quick start
 
 All you need is Docker with the Compose plugin. Using the published image, with nothing to build:
