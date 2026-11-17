@@ -1,0 +1,39 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ shop_name }} - {{ t('menu.shops') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.shops') }}: {{ shop_name }}</h1>
+
+<nav class="catalog-tabs" aria-label="{{ t('menu.shops') }}">
+    {% for id, name in shops %}
+        <a href="/shops/{{ id }}"{% if id == shop_id %} class="current" aria-current="page"{% endif %}>{{ name }}</a>
+    {% endfor %}
+</nav>
+
+<div class="inv-root" data-csrf="{{ csrf }}" data-shop="{{ shop_id }}" data-confirm-jewel="{{ t('inventory.confirm_jewel') }}">
+    {{ include('inventory/_actions.twig', {mode: 'shop'}) }}
+
+    <div class="inv-layout inv-layout-two">
+        <section class="panel">
+            <h2 class="panel-title">{{ shop_name }}</h2>
+            <div class="panel-body">
+                {# los NPC agregados después del original todavía no tienen imagen propia #}
+                {% set picture = img('/assets/img/shops/' ~ shop_id ~ '.gif', '') %}
+                {% if picture %}<img class="shop-npc" src="{{ picture }}" alt="">{% endif %}
+                {{ include('inventory/_grid.twig', {name: 'shop', rows: shop_rows, cards: stock}) }}
+            </div>
+        </section>
+
+        <section class="panel bag">
+            <h2 class="panel-title">{{ t('inventory.inventory') }} — {{ character.name }}</h2>
+            <div class="panel-body">
+                {{ include('inventory/_equipment.twig') }}
+                {{ include('inventory/_grid.twig', {name: 'inventory', rows: rows.inventory, cards: inventory}) }}
+                <p class="zen">{{ t('characters.zen') }}: <strong>{{ account.zen }}</strong></p>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="{{ asset('/assets/js/inventory.js') }}" defer></script>
+{% endblock %}

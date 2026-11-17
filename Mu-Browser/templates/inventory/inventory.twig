@@ -1,0 +1,54 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('menu.inventory') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.inventory') }}</h1>
+
+<div class="inv-root" data-csrf="{{ csrf }}" data-confirm-jewel="{{ t('inventory.confirm_jewel') }}">
+    {{ include('inventory/_actions.twig', {mode: 'inventory'}) }}
+
+    <div class="inv-layout">
+        <section class="panel">
+            <h2 class="panel-title">{{ character.name }}</h2>
+            <div class="panel-body">
+                <p class="sheet-head">{{ character.class.label }} · {{ t('characters.level', {n: character.level}) }}</p>
+                <table class="sheet">
+                    <tr><th scope="row">{{ t('stat.strength') }}</th><td>{{ character.strength }}{{ include('inventory/_plus.twig', {stat: 'strength'}) }}</td></tr>
+                    <tr><th scope="row">{{ t('stat.agility') }}</th><td>{{ character.agility }}{{ include('inventory/_plus.twig', {stat: 'agility'}) }}</td></tr>
+                    <tr><th scope="row">{{ t('stat.stamina') }}</th><td>{{ character.stamina }}{{ include('inventory/_plus.twig', {stat: 'stamina'}) }}</td></tr>
+                    <tr><th scope="row">{{ t('stat.energy') }}</th><td>{{ character.energy }}{{ include('inventory/_plus.twig', {stat: 'energy'}) }}</td></tr>
+                    {% if 'command' in character.class.stats() %}
+                        <tr><th scope="row">{{ t('stat.command') }}</th><td>{{ character.command }}{{ include('inventory/_plus.twig', {stat: 'command'}) }}</td></tr>
+                    {% endif %}
+                    <tr><th scope="row">{{ t('characters.hp') }}</th><td>{{ min(character.hpCur, stats.hpMax) }} / {{ stats.hpMax }}</td></tr>
+                    <tr><th scope="row">{{ t('characters.mp') }}</th><td>{{ min(character.mpCur, stats.mpMax) }} / {{ stats.mpMax }}</td></tr>
+                    <tr><th scope="row">{{ t('characters.damage') }}</th><td>{{ stats.damageMin }} ~ {{ stats.damageMax }}{% if stats.damageBonus %} (+{{ stats.damageBonus }}%){% endif %}</td></tr>
+                    {% if stats.wizDamageMax > 0 %}
+                        <tr><th scope="row">{{ t('characters.wiz_damage') }}</th><td>{{ stats.wizDamageMin }} ~ {{ stats.wizDamageMax }}{% if stats.staffRise %} (+{{ stats.staffRise }}%){% endif %}</td></tr>
+                    {% endif %}
+                    <tr><th scope="row">{{ t('characters.damage_rate') }}</th><td>{{ stats.damageRate }}</td></tr>
+                    <tr><th scope="row">{{ t('characters.defense') }}</th><td>{{ stats.defense }}</td></tr>
+                    <tr><th scope="row">{{ t('characters.defense_rate') }}</th><td>{{ stats.defenseRate }}</td></tr>
+                    {% if stats.damageAbsorb %}<tr><th scope="row">{{ t('inventory.absorb') }}</th><td>{{ stats.damageAbsorb }}%</td></tr>{% endif %}
+                    {% if stats.luck %}<tr><th scope="row">{{ t('inventory.critical') }}</th><td>{{ stats.luck }}%</td></tr>{% endif %}
+                    {% if stats.excellentRate %}<tr><th scope="row">{{ t('inventory.excellent') }}</th><td>{{ stats.excellentRate }}%</td></tr>{% endif %}
+                </table>
+                {% if character.points > 0 %}
+                    <p class="points-left"><strong>{{ t('characters.points', {n: character.points}) }}</strong></p>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="panel bag">
+            <h2 class="panel-title">{{ t('inventory.inventory') }}</h2>
+            <div class="panel-body">
+                {{ include('inventory/_equipment.twig') }}
+                {{ include('inventory/_grid.twig', {name: 'inventory', rows: rows.inventory, cards: inventory}) }}
+                <p class="zen">{{ t('characters.zen') }}: <strong>{{ account.zen }}</strong></p>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="{{ asset('/assets/js/inventory.js') }}" defer></script>
+{% endblock %}

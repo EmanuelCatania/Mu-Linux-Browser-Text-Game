@@ -1,0 +1,27 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('auth.login_title') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<div class="ucp">
+    <h1 class="title-bar">{{ t('auth.login_title') }}</h1>
+    <div class="ucp-back">
+        <form class="ucp-main" method="post" action="/login">
+            <input type="hidden" name="_csrf" value="{{ csrf }}">
+            {{ include('_errors.twig') }}
+            <label for="username">{{ t('auth.username') }}</label>
+            <input type="text" id="username" name="username" value="{{ old.username|default('') }}"
+                   maxlength="12" required autocomplete="username">
+
+            <label for="password">{{ t('auth.password') }}</label>
+            <input type="password" id="password" name="password" maxlength="128" required
+                   autocomplete="current-password">
+
+            <label class="check"><input type="checkbox" name="remember" value="1"> {{ t('auth.remember') }}</label>
+
+            <button type="submit">{{ t('auth.submit') }}</button>
+        </form>
+    </div>
+    <p class="title-bar hint">{{ t('auth.no_account') }} <a href="/register">{{ t('nav.register') }}</a></p>
+</div>
+{% endblock %}

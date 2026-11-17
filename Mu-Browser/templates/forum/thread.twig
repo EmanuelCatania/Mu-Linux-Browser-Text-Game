@@ -1,0 +1,62 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ thread.title }} - {{ t('forum.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ thread.title }}</h1>
+
+<div class="filters">
+    <a class="button" href="/forum/{{ thread.category }}">« {{ t('forum.cat_' ~ thread.category) }}</a>
+    {% if thread.pinned %}<span class="forum-tag">{{ t('forum.pinned') }}</span>{% endif %}
+    {% if thread.locked %}<span class="forum-tag gray">{{ t('forum.locked') }}</span>{% endif %}
+    {% if account and account.isAdmin %}
+        <form method="post" action="/forum/moderate" class="filters-info forum-mod">
+            <input type="hidden" name="_csrf" value="{{ csrf }}">
+            <input type="hidden" name="thread" value="{{ thread.id }}">
+            <button type="submit" name="do" value="{{ thread.pinned ? 'unpin' : 'pin' }}">{{ t(thread.pinned ? 'forum.unpin' : 'forum.pin') }}</button>
+            <button type="submit" name="do" value="{{ thread.locked ? 'unlock' : 'lock' }}">{{ t(thread.locked ? 'forum.unlock' : 'forum.lock') }}</button>
+            <button type="submit" name="do" value="delete_thread" data-confirm="{{ t('forum.confirm_delete_thread') }}">{{ t('forum.delete_thread') }}</button>
+        </form>
+    {% endif %}
+</div>
+
+{% for p in posts %}
+    <article class="forum-post"{% if loop.last %} id="last"{% endif %}>
+        <aside class="forum-author">
+            <strong>{{ p.author }}</strong>
+            {% if p.author_admin %}<span class="forum-tag">{{ t('forum.admin') }}</span>{% endif %}
+            {% if p.character %}<small>{{ p.character }}{% if p.class_label %} · {{ p.class_label }}{% endif %}</small>{% endif %}
+        </aside>
+        <div class="forum-body">
+            <small class="gray">{{ p.at|date('d/m/Y H:i') }}</small>
+            <p>{{ p.body|nl2br }}</p>
+            {% if account and account.isAdmin %}
+                <form method="post" action="/forum/moderate">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <input type="hidden" name="thread" value="{{ thread.id }}">
+                    <input type="hidden" name="post" value="{{ p.id }}">
+                    <button type="submit" name="do" value="delete_post" class="linklike red"
+                            data-confirm="{{ t(p.first ? 'forum.confirm_delete_thread' : 'forum.confirm_delete_post') }}">{{ t('forum.delete_post') }}</button>
+                </form>
+            {% endif %}
+        </div>
+    </article>
+{% endfor %}
+{{ include('community/_pager.twig', {base: '/forum/thread/' ~ thread.id ~ '?page='}) }}
+
+{% if not account %}
+    <p class="inv-help">{{ t('forum.login_to_post') }} <a href="/login">{{ t('nav.login') }}</a></p>
+{% elseif thread.locked and not account.isAdmin %}
+    <p class="empty-note">{{ t('forum.locked_help') }}</p>
+{% else %}
+    <form method="post" action="/forum/thread/{{ thread.id }}/reply" class="panel forum-form" id="reply">
+        <input type="hidden" name="_csrf" value="{{ csrf }}">
+        <h2 class="panel-title">{{ t('forum.reply') }}</h2>
+        <div class="panel-body">
+            <label for="body" class="sr-only">{{ t('forum.message') }}</label>
+            <textarea id="body" name="body" rows="6" maxlength="5000" required>{{ old_body }}</textarea>
+            <button type="submit" class="go">{{ t('forum.publish') }}</button>
+        </div>
+    </form>
+{% endif %}
+{% endblock %}

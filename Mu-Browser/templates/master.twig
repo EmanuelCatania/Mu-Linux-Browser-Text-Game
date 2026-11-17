@@ -1,0 +1,52 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('master.title') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('master.title') }}</h1>
+
+{% if not is_master %}
+    <p class="flash">{{ t('master.locked') }} <a href="/npc/devin">Apostle Devin</a></p>
+{% else %}
+    <section class="panel">
+        <h2 class="panel-title">{{ character.name }} — {{ character.class.label }}</h2>
+        <div class="panel-body">
+            <p>
+                {{ t('master.level', {n: character.masterLevel, max: max_level}) }} ·
+                {{ t('master.points', {n: character.masterPoints}) }}
+            </p>
+            {% if character.masterLevel < max_level %}
+                <div class="bar bar-exp" role="img" aria-label="{{ character.masterExp }}/{{ need }}"><i style="width: {{ (character.masterExp * 100 / need)|round }}%"></i><b>{{ character.masterExp }} / {{ need }}</b></div>
+            {% endif %}
+            <p class="inv-help">{{ t('master.help') }}</p>
+        </div>
+    </section>
+{% endif %}
+
+<div class="master-tree">
+    {% for branch in branches %}
+        <section class="panel">
+            <h2 class="panel-title">{{ t('master.branch_' ~ branch.id) }} ({{ branch.spent }})</h2>
+            <ol class="panel-body master-nodes">
+                {% for node in branch.nodes %}
+                    <li class="master-node{{ node.rank > 0 ? ' has-rank' }}{{ not node.open and node.rank < node.max ? ' is-locked' }}">
+                        <strong>{{ t('master.node_' ~ node.id) }}</strong>
+                        <span class="master-rank">{{ node.rank }} / {{ node.max }}</span>
+                        <small>{{ t('master.effect_' ~ node.id, {n: node.per_rank}) }}{% if node.total %} — {{ t('master.now', {n: node.total}) }}{% endif %}</small>
+                        {% if node.needs and branch.spent < node.needs %}
+                            <small class="red">{{ t('master.needs', {n: node.needs}) }}</small>
+                        {% endif %}
+                        {% if is_master and node.open and character.masterPoints > 0 %}
+                            <form method="post" action="/master">
+                                <input type="hidden" name="_csrf" value="{{ csrf }}">
+                                <button type="submit" name="node" value="{{ node.id }}" class="plus"
+                                        aria-label="{{ t('master.add', {name: t('master.node_' ~ node.id)}) }}">+</button>
+                            </form>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        </section>
+    {% endfor %}
+</div>
+{% endblock %}

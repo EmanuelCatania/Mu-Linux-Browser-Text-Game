@@ -1,0 +1,56 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('menu.pstore') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.pstore') }}</h1>
+
+<div class="inv-root" data-csrf="{{ csrf }}" data-confirm-jewel="{{ t('inventory.confirm_jewel') }}">
+    {{ include('inventory/_actions.twig', {mode: 'store'}) }}
+
+    <div class="inv-layout inv-layout-two">
+        <section class="panel">
+            <h2 class="panel-title">{{ t('menu.pstore') }} — {{ t(account.storeOpen ? 'store.is_open' : 'store.is_closed') }}</h2>
+            <div class="panel-body">
+                {{ include('inventory/_grid.twig', {name: 'store', rows: rows.store, cards: store}) }}
+
+                {% if account.storeOpen %}
+                    <p>{{ t('store.open_help') }} <a href="/market">{{ t('menu.market') }}</a></p>
+                    <form method="post" action="/store">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <button type="submit" name="do" value="close">{{ t('store.close') }}</button>
+                    </form>
+                {% else %}
+                    <form method="post" action="/store" class="store-form" id="store-add">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <input type="hidden" name="from" value="">
+                        <label for="store-price">{{ t('store.price_label') }}</label>
+                        <input type="number" id="store-price" name="price" min="1" max="{{ max_price }}" step="1" required inputmode="numeric">
+                        <button type="submit" name="do" value="add">{{ t('store.add') }}</button>
+                    </form>
+                    <form method="post" action="/store" class="store-form" id="store-remove">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <input type="hidden" name="slot" value="">
+                        <button type="submit" name="do" value="remove">{{ t('store.remove') }}</button>
+                    </form>
+                    <form method="post" action="/store" class="store-form">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <button type="submit" name="do" value="open" class="go"{{ store ? '' : ' disabled' }}>{{ t('store.open', {n: open_price}) }}</button>
+                    </form>
+                    <p class="inv-help">{{ t('store.help') }}</p>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="panel bag">
+            <h2 class="panel-title">{{ t('inventory.inventory') }} — {{ character.name }}</h2>
+            <div class="panel-body">
+                {{ include('inventory/_equipment.twig') }}
+                {{ include('inventory/_grid.twig', {name: 'inventory', rows: rows.inventory, cards: inventory}) }}
+                <p class="zen">{{ t('characters.zen') }}: <strong>{{ account.zen }}</strong></p>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="{{ asset('/assets/js/inventory.js') }}" defer></script>
+{% endblock %}

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="hero_werewolf">
+<level>127</level>
+<hp>123000</hp>
+<damage>1015</damage>
+<defense>800</defense>
+<damage_rate>1027</damage_rate>
+<defense_rate>397</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="coolutin">
+<level>132</level>
+<hp>88000</hp>
+<damage>2092</damage>
+<defense>650</defense>
+<damage_rate>1940</damage_rate>
+<defense_rate>840</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="iron_knight">
+<level>142</level>
+<hp>95000</hp>
+<damage>2301</damage>
+<defense>660</defense>
+<damage_rate>2000</damage_rate>
+<defense_rate>800</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="dark_iron_knight">
+<level>148</level>
+<hp>265000</hp>
+<damage>2601</damage>
+<defense>860</defense>
+<damage_rate>2441</damage_rate>
+<defense_rate>1430</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="ferea_fighter">
+<level>150</level>
+<hp>116000</hp>
+<damage>2540</damage>
+<defense>740</defense>
+<damage_rate>2240</damage_rate>
+<defense_rate>920</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="vasuki">
+<level>154</level>
+<hp>132000</hp>
+<damage>2710</damage>
+<defense>795</defense>
+<damage_rate>2410</damage_rate>
+<defense_rate>985</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="paraca">
+<level>158</level>
+<hp>150000</hp>
+<damage>2900</damage>
+<defense>855</defense>
+<damage_rate>2600</damage_rate>
+<defense_rate>1060</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>hero_werewolf</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>hero_werewolf</encounter>
+<encounter>coolutin</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>hero_werewolf</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>coolutin</encounter>
+<encounter>iron_knight</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>coolutin</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>iron_knight</encounter>
+<encounter>dark_iron_knight</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>iron_knight</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>dark_iron_knight</encounter>
+<encounter>ferea_fighter</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>dark_iron_knight</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>ferea_fighter</encounter>
+<encounter>vasuki</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>ferea_fighter</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>vasuki</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>vasuki</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>paraca</encounter>
+</spot>
+
+
+</map>

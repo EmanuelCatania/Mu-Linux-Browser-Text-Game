@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: mapa posterior a Season 5; valores propios, que continúan la curva de los monstruos comunes de Raklion -->
+<monster name="ferea_knight">
+<level>146</level>
+<hp>102000</hp>
+<damage>2380</damage>
+<defense>690</defense>
+<damage_rate>2080</damage_rate>
+<defense_rate>860</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="ferea_archer">
+<level>148</level>
+<hp>109000</hp>
+<damage>2460</damage>
+<defense>715</defense>
+<damage_rate>2160</damage_rate>
+<defense_rate>890</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="ferea_fighter">
+<level>150</level>
+<hp>116000</hp>
+<damage>2540</damage>
+<defense>740</defense>
+<damage_rate>2240</damage_rate>
+<defense_rate>920</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="ferea_general">
+<level>152</level>
+<hp>124000</hp>
+<damage>2620</damage>
+<defense>765</defense>
+<damage_rate>2320</damage_rate>
+<defense_rate>950</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- world boss -->
+<monster name="lord_of_ferea">
+<level>158</level>
+<hp>1800000</hp>
+<damage>3400</damage>
+<defense>1500</defense>
+<damage_rate>3000</damage_rate>
+<defense_rate>2000</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<!-- spots -->
+<spot id="spot181" x="62" y="422">
+<encounter>ferea_knight</encounter>
+</spot>
+
+<spot id="spot182" x="274" y="330">
+<encounter>ferea_knight</encounter>
+<encounter>ferea_archer</encounter>
+</spot>
+
+<spot id="spot183" x="370" y="518">
+<encounter>ferea_archer</encounter>
+<encounter>ferea_fighter</encounter>
+</spot>
+
+<spot id="spot184" x="146" y="158">
+<encounter>ferea_fighter</encounter>
+<encounter>ferea_general</encounter>
+</spot>
+
+<spot id="spot185" x="414" y="82">
+<encounter>ferea_general</encounter>
+</spot>
+
+
+</map>

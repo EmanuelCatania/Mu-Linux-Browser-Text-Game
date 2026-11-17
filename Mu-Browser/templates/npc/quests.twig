@@ -1,0 +1,70 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('menu.quest') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.quest') }}</h1>
+{% if in_battle %}
+    <p class="flash flash-error">{{ t('inventory.error_in_battle') }} <a href="/battle">{{ t('characters.back_to_battle') }}</a></p>
+{% endif %}
+
+<div class="quest-layout">
+    <section class="panel">
+        <h2 class="panel-title">Shadow Phantom Soldier</h2>
+        <div class="panel-body">
+            <img class="npc-picture" src="/assets/img/npc/quest.jpg" alt="">
+            <p>{{ t('quest.soldier') }}</p>
+            <form method="post" action="/quests">
+                <input type="hidden" name="_csrf" value="{{ csrf }}">
+                <button type="submit" name="do" value="restore">{{ t('quest.restore') }}</button>
+            </form>
+        </div>
+    </section>
+
+    <div>
+        <section class="panel">
+            <h2 class="panel-title">{{ t('quest.current') }}</h2>
+            <div class="panel-body">
+                {% if current %}
+                    <h3>{{ t('quest.' ~ current.id ~ '.title') }}</h3>
+                    <p>{{ t('quest.' ~ current.id ~ '.text') }}</p>
+                    <p class="quest-progress">
+                        <img src="{{ img('/assets/img/monsters/' ~ current.target ~ '.gif', '/assets/img/monsters/unknown.gif') }}" width="64" height="64" alt="">
+                        <span>{{ current.target_label }}: <strong>{{ current.score }} / {{ current.amount }}</strong></span>
+                    </p>
+                    <p>{{ t('quest.reward') }}: {{ include('npc/_reward.twig', {q: current}) }}</p>
+                    <form method="post" action="/quests" class="quest-buttons">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        {% if current.done %}
+                            <button type="submit" name="do" value="claim" class="go">{{ t('quest.claim') }}</button>
+                        {% endif %}
+                        <button type="submit" name="do" value="give_up" data-confirm="{{ t('quest.give_up_confirm') }}">{{ t('quest.give_up') }}</button>
+                    </form>
+                {% else %}
+                    <p>{{ t('quest.no_current') }}</p>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">{{ t('quest.available') }}</h2>
+            <div class="panel-body">
+                {% for q in available %}
+                    <article class="quest">
+                        <h3>{{ t('quest.' ~ q.id ~ '.title') }} <small>({{ t('map.levels', {min: q.level_min, max: q.level_max}) }})</small></h3>
+                        <p>{{ t('quest.' ~ q.id ~ '.text') }}</p>
+                        <p>{{ t('quest.goal', {n: q.amount, monster: q.target_label}) }} · {{ t('quest.reward') }}: {{ include('npc/_reward.twig', {q: q}) }}</p>
+                        <form method="post" action="/quests">
+                            <input type="hidden" name="_csrf" value="{{ csrf }}">
+                            <input type="hidden" name="quest" value="{{ q.id }}">
+                            <button type="submit" name="do" value="accept">{{ t('quest.accept') }}</button>
+                        </form>
+                    </article>
+                {% else %}
+                    <p>{{ t('quest.none_available') }}</p>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

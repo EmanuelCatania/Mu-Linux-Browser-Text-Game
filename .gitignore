@@ -1,0 +1,10 @@
+.env
+*~
+vendor/
+node_modules/
+# Referencias locales que no se publican: el fork brasileño de 2013 (su volcado tiene cuentas reales)
+# y el compose para levantar los juegos originales tal cual.
+MuOnline-Browser-Edition-master/
+legacy/
+# imágenes subidas desde el panel (viven en un volumen de Docker)
+Mu-Browser/public/uploads/

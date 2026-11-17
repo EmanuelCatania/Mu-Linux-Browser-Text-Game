@@ -1,0 +1,7 @@
+{# Pestañas del panel. Espera section. #}
+<h1 class="title-bar">{{ t('admin.title') }}</h1>
+<nav class="catalog-tabs" aria-label="{{ t('admin.title') }}">
+    {% for id, href in {home: '/admin', settings: '/admin/settings', news: '/admin/news', accounts: '/admin/accounts', forum: '/admin/forum'} %}
+        <a href="{{ href }}"{% if id == section %} class="current" aria-current="page"{% endif %}>{{ t('admin.nav_' ~ id) }}</a>
+    {% endfor %}
+</nav>

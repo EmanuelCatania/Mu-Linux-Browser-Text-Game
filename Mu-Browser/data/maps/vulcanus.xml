@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: valores de Monster.txt (Season 5); damage = daño máximo -->
+<monster name="zombie_fighter">
+<level>90</level>
+<hp>20000</hp>
+<damage>345</damage>
+<defense>200</defense>
+<damage_rate>750</damage_rate>
+<defense_rate>170</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="resurrected_gladiator">
+<level>93</level>
+<hp>23000</hp>
+<damage>360</damage>
+<defense>220</defense>
+<damage_rate>780</damage_rate>
+<defense_rate>200</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="ash_slaughterer">
+<level>100</level>
+<hp>27000</hp>
+<damage>370</damage>
+<defense>270</defense>
+<damage_rate>810</damage_rate>
+<defense_rate>230</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="burning_lava_giant">
+<level>111</level>
+<hp>50000</hp>
+<damage>650</damage>
+<defense>520</defense>
+<damage_rate>970</damage_rate>
+<defense_rate>330</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="ruthless_lava_giant">
+<level>113</level>
+<hp>55000</hp>
+<damage>680</damage>
+<defense>535</defense>
+<damage_rate>1000</damage_rate>
+<defense_rate>340</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+
+<!-- golden invasion -->
+<monster name="great_golden_dragon">
+<level>142</level>
+<hp>95000</hp>
+<damage>2301</damage>
+<defense>660</defense>
+<damage_rate>2000</damage_rate>
+<defense_rate>800</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<!-- spots -->
+<spot id="spot161" x="62" y="358">
+<encounter>zombie_fighter</encounter>
+<encounter>resurrected_gladiator</encounter>
+</spot>
+
+<spot id="spot162" x="178" y="58">
+<encounter>resurrected_gladiator</encounter>
+<encounter>ash_slaughterer</encounter>
+</spot>
+
+<spot id="spot163" x="506" y="74">
+<encounter>ash_slaughterer</encounter>
+<encounter>burning_lava_giant</encounter>
+</spot>
+
+<spot id="spot164" x="442" y="390">
+<encounter>burning_lava_giant</encounter>
+<encounter>ruthless_lava_giant</encounter>
+</spot>
+
+
+</map>

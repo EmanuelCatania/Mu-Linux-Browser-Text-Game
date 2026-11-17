@@ -1,0 +1,54 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('admin.nav_accounts') }} - {{ t('admin.title') }}{% endblock %}
+
+{% block content %}
+{{ include('admin/_nav.twig', {section: 'accounts'}) }}
+
+<form method="get" action="/admin/accounts" class="filters">
+    <label>{{ t('admin.search') }} <input type="search" name="q" value="{{ q }}" maxlength="60"></label>
+    <button type="submit">{{ t('market.filter') }}</button>
+    <span class="filters-info">{{ t('admin.accounts_count', {n: total}) }}</span>
+</form>
+
+{% set back = '/admin/accounts?q=' ~ q|url_encode ~ '&page=' ~ page %}
+<table class="list-table admin-accounts">
+    <thead>
+        <tr><th scope="col">{{ t('auth.username') }}</th><th scope="col">{{ t('auth.email') }}</th><th scope="col">{{ t('menu.characters') }}</th><th scope="col">{{ t('characters.zen') }}</th><th scope="col">{{ t('admin.state') }}</th></tr>
+    </thead>
+    <tbody>
+        {% for a in rows %}
+            <tr{{ a.banned ? ' class="banned"' }}>
+                <td><a href="/admin/accounts/{{ a.id }}"><strong>{{ a.username }}</strong></a>{% if a.is_admin %} <span class="forum-tag">{{ t('forum.admin') }}</span>{% endif %}<br><small class="gray">{{ t('admin.since', {date: a.created_at|date('d/m/Y')}) }}</small></td>
+                <td><small>{{ a.email }}</small></td>
+                <td>{{ a.characters }}{% if a.top %} <small>({{ a.top }})</small>{% endif %}</td>
+                <td>
+                    <form method="post" action="/admin/accounts/{{ a.id }}" class="inline-form">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <input type="hidden" name="return" value="{{ back }}">
+                        <input type="number" name="zen" value="{{ a.zen }}" min="0" max="2000000000" aria-label="{{ t('characters.zen') }}">
+                        <button type="submit" name="do" value="zen">{{ t('admin.save') }}</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/admin/accounts/{{ a.id }}" class="inline-form">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <input type="hidden" name="return" value="{{ back }}">
+                        {% if a.banned %}
+                            <span class="red">{{ t('admin.banned') }}</span>
+                            <button type="submit" name="do" value="unban">{{ t('admin.unban') }}</button>
+                        {% else %}
+                            <button type="submit" name="do" value="ban" data-confirm="{{ t('admin.confirm_ban', {name: a.username}) }}">{{ t('admin.ban') }}</button>
+                        {% endif %}
+                        <button type="submit" name="do" value="{{ a.is_admin ? 'unadmin' : 'admin' }}"
+                                data-confirm="{{ t(a.is_admin ? 'admin.confirm_unadmin' : 'admin.confirm_admin', {name: a.username}) }}">{{ t(a.is_admin ? 'admin.unadmin' : 'admin.make_admin') }}</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr><td colspan="5">{{ t('admin.no_accounts') }}</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{{ include('community/_pager.twig', {base: '/admin/accounts?q=' ~ q|url_encode ~ '&page='}) }}
+{% endblock %}

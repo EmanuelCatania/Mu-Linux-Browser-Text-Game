@@ -1,0 +1,10 @@
+{# Paginación. Espera page, pages y base (URL con sus filtros, terminada en "page="). #}
+{% if pages > 1 %}
+    <nav class="pager" aria-label="{{ t('pager.label') }}">
+        {% if page > 1 %}<a href="{{ base }}{{ page - 1 }}" rel="prev">‹</a>{% endif %}
+        {% for n in max(1, page - 3)..min(pages, page + 3) %}
+            {% if n == page %}<span class="current" aria-current="page">{{ n }}</span>{% else %}<a href="{{ base }}{{ n }}">{{ n }}</a>{% endif %}
+        {% endfor %}
+        {% if page < pages %}<a href="{{ base }}{{ page + 1 }}" rel="next">›</a>{% endif %}
+    </nav>
+{% endif %}

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="sapi_queen">
+<level>131</level>
+<hp>218000</hp>
+<damage>2017</damage>
+<defense>670</defense>
+<damage_rate>1847</damage_rate>
+<defense_rate>875</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="dark_elf">
+<level>135</level>
+<hp>75000</hp>
+<damage>900</damage>
+<defense>690</defense>
+<damage_rate>1300</damage_rate>
+<defense_rate>430</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="ferea_knight">
+<level>146</level>
+<hp>102000</hp>
+<damage>2380</damage>
+<defense>690</defense>
+<damage_rate>2080</damage_rate>
+<defense_rate>860</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="ferea_archer">
+<level>148</level>
+<hp>109000</hp>
+<damage>2460</damage>
+<defense>715</defense>
+<damage_rate>2160</damage_rate>
+<defense_rate>890</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="ferea_general">
+<level>152</level>
+<hp>124000</hp>
+<damage>2620</damage>
+<defense>765</defense>
+<damage_rate>2320</damage_rate>
+<defense_rate>950</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="bass">
+<level>156</level>
+<hp>141000</hp>
+<damage>2800</damage>
+<defense>825</defense>
+<damage_rate>2500</damage_rate>
+<defense_rate>1020</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="paraca">
+<level>158</level>
+<hp>150000</hp>
+<damage>2900</damage>
+<defense>855</defense>
+<damage_rate>2600</damage_rate>
+<defense_rate>1060</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>sapi_queen</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>sapi_queen</encounter>
+<encounter>dark_elf</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>sapi_queen</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>dark_elf</encounter>
+<encounter>ferea_knight</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>dark_elf</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>ferea_knight</encounter>
+<encounter>ferea_archer</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>ferea_knight</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>ferea_archer</encounter>
+<encounter>ferea_general</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>ferea_archer</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>ferea_general</encounter>
+<encounter>bass</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>ferea_general</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>bass</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>bass</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>paraca</encounter>
+</spot>
+
+
+</map>

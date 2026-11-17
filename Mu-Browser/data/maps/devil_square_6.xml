@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="genocider">
+<level>105</level>
+<hp>48500</hp>
+<damage>675</damage>
+<defense>515</defense>
+<damage_rate>810</damage_rate>
+<defense_rate>290</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="ghost_napin">
+<level>106</level>
+<hp>68000</hp>
+<damage>665</damage>
+<defense>535</defense>
+<damage_rate>980</damage_rate>
+<defense_rate>295</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="gollock">
+<level>108</level>
+<hp>72000</hp>
+<damage>735</damage>
+<defense>545</defense>
+<damage_rate>1020</damage_rate>
+<defense_rate>315</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="burning_lava_giant">
+<level>111</level>
+<hp>50000</hp>
+<damage>650</damage>
+<defense>520</defense>
+<damage_rate>970</damage_rate>
+<defense_rate>330</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="giant_mammoth">
+<level>112</level>
+<hp>77000</hp>
+<damage>2017</damage>
+<defense>585</defense>
+<damage_rate>1350</damage_rate>
+<defense_rate>840</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="crypos">
+<level>114</level>
+<hp>83000</hp>
+<damage>770</damage>
+<defense>575</defense>
+<damage_rate>1140</damage_rate>
+<defense_rate>375</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="condra">
+<level>117</level>
+<hp>90000</hp>
+<damage>790</damage>
+<defense>610</defense>
+<damage_rate>1200</damage_rate>
+<defense_rate>405</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="death_spirit">
+<level>118</level>
+<hp>85000</hp>
+<damage>680</damage>
+<defense>490</defense>
+<damage_rate>1200</damage_rate>
+<defense_rate>390</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="werewolf">
+<level>118</level>
+<hp>110000</hp>
+<damage>850</damage>
+<defense>680</defense>
+<damage_rate>950</damage_rate>
+<defense_rate>355</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="soram">
+<level>119</level>
+<hp>90000</hp>
+<damage>700</damage>
+<defense>500</defense>
+<damage_rate>1200</damage_rate>
+<defense_rate>390</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="ice_giant">
+<level>122</level>
+<hp>84000</hp>
+<damage>2060</damage>
+<defense>620</defense>
+<damage_rate>1570</damage_rate>
+<defense_rate>770</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="hero_werewolf">
+<level>127</level>
+<hp>123000</hp>
+<damage>1015</damage>
+<defense>800</defense>
+<damage_rate>1027</damage_rate>
+<defense_rate>397</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>genocider</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>genocider</encounter>
+<encounter>ghost_napin</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>ghost_napin</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>gollock</encounter>
+<encounter>burning_lava_giant</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>burning_lava_giant</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>giant_mammoth</encounter>
+<encounter>crypos</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>crypos</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>crypos</encounter>
+<encounter>condra</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>condra</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>death_spirit</encounter>
+<encounter>werewolf</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>werewolf</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>soram</encounter>
+<encounter>ice_giant</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>ice_giant</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>hero_werewolf</encounter>
+</spot>
+
+
+</map>

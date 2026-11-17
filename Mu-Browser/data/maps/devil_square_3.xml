@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="poison_shadow">
+<level>50</level>
+<hp>2500</hp>
+<damage>160</damage>
+<defense>85</defense>
+<damage_rate>250</damage_rate>
+<defense_rate>73</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="cursed_wizard">
+<level>54</level>
+<hp>3000</hp>
+<damage>170</damage>
+<defense>95</defense>
+<damage_rate>270</damage_rate>
+<defense_rate>80</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="death_cow">
+<level>57</level>
+<hp>3500</hp>
+<damage>180</damage>
+<defense>110</defense>
+<damage_rate>285</damage_rate>
+<defense_rate>85</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="death_knight">
+<level>62</level>
+<hp>5500</hp>
+<damage>200</damage>
+<defense>120</defense>
+<damage_rate>310</damage_rate>
+<defense_rate>91</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="balrog">
+<level>66</level>
+<hp>9000</hp>
+<damage>240</damage>
+<defense>160</defense>
+<damage_rate>330</damage_rate>
+<defense_rate>105</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="silver_valkyrie">
+<level>68</level>
+<hp>1800</hp>
+<damage>260</damage>
+<defense>170</defense>
+<damage_rate>340</damage_rate>
+<defense_rate>110</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="death_tree">
+<level>72</level>
+<hp>10000</hp>
+<damage>272</damage>
+<defense>187</defense>
+<damage_rate>362</damage_rate>
+<defense_rate>120</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="forest_orc">
+<level>74</level>
+<hp>11000</hp>
+<damage>282</damage>
+<defense>197</defense>
+<damage_rate>390</damage_rate>
+<defense_rate>127</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="alquamos">
+<level>75</level>
+<hp>11500</hp>
+<damage>290</damage>
+<defense>195</defense>
+<damage_rate>385</damage_rate>
+<defense_rate>125</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>poison_shadow</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>poison_shadow</encounter>
+<encounter>cursed_wizard</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>cursed_wizard</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>cursed_wizard</encounter>
+<encounter>death_cow</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>death_cow</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>death_knight</encounter>
+<encounter>balrog</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>death_knight</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>balrog</encounter>
+<encounter>silver_valkyrie</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>balrog</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>silver_valkyrie</encounter>
+<encounter>death_tree</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>death_tree</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>death_tree</encounter>
+<encounter>forest_orc</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>forest_orc</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>alquamos</encounter>
+</spot>
+
+
+</map>

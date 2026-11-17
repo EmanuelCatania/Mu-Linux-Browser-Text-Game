@@ -1,0 +1,36 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('admin.nav_news') }} - {{ t('admin.title') }}{% endblock %}
+
+{% block content %}
+{{ include('admin/_nav.twig', {section: 'news'}) }}
+
+<form method="post" action="/admin/news/{{ post ? post.id : 'new' }}" enctype="multipart/form-data" class="panel forum-form">
+    <input type="hidden" name="_csrf" value="{{ csrf }}">
+    <h2 class="panel-title">{{ t(post ? 'admin.news_edit' : 'admin.news_new') }}</h2>
+    <div class="panel-body">
+        <label for="title">{{ t('admin.news_title') }}</label>
+        <input type="text" id="title" name="title" maxlength="120" minlength="3" required value="{{ post.title|default('') }}">
+
+        <label for="body">{{ t('admin.news_body') }}</label>
+        <textarea id="body" name="body" rows="14" maxlength="20000" required>{{ post.body|default('') }}</textarea>
+        <p class="inv-help">{{ t('admin.news_body_help') }}</p>
+
+        <label for="image">{{ t('admin.news_image') }}</label>
+        {% if post and post.image %}
+            <img class="news-thumb" src="/uploads/news/{{ post.image }}" alt="">
+            <label class="check"><input type="checkbox" name="remove_image" value="1"> {{ t('admin.news_remove_image') }}</label>
+        {% endif %}
+        <input type="file" id="image" name="image" accept="image/jpeg,image/png,image/gif,image/webp">
+        <p class="inv-help">{{ t('admin.news_image_help') }}</p>
+
+        <label class="check"><input type="checkbox" name="published" value="1"{{ not post or post.published ? ' checked' }}> {{ t('admin.news_publish') }}</label>
+
+        <p class="quest-buttons">
+            <button type="submit" name="do" value="save" class="go">{{ t('admin.save') }}</button>
+            <a class="button" href="/admin/news">{{ t('inventory.cancel') }}</a>
+            {% if post %}<button type="submit" name="do" value="delete" formnovalidate data-confirm="{{ t('admin.news_confirm_delete') }}">{{ t('admin.delete') }}</button>{% endif %}
+        </p>
+    </div>
+</form>
+{% endblock %}

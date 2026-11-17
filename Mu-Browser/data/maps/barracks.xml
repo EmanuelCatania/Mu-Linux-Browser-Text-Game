@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: valores de Monster.txt (Season 5); damage = daño máximo -->
+<monster name="balram">
+<level>117</level>
+<hp>75000</hp>
+<damage>650</damage>
+<defense>480</defense>
+<damage_rate>1200</damage_rate>
+<defense_rate>370</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="death_spirit">
+<level>118</level>
+<hp>85000</hp>
+<damage>680</damage>
+<defense>490</defense>
+<damage_rate>1200</damage_rate>
+<defense_rate>390</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="soram">
+<level>119</level>
+<hp>90000</hp>
+<damage>700</damage>
+<defense>500</defense>
+<damage_rate>1200</damage_rate>
+<defense_rate>390</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="dark_elf">
+<level>135</level>
+<hp>75000</hp>
+<damage>900</damage>
+<defense>690</defense>
+<damage_rate>1300</damage_rate>
+<defense_rate>430</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot141" x="74" y="350">
+<encounter>balram</encounter>
+<encounter>death_spirit</encounter>
+</spot>
+
+<spot id="spot142" x="342" y="142">
+<encounter>death_spirit</encounter>
+<encounter>soram</encounter>
+</spot>
+
+<spot id="spot143" x="410" y="518">
+<encounter>balram</encounter>
+<encounter>soram</encounter>
+<encounter boss="2">dark_elf</encounter>
+</spot>
+
+
+</map>

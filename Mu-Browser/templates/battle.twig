@@ -1,0 +1,158 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ map_label }} / {{ t('map.spot', {n: spot_number}) }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ map_label }} / {{ t('map.spot', {n: spot_number}) }}</h1>
+
+{% set over = battle.roundOver() %}
+<div class="battle">
+    <section class="battle-player">
+        <div class="battle-card">
+            <img src="/assets/img/classes/{{ character.class.base().value }}.gif" width="100" height="100" alt="{{ character.class.label }}">
+            <div class="battle-card-info">
+                <strong>{{ character.name }}</strong>
+                <span>{{ character.class.label }} · {{ t('characters.level', {n: battle.level}) }}</span>
+                <div class="bar bar-hp" role="img" aria-label="{{ t('characters.hp') }} {{ battle.hp }}/{{ hp_max }}"><i style="width: {{ hp_percent }}%"></i><b>{{ battle.hp }} / {{ hp_max }}</b></div>
+                <div class="bar bar-mp" role="img" aria-label="{{ t('characters.mp') }} {{ battle.mp }}/{{ stats.mpMax }}"><i style="width: {{ mp_percent }}%"></i><b>{{ battle.mp }} / {{ stats.mpMax }}</b></div>
+                {% if effect %}<span class="blue-dark">{{ t('battle.effect', {name: effect, n: battle.effectTurns}) }}</span>{% endif %}
+                {% if battle.arrows >= 0 %}<small>{{ t('battle.arrows', {n: battle.arrows}) }}</small>{% endif %}
+                {% if battle.petLife >= 0 %}<small>{{ t('battle.pet', {n: battle.petLife}) }}</small>{% endif %}
+            </div>
+        </div>
+
+        {% if battle.defeated %}
+            <div class="battle-defeat">
+                <img src="/assets/img/defeat.jpg" alt="">
+                <p>{{ t('battle.defeated') }}</p>
+                <form method="post" action="/battle/leave">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <button type="submit">{{ t('battle.back_to_map') }}</button>
+                </form>
+            </div>
+        {% else %}
+
+            <div class="battle-round">
+                {% if over %}
+                    <form method="post" action="/battle/next">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <button type="submit" class="go" autofocus>{{ t('battle.next_round') }}</button>
+                    </form>
+                {% endif %}
+                <form method="post" action="/battle/leave">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <button type="submit">{{ t('battle.leave') }}</button>
+                </form>
+            </div>
+        {% endif %}
+
+        {% if summon %}
+            <p class="battle-summon">{{ t('battle.summon', {name: summon.name}) }}
+                <span class="bar bar-hp" role="img" aria-label="{{ summon.hp }}/{{ summon.max }}"><i style="width: {{ summon.max ? (summon.hp * 100 / summon.max)|round : 0 }}%"></i><b>{{ summon.hp }} / {{ summon.max }}</b></span>
+            </p>
+        {% endif %}
+
+        <h2 class="panel-title">{{ t('battle.report') }}</h2>
+        <ol class="battle-log" aria-live="polite">
+            {% for line in log %}
+                <li class="{{ line.class }}">{{ line.text }}</li>
+            {% else %}
+                <li>{{ t('battle.ready') }}</li>
+            {% endfor %}
+        </ol>
+    </section>
+
+    <section class="battle-enemies" aria-label="{{ t('battle.enemies') }}">
+        {% for e in enemies %}
+            <div class="enemy{{ e.dead ? ' is-dead' }}{{ e.kind ? ' enemy-' ~ e.kind }}">
+                <img src="{{ img('/assets/img/monsters/' ~ e.name ~ '.gif', '/assets/img/monsters/unknown.gif') }}" width="64" height="64" alt="">
+                <div class="enemy-info">
+                    <strong>{{ e.label }}</strong> <small>{{ t('map.level', {n: e.level}) }}</small>
+                    {% if e.dead %}
+                        <span>{{ t('battle.reward', {exp: e.exp, zen: e.zen}) }}</span>
+                        {% if e.item %}
+                            <span class="tip-cell enemy-item" tabindex="0">
+                                <img src="/assets/img/items/{{ e.item.image }}" alt="">
+                                <span class="tip-label {{ e.item.color }}">{{ e.item.name }}</span>
+                                <span class="tip" role="tooltip">
+                                    <strong class="{{ e.item.color }}">{{ e.item.name }}</strong>
+                                    {% for line in e.item.lines %}<span class="{{ line.color }}{{ line.bold ? ' bold' }}">{{ line.text }}</span>{% endfor %}
+                                    {% for class in e.item.classes %}<span class="tip-class{{ class.ok ? '' : ' redback' }}">{{ class.text }}</span>{% endfor %}
+                                </span>
+                            </span>
+                            {% if e.taken %}
+                                <small>{{ t('battle.item_taken') }}</small>
+                            {% else %}
+                                <form method="post" action="/battle/pick">
+                                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                                    <button type="submit" name="enemy" value="{{ e.index }}">{{ t('battle.pick') }}</button>
+                                </form>
+                            {% endif %}
+                        {% endif %}
+                    {% else %}
+                        <div class="bar bar-hp" role="img" aria-label="{{ t('characters.hp') }} {{ e.hpCur }}/{{ e.hp }}"><i style="width: {{ e.percent }}%"></i><b>{{ e.hpCur }} / {{ e.hp }}</b></div>
+                        {% if e.effect %}<small class="blue-dark">{{ t('battle.effect', {name: e.effect, n: e.effectTurns}) }}</small>{% endif %}
+                        {% if not battle.defeated %}
+                            <button type="submit" form="act" name="target" value="{{ e.index }}">{{ t('battle.target') }}</button>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    <aside class="battle-side">
+        <h2 class="panel-title">{{ t('battle.spot') }}</h2>
+        <div class="panel-body">
+            <p>{{ t('battle.exp_rate', {n: battle.expPercent}) }}</p>
+            {% if battle.master %}<p>{{ t('master.level', {n: battle.masterLevel, max: 100}) }}: {{ battle.masterExp }}</p>{% endif %}
+            {% if battle.partyExp > 0 %}<p class="green">{{ t('party.received', {n: battle.partyExp}) }}</p>{% endif %}
+            <p>{{ t('battle.turn', {n: battle.turn}) }}</p>
+            {% if battle.event %}
+                <p><strong>{{ battle.eventCountdown > 0 ? t('battle.event_progress', {n: battle.eventCountdown}) : t('battle.event_boss') }}</strong></p>
+            {% endif %}
+            <h3>{{ t('battle.players') }}</h3>
+            <ul class="battle-players">
+                {% for p in players %}
+                    <li># {{ p.name }} [{{ p.exp_rate }}]{% if p.name != character.name %} <a href="/pvp?rival={{ p.name|url_encode }}">{{ t('pvp.challenge') }}</a>{% endif %}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </aside>
+</div>
+
+{# Barra de batalla, como la del juego: pociones, vida, acciones, maná y experiencia. #}
+{% if not battle.defeated %}
+    {% set potion_images = {potion_hp: 'small_healing_potion', potion_mp: 'small_mana_potion', potion_antidote: 'antidote'} %}
+    <form method="post" action="/battle/act" id="act" class="hotbar">
+        <input type="hidden" name="_csrf" value="{{ csrf }}">
+        <fieldset{{ over ? ' disabled' }}>
+            <legend class="sr-only">{{ t('battle.action') }}</legend>
+            <div class="hotbar-row">
+                <div class="hotbar-group">
+                    {% for action, count in potions %}
+                        <button type="submit" name="potion" value="{{ action }}" class="slot slot-potion"
+                                title="{{ t('battle.' ~ action, {n: count}) }}" aria-label="{{ t('battle.' ~ action, {n: count}) }}"{{ count ? '' : ' disabled' }}>
+                            <img src="/assets/img/items/F/{{ potion_images[action] }}.gif" alt="">
+                            <b>{{ count }}</b>
+                        </button>
+                    {% endfor %}
+                </div>
+                <div class="orb orb-hp" style="--fill: {{ hp_percent }}%;" role="img" aria-label="{{ t('characters.hp') }} {{ battle.hp }}/{{ hp_max }}"><b>{{ battle.hp }}<br>{{ hp_max }}</b></div>
+                <div class="hotbar-group hotbar-skills">
+                    {% for a in actions %}
+                        <label class="slot slot-skill" title="{{ a.name }}{% if a.mana %} ({{ t('skill.mana', {n: a.mana}) }}){% endif %}">
+                            <input type="radio" name="action" value="{{ a.code }}"{{ a.code == chosen ? ' checked' }}>
+                            <img src="/assets/img/skills/{{ a.image }}.gif" width="20" height="28" alt="">
+                            <span class="slot-name">{{ a.name }}{% if a.mana %} <small>({{ t('skill.mana', {n: a.mana}) }})</small>{% endif %}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+                <div class="orb orb-mp" style="--fill: {{ mp_percent }}%;" role="img" aria-label="{{ t('characters.mp') }} {{ battle.mp }}/{{ stats.mpMax }}"><b>{{ battle.mp }}<br>{{ stats.mpMax }}</b></div>
+                <button type="submit" name="target" value="self" class="hotbar-self">{{ t('battle.use_on_self') }}</button>
+            </div>
+            <div class="bar bar-exp hotbar-exp" role="img" aria-label="{{ t('characters.experience') }} {{ battle.experience }}/{{ exp_next }}"><i style="width: {{ exp_percent }}%"></i><b>{{ t('characters.experience') }}: {{ battle.experience }} / {{ exp_next }}</b></div>
+        </fieldset>
+    </form>
+{% endif %}
+{% endblock %}

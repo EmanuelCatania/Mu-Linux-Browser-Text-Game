@@ -1,0 +1,44 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('setup.title') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<div class="ucp">
+    <h1 class="title-bar">{{ t('setup.title') }}</h1>
+    <div class="about about-grey setup-intro">
+        <div class="about-text">
+            <p>{{ t('setup.intro') }}</p>
+            <p>{{ t('setup.where') }}</p>
+            <pre class="setup-command">docker compose logs mu-web</pre>
+            <p>{{ t('setup.where_hint') }}</p>
+        </div>
+    </div>
+    <div class="ucp-back">
+        <form class="ucp-main" method="post" action="/setup">
+            <input type="hidden" name="_csrf" value="{{ csrf }}">
+            {{ include('_errors.twig') }}
+            <label for="code">{{ t('setup.code') }}</label>
+            <input type="text" id="code" name="code" maxlength="20" required autocomplete="off" autocapitalize="characters" spellcheck="false">
+
+            <label for="username">{{ t('auth.username') }}</label>
+            <input type="text" id="username" name="username" value="{{ old.username|default('') }}"
+                   minlength="3" maxlength="12" pattern="[A-Za-z0-9]{3,12}" required autocomplete="username"
+                   aria-describedby="username-help">
+            <small id="username-help">{{ t('auth.username_help') }}</small>
+
+            <label for="email">{{ t('auth.email') }}</label>
+            <input type="email" id="email" name="email" value="{{ old.email|default('') }}" maxlength="255" required autocomplete="email">
+
+            <label for="password">{{ t('auth.password') }}</label>
+            <input type="password" id="password" name="password" minlength="8" maxlength="128" required
+                   autocomplete="new-password" aria-describedby="password-help">
+            <small id="password-help">{{ t('auth.password_help') }}</small>
+
+            <label for="password_again">{{ t('auth.password_again') }}</label>
+            <input type="password" id="password_again" name="password_again" minlength="8" maxlength="128" required autocomplete="new-password">
+
+            <button type="submit">{{ t('setup.create') }}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

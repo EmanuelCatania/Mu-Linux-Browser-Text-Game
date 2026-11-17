@@ -1,0 +1,64 @@
+# Arranca con `docker compose up -d --build`, sin más pasos: todos los valores tienen uno por defecto.
+# Para cambiarlos (puerto, contraseñas de la base, zona horaria) copiar .env.example a .env.
+# MySQL no publica ningún puerto: sólo lo ve mu-web, dentro de la red de este proyecto.
+services:
+  mysql:
+    image: mysql:8.4.11
+    restart: unless-stopped
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci", "--skip-name-resolve"]
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-mu_browser_root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-mubrowser}
+      MYSQL_USER: ${MYSQL_USER:-mu_browser}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-mu_browser}
+    volumes:
+      - mu_browser_mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-p$$MYSQL_ROOT_PASSWORD"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  mu-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app
+    restart: unless-stopped
+    environment:
+      DB_HOST: ${DB_HOST:-mysql}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_USER: ${DB_USER:-${MYSQL_USER:-mu_browser}}
+      DB_PASS: ${DB_PASS:-${MYSQL_PASSWORD:-mu_browser}}
+      DB_NAME: ${DB_NAME:-${MYSQL_DATABASE:-mubrowser}}
+      # Vacío: el contenedor genera uno al azar la primera vez y lo guarda en el volumen mu_browser_state.
+      SESSION_SECRET: ${SESSION_SECRET:-}
+      TRUST_PROXY: ${TRUST_PROXY:-0}
+      TZ: ${TZ:-UTC}
+      TIMEZONE: ${TIMEZONE:-UTC}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      # Las sesiones sobreviven a reconstruir la imagen: un despliegue no desloguea a nadie.
+      - mu_browser_sessions:/var/lib/php/sessions
+      # Imágenes de las publicaciones, subidas desde el panel de administración
+      - mu_browser_uploads:/var/www/app/public/uploads
+      # Clave de sesión generada en el primer arranque
+      - mu_browser_state:/var/lib/mu-browser
+    ports:
+      - "${WEB_PORT:-8086}:8080"
+
+  # Tests: docker compose --profile test run --rm --build mu-test
+  mu-test:
+    profiles: ["test"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+
+volumes:
+  mu_browser_mysql:
+  mu_browser_sessions:
+  mu_browser_uploads:
+  mu_browser_state:

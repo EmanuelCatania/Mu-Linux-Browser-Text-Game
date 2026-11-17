@@ -1,0 +1,56 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Marlon - {{ t('menu.npc') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.npc') }}: Marlon</h1>
+
+<p><a href="/npc">{{ t('evo.other_npcs') }}</a> · <a href="/npc/sebina">Sebina the Priestess</a> · <a href="/npc/devin">Apostle Devin</a></p>
+
+{% set picture = img('/assets/img/npc/marlon.jpg', '') %}
+{% if picture %}<img class="npc-picture" src="{{ picture }}" alt="">{% endif %}
+<p>{{ t('evo.marlon_intro', {level: evo.marlon.level}) }}</p>
+
+{% set m = evo.marlon %}
+{% if not m.open %}
+    <p class="flash">{{ t(evo.treasure ? 'evo.error_need_second' : 'evo.marlon_not_for_you') }}
+        {% if evo.treasure %}<a href="/npc/sebina">Sebina the Priestess</a>{% endif %}</p>
+{% else %}
+    <section class="panel">
+        <h2 class="panel-title">{{ t('evo.marlon_title') }}</h2>
+        <div class="panel-body">
+            <ol class="evo-steps">
+                <li class="{{ evo.step >= 7 ? 'done' : (evo.step == 6 ? 'current' : '') }}">
+                    {{ t('evo.marlon_ring', {item: m.ring, zen: m.ring_zen, min: m.min, max: m.max}) }}
+                </li>
+                {% if m.is_dk %}
+                    <li class="{{ evo.step >= 9 ? 'done' : (evo.step == 8 ? 'current' : '') }}">
+                        {{ t('evo.marlon_stone', {item: m.stone, zen: m.stone_zen, min: m.min, max: m.max}) }}
+                    </li>
+                {% endif %}
+                <li>{{ t(m.is_dk ? 'evo.marlon_reward_dk' : (m.is_elf ? 'evo.marlon_reward_elf' : 'evo.marlon_reward'), {level: m.level}) }}</li>
+            </ol>
+
+            {% if evo.step >= 10 %}
+                <p><strong>{{ t('evo.marlon_done') }}</strong> <a href="/npc/devin">Apostle Devin</a></p>
+            {% elseif evo.step == 5 and not m.level_ok %}
+                <p><strong>{{ t('evo.error_level') }}</strong></p>
+            {% elseif evo.step == 6 %}
+                <p><strong>{{ t('evo.say_hunting', {item: m.ring, min: m.min, max: m.max}) }}</strong></p>
+            {% elseif evo.step == 8 %}
+                <p><strong>{{ t('evo.say_hunting', {item: m.stone, min: m.min, max: m.max}) }}</strong></p>
+            {% endif %}
+            {% if evo.step == 7 %}<p><strong>{{ t('evo.say_have', {item: m.ring}) }}</strong></p>{% endif %}
+            {% if evo.step == 9 %}<p><strong>{{ t('evo.say_have', {item: m.stone}) }}</strong></p>{% endif %}
+
+            {% if (evo.step == 5 and m.level_ok) or evo.step == 7 or evo.step == 9 %}
+                <form method="post" action="/npc/marlon">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <button type="submit" class="go">{{ t(evo.step == 5 ? 'evo.do_start' : 'evo.do_deliver') }}</button>
+                </form>
+            {% endif %}
+            <p class="zen">{{ t('characters.zen') }}: <strong>{{ account.zen }}</strong></p>
+        </div>
+    </section>
+{% endif %}
+{% endblock %}

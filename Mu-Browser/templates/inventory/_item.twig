@@ -1,0 +1,14 @@
+{# Un ítem dentro de una grilla o de un slot de equipo. Espera card y container. #}
+<div class="grid-item tip-cell" draggable="true" tabindex="0" role="button" aria-label="{{ card.name }}"
+     data-container="{{ container }}" data-slot="{{ card.slot }}" data-w="{{ card.width }}" data-h="{{ card.height }}"
+     data-type="{{ card.type }}" data-usable="{{ card.usable ? '1' : '0' }}" data-name="{{ card.name }}"
+     {% if card.price is not null %}data-price="{{ card.price }}"{% endif %}
+     style="--col: {{ card.col }}; --row: {{ card.row }}; --w: {{ card.width }}; --h: {{ card.height }};">
+    <img src="/assets/img/items/{{ card.image }}" alt="" draggable="false">
+    <div class="tip" role="tooltip">
+        {% if card.price_text %}<span class="yellow">{{ card.price_text }}</span>{% endif %}
+        <strong class="{{ card.color }}">{{ card.name }}</strong>
+        {% for line in card.lines %}<span class="{{ line.color }}{{ line.bold ? ' bold' }}">{{ line.text }}</span>{% endfor %}
+        {% for class in card.classes %}<span class="tip-class{{ class.ok ? '' : ' redback' }}">{{ class.text }}</span>{% endfor %}
+    </div>
+</div>

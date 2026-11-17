@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drop>
+
+<item>G.11.1.0000.00.0.4220.0000.21.0.0.00.00.0.000.026.000000.orb_of_explosion</item>
+
+<item>G.11.3.0000.00.0.4220.0000.23.0.0.00.00.0.000.056.000000.orb_of_multi_shot</item>
+
+<item>G.12.2.0000.00.0.3980.0000.22.0.0.00.00.0.000.047.000000.scroll_of_nova</item>
+<item>G.12.2.0000.00.0.3980.0000.22.0.0.00.00.0.000.048.000000.scroll_of_wizardry_enhance</item>
+
+<item>G.12.4.0000.00.0.3912.0000.24.0.0.00.00.0.000.077.000000.innovation_parchment</item>
+<!--	MAGIC GLADIATOR / DARK LORD	-->
+<item>G.12.6.0000.00.0.3084.4100.06.0.0.00.00.0.000.085.000000.scroll_of_chaotic_diseier</item>
+<item>G.12.1.0000.00.0.3980.0000.05.0.0.00.00.0.000.029.000000.scroll_of_gigantic_storm</item>
+<!--	antes se vendía en tiendas NPC	-->
+<item>G.11.3.0000.00.0.3300.0000.03.0.0.00.00.0.000.063.000000.orb_of_soldier_summon</item>
+
+</drop>

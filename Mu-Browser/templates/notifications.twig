@@ -1,0 +1,26 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('notify.title') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('notify.title') }}</h1>
+
+{% if list %}
+    <ul class="notify-list">
+        {% for n in list %}
+            <li class="{{ n.read ? '' : 'unread' }}">
+                <span class="notify-text">
+                    {% if n.link %}<a href="{{ n.link }}">{{ t(n.key, n.params) }}</a>{% else %}{{ t(n.key, n.params) }}{% endif %}
+                </span>
+                <small class="gray">{{ n.at|date('d/m/Y H:i') }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="/notifications/clear" class="quest-buttons">
+        <input type="hidden" name="_csrf" value="{{ csrf }}">
+        <button type="submit" data-confirm="{{ t('notify.confirm_clear') }}">{{ t('notify.clear') }}</button>
+    </form>
+{% else %}
+    <p class="empty-note">{{ t('notify.empty') }}</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<map>
+
+<!-- monster data -->
+<monster name="mutant">
+<level>72</level>
+<hp>10000</hp>
+<damage>280</damage>
+<defense>190</defense>
+<damage_rate>365</damage_rate>
+<defense_rate>120</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="bloody_wolf">
+<level>76</level>
+<hp>13500</hp>
+<damage>300</damage>
+<defense>200</defense>
+<damage_rate>410</damage_rate>
+<defense_rate>130</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="iron_wheel">
+<level>80</level>
+<hp>17500</hp>
+<damage>340</damage>
+<defense>220</defense>
+<damage_rate>445</damage_rate>
+<defense_rate>150</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="tantalos">
+<level>82</level>
+<hp>22500</hp>
+<damage>395</damage>
+<defense>255</defense>
+<damage_rate>500</damage_rate>
+<defense_rate>175</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="beam_knight">
+<level>84</level>
+<hp>26500</hp>
+<damage>440</damage>
+<defense>280</defense>
+<damage_rate>530</damage_rate>
+<defense_rate>190</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="zaikan">
+<level>90</level>
+<hp>34000</hp>
+<damage>590</damage>
+<defense>400</defense>
+<damage_rate>550</damage_rate>
+<defense_rate>185</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="death_beam_knight">
+<level>93</level>
+<hp>40000</hp>
+<damage>650</damage>
+<defense>420</defense>
+<damage_rate>575</damage_rate>
+<defense_rate>220</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+
+<!-- npc -->
+
+
+<!-- spots -->
+<spot id="spot71" x="96" y="314">
+<encounter>mutant</encounter>
+<encounter>bloody_wolf</encounter>
+</spot>
+
+<spot id="spot72" x="162" y="120">
+<encounter>iron_wheel</encounter>
+<encounter>bloody_wolf</encounter>
+</spot>
+
+<spot id="spot73" x="360" y="210">
+<encounter>tantalos</encounter>
+<encounter>beam_knight</encounter>
+</spot>
+
+<spot id="spot74" x="500" y="60">
+<encounter>tantalos</encounter>
+<encounter>beam_knight</encounter>
+<encounter boss="2">zaikan</encounter>
+</spot>
+
+<spot id="spot75" x="460" y="364">
+<encounter>tantalos</encounter>
+<encounter>beam_knight</encounter>
+<encounter boss="2">death_beam_knight</encounter>
+</spot>
+
+
+</map>
+

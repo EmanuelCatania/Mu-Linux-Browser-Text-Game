@@ -1,0 +1,47 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ result.names[0] }} vs {{ result.names[1] }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('pvp.report_title', {a: result.names[0], b: result.names[1]}) }}</h1>
+
+<p class="flash flash-ok" role="status">
+    {% if winner is null %}{{ t('pvp.result_draw') }}{% else %}{{ t('pvp.result_winner', {name: result.names[winner]}) }}{% endif %}
+</p>
+
+<div class="pvp-sides">
+    {% for side in [0, 1] %}
+        <section class="panel">
+            <h2 class="panel-title">{{ result.names[side] }}{% if winner is same as(side) %} ★{% endif %}</h2>
+            <div class="panel-body">
+                <p>{{ result.classes[side] }} — {{ t('ranking.level') }} {{ result.levels[side] }}</p>
+                <div class="bar bar-hp" role="img" aria-label="{{ t('characters.hp') }} {{ result.hp[side] }}/{{ result.hpMax[side] }}"><i style="width: {{ percent[side] }}%"></i><b>{{ result.hp[side] }} / {{ result.hpMax[side] }}</b></div>
+                <p>{{ t('pvp.stake_zen', {n: result.zen}) }}</p>
+                <p>{{ t('pvp.staked_items') }}
+                    {% if stakes[side] %}{{ stakes[side]|join(', ') }}{% else %}{{ t('pvp.nothing') }}{% endif %}
+                </p>
+            </div>
+        </section>
+    {% endfor %}
+</div>
+
+<h2 class="panel-title">{{ t('battle.report') }}</h2>
+<ol class="battle-log">
+    <li>{{ t('pvp.log_first', {name: result.names[result.first]}) }}</li>
+    {% for e in log %}
+        <li class="{{ e.by == 1 ? 'log-enemy' }}">
+            {% if e.n == 0 %}
+                {{ t('pvp.log_miss', {actor: e.actor, foe: e.foe}) }}
+            {% else %}
+                {{ t('pvp.log_hit', {actor: e.actor, foe: e.foe, n: e.n}) }}
+            {% endif %}
+            {% if e.skill_name %}({{ e.skill_name }}){% endif %}
+            {% for tag in e.tags %}{{ t(tag == 'exc' ? 'battle.tag_excellent' : (tag == 'crt' ? 'battle.tag_critical' : 'battle.tag_ignore')) }} {% endfor %}
+            {% if e.reflect > 0 %}— {{ t('pvp.log_reflect', {n: e.reflect}) }}{% endif %}
+            <small>[{{ e.hp[0] }} / {{ e.hp[1] }}]</small>
+        </li>
+    {% endfor %}
+</ol>
+
+<p><a href="/pvp">{{ t('pvp.back') }}</a></p>
+{% endblock %}

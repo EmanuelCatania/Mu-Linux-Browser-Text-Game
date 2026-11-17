@@ -1,0 +1,13 @@
+{# Premio de una misión. Espera q. #}
+{% if q.reward %}
+    <span class="tip-cell quest-reward" tabindex="0">
+        <img src="/assets/img/items/{{ q.reward.image }}" alt="">
+        <span class="tip-label">{{ q.reward.name }}</span>
+        <span class="tip" role="tooltip">
+            <strong class="{{ q.reward.color }}">{{ q.reward.name }}</strong>
+            {% for line in q.reward.lines %}<span class="{{ line.color }}">{{ line.text }}</span>{% endfor %}
+        </span>
+    </span>
+{% else %}
+    <strong>{{ t('quest.reward_level_label') }}</strong>
+{% endif %}

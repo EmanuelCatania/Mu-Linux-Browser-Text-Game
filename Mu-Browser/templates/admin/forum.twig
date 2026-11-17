@@ -1,0 +1,77 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('admin.nav_forum') }} - {{ t('admin.title') }}{% endblock %}
+
+{% block content %}
+{{ include('admin/_nav.twig', {section: 'forum'}) }}
+
+{% set back = '/admin/forum?author=' ~ author|url_encode ~ '&page=' ~ page %}
+
+{% if flagged %}
+    <section class="panel">
+        <h2 class="panel-title">{{ t('admin.forum_flagged') }}</h2>
+        <div class="panel-body">
+            <table class="list-table">
+                <tbody>
+                    {% for th in flagged %}
+                        <tr>
+                            <td>{% if th.pinned %}<span class="forum-tag">{{ t('forum.pinned') }}</span>{% endif %}{% if th.locked %}<span class="forum-tag gray">{{ t('forum.locked') }}</span>{% endif %}
+                                <a href="/forum/thread/{{ th.id }}">{{ th.title }}</a> <small class="gray">· {{ t('forum.cat_' ~ th.category) }}</small></td>
+                            <td>
+                                <form method="post" action="/forum/moderate" class="inline-form">
+                                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                                    <input type="hidden" name="thread" value="{{ th.id }}">
+                                    <input type="hidden" name="return" value="{{ back }}">
+                                    {% if th.pinned %}<button type="submit" name="do" value="unpin">{{ t('forum.unpin') }}</button>{% endif %}
+                                    {% if th.locked %}<button type="submit" name="do" value="unlock">{{ t('forum.unlock') }}</button>{% endif %}
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endif %}
+
+<form method="get" action="/admin/forum" class="filters">
+    <label>{{ t('forum.author') }} <input type="search" name="author" value="{{ author }}" maxlength="12"></label>
+    <button type="submit">{{ t('market.filter') }}</button>
+    {% if author %}<a href="/admin/forum">{{ t('admin.forum_all') }}</a>{% endif %}
+    <span class="filters-info">{{ t('admin.forum_count', {n: total}) }}</span>
+</form>
+
+{% for p in posts %}
+    <article class="forum-post">
+        <aside class="forum-author">
+            <a href="/admin/accounts/{{ p.account_id }}"><strong>{{ p.author }}</strong></a>
+            {% if p.banned %}<span class="forum-tag gray">{{ t('admin.banned') }}</span>{% endif %}
+            <small>{{ p.at|date('d/m/Y H:i') }}</small>
+        </aside>
+        <div class="forum-body">
+            <small>{{ t('forum.cat_' ~ p.category) }} › <a href="/forum/thread/{{ p.thread_id }}">{{ p.title }}</a>{% if p.first %} <span class="forum-tag">{{ t('admin.forum_first') }}</span>{% endif %}</small>
+            <p>{{ (p.body|length > 400 ? p.body|slice(0, 400) ~ '…' : p.body)|nl2br }}</p>
+            <div class="inline-form">
+                <form method="post" action="/forum/moderate" class="inline-form">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <input type="hidden" name="thread" value="{{ p.thread_id }}">
+                    <input type="hidden" name="post" value="{{ p.id }}">
+                    <input type="hidden" name="return" value="{{ back }}">
+                    <button type="submit" name="do" value="delete_post" data-confirm="{{ t(p.first ? 'forum.confirm_delete_thread' : 'forum.confirm_delete_post') }}">{{ t(p.first ? 'forum.delete_thread' : 'forum.delete_post') }}</button>
+                    <button type="submit" name="do" value="{{ p.locked ? 'unlock' : 'lock' }}">{{ t(p.locked ? 'forum.unlock' : 'forum.lock') }}</button>
+                </form>
+                {% if not p.banned %}
+                    <form method="post" action="/admin/accounts/{{ p.account_id }}">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <input type="hidden" name="return" value="{{ back }}">
+                        <button type="submit" name="do" value="ban" data-confirm="{{ t('admin.confirm_ban', {name: p.author}) }}">{{ t('admin.ban_author') }}</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </article>
+{% else %}
+    <p class="empty-note">{{ t('admin.forum_empty') }}</p>
+{% endfor %}
+{{ include('community/_pager.twig', {base: '/admin/forum?author=' ~ author|url_encode ~ '&page='}) }}
+{% endblock %}

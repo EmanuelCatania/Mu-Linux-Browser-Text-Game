@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="zombie_fighter">
+<level>90</level>
+<hp>20000</hp>
+<damage>345</damage>
+<defense>200</defense>
+<damage_rate>750</damage_rate>
+<defense_rate>170</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="death_beam_knight">
+<level>93</level>
+<hp>40000</hp>
+<damage>650</damage>
+<defense>420</defense>
+<damage_rate>575</damage_rate>
+<defense_rate>220</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="resurrected_gladiator">
+<level>93</level>
+<hp>23000</hp>
+<damage>360</damage>
+<defense>220</defense>
+<damage_rate>780</damage_rate>
+<defense_rate>200</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="sapi_unus">
+<level>95</level>
+<hp>37000</hp>
+<damage>510</damage>
+<defense>370</defense>
+<damage_rate>700</damage_rate>
+<defense_rate>220</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="sapi_duo">
+<level>96</level>
+<hp>39500</hp>
+<damage>505</damage>
+<defense>375</defense>
+<damage_rate>730</damage_rate>
+<defense_rate>225</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="hammer_scout">
+<level>97</level>
+<hp>45000</hp>
+<damage>560</damage>
+<defense>420</defense>
+<damage_rate>670</damage_rate>
+<defense_rate>250</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="thunder_napin">
+<level>97</level>
+<hp>42000</hp>
+<damage>555</damage>
+<defense>395</defense>
+<damage_rate>750</damage_rate>
+<defense_rate>235</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="hell_maine">
+<level>98</level>
+<hp>50000</hp>
+<damage>600</damage>
+<defense>520</defense>
+<damage_rate>850</damage_rate>
+<defense_rate>300</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="venomous_chain_scorpion">
+<level>99</level>
+<hp>50000</hp>
+<damage>590</damage>
+<defense>445</defense>
+<damage_rate>845</damage_rate>
+<defense_rate>248</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="berserker">
+<level>100</level>
+<hp>44370</hp>
+<damage>590</damage>
+<defense>443</defense>
+<damage_rate>728</damage_rate>
+<defense_rate>255</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="shadow_knight">
+<level>100</level>
+<hp>52000</hp>
+<damage>600</damage>
+<defense>455</defense>
+<damage_rate>860</damage_rate>
+<defense_rate>255</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="sapi_tres">
+<level>102</level>
+<hp>58000</hp>
+<damage>625</damage>
+<defense>470</defense>
+<damage_rate>880</damage_rate>
+<defense_rate>275</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="shadow_look">
+<level>104</level>
+<hp>62000</hp>
+<damage>645</damage>
+<defense>500</defense>
+<damage_rate>950</damage_rate>
+<defense_rate>290</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="orcus">
+<level>105</level>
+<hp>65000</hp>
+<damage>655</damage>
+<defense>518</defense>
+<damage_rate>965</damage_rate>
+<defense_rate>293</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="blaze_napin">
+<level>107</level>
+<hp>70000</hp>
+<damage>725</damage>
+<defense>530</defense>
+<damage_rate>1000</damage_rate>
+<defense_rate>303</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="phoenix_of_darkness">
+<level>108</level>
+<hp>95000</hp>
+<damage>1000</damage>
+<defense>600</defense>
+<damage_rate>900</damage_rate>
+<defense_rate>350</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>zombie_fighter</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>death_beam_knight</encounter>
+<encounter>resurrected_gladiator</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>resurrected_gladiator</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>sapi_unus</encounter>
+<encounter>sapi_duo</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>sapi_duo</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>hammer_scout</encounter>
+<encounter>thunder_napin</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>thunder_napin</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>venomous_chain_scorpion</encounter>
+<encounter>berserker</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>berserker</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>shadow_knight</encounter>
+<encounter>sapi_tres</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>sapi_tres</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>shadow_look</encounter>
+<encounter>orcus</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>orcus</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>phoenix_of_darkness</encounter>
+</spot>
+
+
+</map>

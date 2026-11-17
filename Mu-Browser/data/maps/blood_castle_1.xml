@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="elite_bull_fighter">
+<level>12</level>
+<hp>19</hp>
+<damage>36</damage>
+<defense>12</defense>
+<damage_rate>50</damage_rate>
+<defense_rate>12</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="polluted_butterfly">
+<level>13</level>
+<hp>23</hp>
+<damage>42</damage>
+<defense>13</defense>
+<damage_rate>58</damage_rate>
+<defense_rate>13</defense_rate>
+<attribute>wind</attribute>
+</monster>
+
+<monster name="forest_monster">
+<level>15</level>
+<hp>29</hp>
+<damage>51</damage>
+<defense>15</defense>
+<damage_rate>68</damage_rate>
+<defense_rate>15</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="giant">
+<level>17</level>
+<hp>40</hp>
+<damage>62</damage>
+<defense>18</defense>
+<damage_rate>80</damage_rate>
+<defense_rate>18</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="hideous_rabbit">
+<level>19</level>
+<hp>52</hp>
+<damage>72</damage>
+<defense>22</defense>
+<damage_rate>90</damage_rate>
+<defense_rate>22</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="worm">
+<level>20</level>
+<hp>60</hp>
+<damage>80</damage>
+<defense>25</defense>
+<damage_rate>100</damage_rate>
+<defense_rate>25</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="hommerd">
+<level>24</level>
+<hp>70</hp>
+<damage>90</damage>
+<defense>29</defense>
+<damage_rate>120</damage_rate>
+<defense_rate>29</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="assassin">
+<level>26</level>
+<hp>80</hp>
+<damage>100</damage>
+<defense>33</defense>
+<damage_rate>130</damage_rate>
+<defense_rate>33</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="cursed_lich">
+<level>30</level>
+<hp>90</hp>
+<damage>110</damage>
+<defense>33</defense>
+<damage_rate>150</damage_rate>
+<defense_rate>33</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="ghost">
+<level>32</level>
+<hp>100</hp>
+<damage>115</damage>
+<defense>40</defense>
+<damage_rate>160</damage_rate>
+<defense_rate>39</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="skeleton_archer">
+<level>34</level>
+<hp>110</hp>
+<damage>120</damage>
+<defense>45</defense>
+<damage_rate>170</damage_rate>
+<defense_rate>41</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>elite_bull_fighter</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>elite_bull_fighter</encounter>
+<encounter>polluted_butterfly</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>polluted_butterfly</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>forest_monster</encounter>
+<encounter>giant</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>giant</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>giant</encounter>
+<encounter>hideous_rabbit</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>hideous_rabbit</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>worm</encounter>
+<encounter>hommerd</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>hommerd</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>hommerd</encounter>
+<encounter>assassin</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>assassin</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>cursed_lich</encounter>
+<encounter>ghost</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>ghost</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>skeleton_archer</encounter>
+</spot>
+
+
+</map>

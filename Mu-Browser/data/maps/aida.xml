@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: valores de Monster.txt (Season 5); damage = daño máximo -->
+<monster name="death_tree">
+<level>72</level>
+<hp>10000</hp>
+<damage>272</damage>
+<defense>187</defense>
+<damage_rate>362</damage_rate>
+<defense_rate>120</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="forest_orc">
+<level>74</level>
+<hp>11000</hp>
+<damage>282</damage>
+<defense>197</defense>
+<damage_rate>390</damage_rate>
+<defense_rate>127</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="death_rider">
+<level>78</level>
+<hp>14000</hp>
+<damage>294</damage>
+<defense>222</defense>
+<damage_rate>402</damage_rate>
+<defense_rate>144</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="blue_golem">
+<level>84</level>
+<hp>25000</hp>
+<damage>322</damage>
+<defense>277</defense>
+<damage_rate>507</damage_rate>
+<defense_rate>170</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="witch_queen">
+<level>94</level>
+<hp>38500</hp>
+<damage>442</damage>
+<defense>357</defense>
+<damage_rate>637</damage_rate>
+<defense_rate>230</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="hell_maine">
+<level>98</level>
+<hp>50000</hp>
+<damage>600</damage>
+<defense>520</defense>
+<damage_rate>850</damage_rate>
+<defense_rate>300</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+
+<!-- golden invasion -->
+<monster name="golden_stone_golem">
+<level>84</level>
+<hp>25000</hp>
+<damage>425</damage>
+<defense>275</defense>
+<damage_rate>530</damage_rate>
+<defense_rate>190</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<!-- spots -->
+<spot id="spot91" x="30" y="510">
+<encounter>death_tree</encounter>
+<encounter>forest_orc</encounter>
+</spot>
+
+<spot id="spot92" x="110" y="254">
+<encounter>forest_orc</encounter>
+<encounter>death_rider</encounter>
+</spot>
+
+<spot id="spot93" x="250" y="318">
+<encounter>death_rider</encounter>
+<encounter>blue_golem</encounter>
+</spot>
+
+<spot id="spot94" x="390" y="450">
+<encounter>blue_golem</encounter>
+<encounter>witch_queen</encounter>
+</spot>
+
+<spot id="spot95" x="30" y="110">
+<encounter>blue_golem</encounter>
+<encounter>witch_queen</encounter>
+<encounter boss="2">hell_maine</encounter>
+</spot>
+
+
+</map>

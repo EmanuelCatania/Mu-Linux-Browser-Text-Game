@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data -->
+<monster name="strange_rabbit">
+<level>4</level>
+<hp>6</hp>
+<damage>13</damage>
+<defense>3</defense>
+<damage_rate>18</damage_rate>
+<defense_rate>3</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="polluted_butterfly">
+<level>13</level>
+<hp>23</hp>
+<damage>42</damage>
+<defense>13</defense>
+<damage_rate>58</damage_rate>
+<defense_rate>13</defense_rate>
+<attribute>wind</attribute>
+</monster>
+
+<monster name="hideous_rabbit">
+<level>19</level>
+<hp>52</hp>
+<damage>72</damage>
+<defense>22</defense>
+<damage_rate>90</damage_rate>
+<defense_rate>22</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="werewolf">
+<level>24</level>
+<hp>72</hp>
+<damage>90</damage>
+<defense>30</defense>
+<damage_rate>120</damage_rate>
+<defense_rate>30</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="cursed_lich">
+<level>30</level>
+<hp>90</hp>
+<damage>110</damage>
+<defense>33</defense>
+<damage_rate>150</damage_rate>
+<defense_rate>33</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="totem_golem">
+<level>36</level>
+<hp>120</hp>
+<damage>125</damage>
+<defense>50</defense>
+<damage_rate>180</damage_rate>
+<defense_rate>43</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="grizzly">
+<level>43</level>
+<hp>240</hp>
+<damage>140</damage>
+<defense>65</defense>
+<damage_rate>210</damage_rate>
+<defense_rate>52</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="captain_grizzly">
+<level>48</level>
+<hp>300</hp>
+<damage>150</damage>
+<defense>80</defense>
+<damage_rate>240</damage_rate>
+<defense_rate>70</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+
+<!-- golden invasion -->
+<monster name="golden_rabbit">
+<level>40</level>
+<hp>3000</hp>
+<damage>135</damage>
+<defense>60</defense>
+<damage_rate>200</damage_rate>
+<defense_rate>47</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- npc -->
+<npc id="leah" type="s" x="520" y="68">shop.php?id=elbeland1</npc>
+<npc id="marseille" type="s" x="490" y="78">shop.php?id=elbeland2</npc>
+
+
+<!-- spots -->
+<spot id="spot21" x="340" y="100">
+<encounter>strange_rabbit</encounter>
+</spot>
+
+<spot id="spot22" x="340" y="260">
+<encounter>polluted_butterfly</encounter>
+<encounter>hideous_rabbit</encounter>
+</spot>
+
+<spot id="spot23" x="112" y="222">
+<encounter>cursed_lich</encounter>
+<encounter>werewolf</encounter>
+</spot>
+
+<spot id="spot24" x="340" y="436">
+<encounter>totem_golem</encounter>
+</spot>
+
+<spot id="spot25" x="110" y="450">
+<encounter>grizzly</encounter>
+<encounter>captain_grizzly</encounter>
+</spot>
+
+
+</map>
+

@@ -1,0 +1,9 @@
+{# Botón "+" para gastar un punto en un atributo sin salir del inventario. Espera stat. #}
+{% if character.points > 0 %}
+    <form method="post" action="/characters/stats" class="plus-form">
+        <input type="hidden" name="_csrf" value="{{ csrf }}">
+        <input type="hidden" name="return" value="inventory">
+        <button type="submit" name="stat" value="{{ stat }}" class="plus"
+                aria-label="{{ t('characters.add_point', {stat: t('stat.' ~ stat)}) }}">+</button>
+    </form>
+{% endif %}

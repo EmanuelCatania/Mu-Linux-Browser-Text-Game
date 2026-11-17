@@ -1,0 +1,15 @@
+{# Barra de acciones sobre el ítem elegido y zona de mensajes. mode: inventory | vault | shop #}
+{% if in_battle %}
+    <p class="flash flash-error">{{ t('inventory.error_in_battle') }} <a href="/battle">{{ t('characters.back_to_battle') }}</a></p>
+{% endif %}
+<div class="inv-actions" data-mode="{{ mode }}">
+    <span class="inv-selected" data-empty="{{ t('inventory.nothing_selected') }}">{{ t('inventory.nothing_selected') }}</span>
+    <button type="button" data-action="use" hidden>{{ t('inventory.use') }}</button>
+    {% if mode == 'shop' %}
+        <button type="button" data-action="buy" data-label="{{ t('shop.buy_for') }}" hidden></button>
+        <button type="button" data-action="sell" data-label="{{ t('shop.sell_for') }}" hidden></button>
+    {% endif %}
+    <button type="button" data-action="cancel" hidden>{{ t('inventory.cancel') }}</button>
+</div>
+<p class="inv-message flash flash-error" role="alert" hidden></p>
+<p class="inv-help">{{ t(mode == 'shop' ? 'shop.help' : 'inventory.help') }}</p>

@@ -1,0 +1,24 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('forum.title') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('forum.title') }}</h1>
+
+<table class="list-table forum-table">
+    <thead>
+        <tr><th scope="col">{{ t('forum.category') }}</th><th scope="col" class="num">{{ t('forum.threads') }}</th><th scope="col" class="num">{{ t('forum.posts') }}</th><th scope="col">{{ t('forum.last') }}</th></tr>
+    </thead>
+    <tbody>
+        {% for c in categories %}
+            <tr>
+                <td><a href="/forum/{{ c.id }}"><strong>{{ t('forum.cat_' ~ c.id) }}</strong></a><br><small>{{ t('forum.cat_' ~ c.id ~ '_help') }}</small></td>
+                <td class="num">{{ c.threads }}</td>
+                <td class="num">{{ c.posts }}</td>
+                <td>{% if c.last %}<a href="/forum/thread/{{ c.last.thread_id }}">{{ c.last.title }}</a><br><small>{{ c.last.author }} · {{ c.last.at|date('d/m/Y H:i') }}</small>{% else %}—{% endif %}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% if not account %}<p class="inv-help">{{ t('forum.login_to_post') }} <a href="/login">{{ t('nav.login') }}</a></p>{% endif %}
+{% endblock %}

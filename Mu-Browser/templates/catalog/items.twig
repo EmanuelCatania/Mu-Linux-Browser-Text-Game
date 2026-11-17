@@ -1,0 +1,32 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('item.type_' ~ type) }} - {{ t('catalog.items_title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('catalog.items_title') }}</h1>
+
+<nav class="catalog-tabs" aria-label="{{ t('catalog.items_title') }}">
+    {% for code in types %}
+        <a href="/items/{{ code }}"{% if code == type %} class="current" aria-current="page"{% endif %}>{{ t('item.type_' ~ code) }}</a>
+    {% endfor %}
+</nav>
+<p class="catalog-hint">{{ t(character ? 'catalog.items_hint' : 'catalog.items_hint_guest') }}</p>
+
+<ul class="tip-grid tip-grid-items">
+    {% for card in cards %}
+        <li class="tip-cell" tabindex="0">
+            <img src="/assets/img/items/{{ card.image }}" alt="" loading="lazy">
+            <span class="tip-label {{ card.color }}">{{ card.name }}</span>
+            <div class="tip" role="tooltip">
+                <strong class="{{ card.color }}">{{ card.name }}</strong>
+                {% for line in card.lines %}
+                    <span class="{{ line.color }}{{ line.bold ? ' bold' }}">{{ line.text }}</span>
+                {% endfor %}
+                {% for class in card.classes %}
+                    <span class="tip-class{{ class.ok ? '' : ' redback' }}">{{ class.text }}</span>
+                {% endfor %}
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

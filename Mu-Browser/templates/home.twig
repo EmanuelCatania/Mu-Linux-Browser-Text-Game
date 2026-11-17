@@ -1,0 +1,51 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<section class="about about-grey">
+    <div class="about-text">
+        <h1>{{ t('home.heading') }}</h1>
+        <img class="mu-logo" src="/assets/img/mu_online.png" width="132" height="180" alt="">
+        <p>{{ t('home.intro') }}</p>
+        <p>{{ t('home.status') }}</p>
+        {% if account %}
+            <p>{{ t('home.cta_member', {name: account.username}) }}</p>
+        {% else %}
+            <p><a href="/register">{{ t('home.cta_guest') }}</a></p>
+        {% endif %}
+    </div>
+    <div class="top10">
+        <h2 class="panel-title">{{ t('home.top10') }}</h2>
+        <div class="top10-body">
+            {% if top10 %}
+                <ol class="top10-list">
+                    {% for r in top10 %}<li><span>{{ r.name }}</span><span>{{ r.level }}</span></li>{% endfor %}
+                </ol>
+                <p class="top10-more">[<a href="/ranking">{{ t('ranking.view_all') }}</a>]</p>
+            {% else %}
+                {{ t('home.top10_empty') }}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% if posts %}
+    <section class="news-list" aria-label="{{ t('news.title') }}">
+        {% for post in posts %}
+            {{ include('news/_post.twig', {post: post, summary: true}) }}
+        {% endfor %}
+        {{ include('community/_pager.twig', {base: '/?page='}) }}
+    </section>
+{% endif %}
+
+<section class="about about-green">
+    <h2>{{ t('home.screenshots') }}</h2>
+    <div class="screenshots">
+        {% for n in 1..4 %}
+            <figure class="screenshot">
+                <a href="/assets/img/shots/{{ n }}.jpg"><img src="/assets/img/shots/{{ n }}t.jpg" alt="{{ t('home.shot' ~ n) }}"></a>
+                <figcaption>{{ t('home.shot' ~ n) }}</figcaption>
+            </figure>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

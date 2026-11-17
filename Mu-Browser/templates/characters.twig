@@ -1,0 +1,156 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('characters.title') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('characters.title') }}</h1>
+{{ include('_errors.twig') }}
+
+<section class="char-select">
+    <ul class="char-slots">
+        {% for c in list %}
+            {% set is_active = character and character.id == c.id %}
+            <li class="char-slot{{ is_active ? ' is-active' }}">
+                <strong class="char-name">{{ c.name }}</strong>
+                <img src="/assets/img/classes/{{ c.class.image() }}.gif" width="100" height="100" alt="{{ c.class.label }}">
+                <span>{{ c.class.label }}</span>
+                <span>{{ t('characters.level', {n: c.level}) }}</span>
+                {% if is_active %}
+                    <span class="badge">{{ t('characters.active') }}</span>
+                {% else %}
+                    <form method="post" action="/characters/{{ c.id }}/select">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <button type="submit">{{ t('characters.select') }}</button>
+                    </form>
+                {% endif %}
+                <form method="post" action="/characters/{{ c.id }}/delete"
+                      data-confirm="{{ t('characters.delete_confirm', {name: c.name}) }}">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <button type="submit" class="danger">{{ t('characters.delete') }}</button>
+                </form>
+            </li>
+        {% endfor %}
+        {% if list|length < max %}
+            {% for i in (list|length + 1)..max %}
+                <li class="char-slot is-empty">{{ t('characters.slot_empty') }}</li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+    <p class="char-help">{{ t('characters.help') }}</p>
+</section>
+
+<div class="char-columns">
+    <section class="panel">
+        <h2 class="panel-title">{{ t('characters.sheet_title') }}</h2>
+        <div class="panel-body">
+            {% if character %}
+                {% if in_battle %}
+                    <p class="flash">{{ t('characters.in_battle') }} <a href="/battle">{{ t('characters.back_to_battle') }}</a></p>
+                {% endif %}
+                <p class="sheet-head">
+                    <strong>{{ character.name }}</strong> — {{ character.class.label }},
+                    {{ t('characters.level', {n: character.level}) }}
+                </p>
+                {% set values = {strength: character.strength, agility: character.agility, stamina: character.stamina, energy: character.energy, command: character.command} %}
+                <table class="sheet">
+                    {% for stat in stats %}
+                        <tr>
+                            <th scope="row">{{ t('stat.' ~ stat) }}</th>
+                            <td>{{ values[stat] }}</td>
+                            <td>
+                                {% if character.points > 0 %}
+                                    <form method="post" action="/characters/stats">
+                                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                                        <button type="submit" name="stat" value="{{ stat }}" class="plus"
+                                                aria-label="{{ t('characters.add_point', {stat: t('stat.' ~ stat)}) }}">+</button>
+                                    </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr><th scope="row">{{ t('characters.hp') }}</th><td colspan="2">{{ min(character.hpCur, derived.hpMax) }} / {{ derived.hpMax }}</td></tr>
+                    <tr><th scope="row">{{ t('characters.mp') }}</th><td colspan="2">{{ min(character.mpCur, derived.mpMax) }} / {{ derived.mpMax }}</td></tr>
+                    <tr><th scope="row">{{ t('characters.damage') }}</th><td colspan="2">{{ derived.damageMin }} ~ {{ derived.damageMax }}</td></tr>
+                    {% if derived.wizDamageMax > 0 %}
+                        <tr><th scope="row">{{ t('characters.wiz_damage') }}</th><td colspan="2">{{ derived.wizDamageMin }} ~ {{ derived.wizDamageMax }}</td></tr>
+                    {% endif %}
+                    <tr><th scope="row">{{ t('characters.damage_rate') }}</th><td colspan="2">{{ derived.damageRate }}</td></tr>
+                    <tr><th scope="row">{{ t('characters.defense') }}</th><td colspan="2">{{ derived.defense }}</td></tr>
+                    <tr><th scope="row">{{ t('characters.defense_rate') }}</th><td colspan="2">{{ derived.defenseRate }}</td></tr>
+                    <tr><th scope="row">{{ t('characters.experience') }}</th><td colspan="2">{{ character.experience }}</td></tr>
+                    <tr><th scope="row">{{ t('characters.zen') }}</th><td colspan="2">{{ account.zen }}</td></tr>
+                </table>
+                <p>{{ t('characters.points', {n: character.points}) }}</p>
+                {% if reset.enabled or character.resets > 0 %}<p>{{ t('reset.count', {n: character.resets}) }}</p>{% endif %}
+                {% if not reset.enabled %}
+                {% elseif character.level >= reset.level %}
+                    <form method="post" action="/characters/reset">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <button type="submit" class="go" data-confirm="{{ t('reset.confirm', {zen: reset.zen}) }}">{{ t('reset.do', {zen: reset.zen}) }}</button>
+                    </form>
+                {% else %}
+                    <p class="inv-help">{{ t('reset.help', {level: reset.level, zen: reset.zen}) }}</p>
+                {% endif %}
+                {% if character.class.tier() == 3 %}<p><a href="/master">{{ t('master.level', {n: character.masterLevel, max: 100}) }} · {{ t('master.points', {n: character.masterPoints}) }}</a></p>{% endif %}
+                <p><a href="/npc/sebina">{{ t('evo.link') }}</a></p>
+                {% if character.class.tier() == 2 and character.class.base().value in [1, 2, 3, 4] %}<p><a href="/npc/marlon">{{ t('evo.marlon_link') }}</a></p>{% endif %}
+                {% if character.class.tier() >= 2 or character.class.base().value in [5, 6] %}<p><a href="/npc/devin">{{ t('evo.third_link') }}</a></p>{% endif %}
+
+                <h3>{{ t('characters.skills') }}</h3>
+                {% if active_skills %}
+                    <ul class="tip-grid tip-grid-skills">
+                        {% for s in active_skills %}
+                            {{ include('catalog/_skill.twig', {s: s}) }}
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>{{ t('characters.no_skills') }}</p>
+                {% endif %}
+            {% else %}
+                <p>{{ t('characters.none_active') }}</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2 class="panel-title">{{ t('characters.create_title') }}</h2>
+        <div class="panel-body">
+            {% if list|length >= max %}
+                <p>{{ t('characters.limit_reached') }}</p>
+            {% else %}
+                <form method="post" action="/characters" class="create-form">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <label for="name">{{ t('characters.name') }}</label>
+                    <input type="text" id="name" name="name" value="{{ old.name|default('') }}" minlength="3" maxlength="12"
+                           pattern="[A-Za-z0-9]{3,12}" required autocomplete="off" aria-describedby="name-help">
+                    <small id="name-help">{{ t('auth.username_help') }}</small>
+
+                    <fieldset>
+                        <legend>{{ t('characters.class') }}</legend>
+                        {% for class in classes %}
+                            <label class="class-option{{ class.unlock_level ? ' class-locked' }}">
+                                <input type="radio" name="class" value="{{ class.id }}" required
+                                       {{ (old.class|default(classes[0].id)) == class.id ? 'checked' }}{{ class.unlock_level ? ' disabled' }}>
+                                <img src="/assets/img/classes/{{ class.id }}.gif" width="50" height="50" alt="">
+                                <span>
+                                    <strong>{{ class.label }}</strong><br>
+                                    <small>
+                                        {{ t('stat.strength') }} {{ class.stats.strength }} ·
+                                        {{ t('stat.agility') }} {{ class.stats.agility }} ·
+                                        {{ t('stat.stamina') }} {{ class.stats.stamina }} ·
+                                        {{ t('stat.energy') }} {{ class.stats.energy }}
+                                        {%- if class.stats.command %} · {{ t('stat.command') }} {{ class.stats.command }}{% endif %}
+                                    </small>
+                                    {% if class.unlock_level %}<br><small class="class-lock-note">{{ t('characters.class_locked', {n: class.unlock_level}) }}</small>{% endif %}
+                                </span>
+                            </label>
+                        {% endfor %}
+                    </fieldset>
+
+                    <button type="submit">{{ t('characters.create') }}</button>
+                </form>
+            {% endif %}
+        </div>
+    </section>
+</div>
+{% endblock %}

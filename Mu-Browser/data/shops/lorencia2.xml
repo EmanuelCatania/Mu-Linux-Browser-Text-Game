@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shop>
+<item id="0">5.22.0.0005.00.9.1034.0000.17.0.0.09.09.9.026.026.000000.leather_helm</item>
+<item id="1">1</item>
+<item id="2">5.22.0.0009.00.0.1058.2029.17.0.0.00.00.0.032.032.000000.bronze_helm</item>
+<item id="3">1</item>
+<item id="4">5.22.0.0012.00.9.1105.0000.17.0.0.09.09.9.036.036.000000.scale_helm</item>
+<item id="5">1</item>
+<item id="6">5.22.0.0017.00.0.1128.2052.15.0.0.00.00.0.040.040.000000.brass_helm</item>
+<item id="7">1</item>
+
+<item id="8">1</item>
+<item id="9">1</item>
+<item id="10">1</item>
+<item id="11">1</item>
+<item id="12">1</item>
+<item id="13">1</item>
+<item id="14">1</item>
+<item id="15">1</item>
+
+<item id="16">3.23.0.0010.00.9.1044.0000.17.0.0.09.09.9.026.026.000000.leather_armor</item>
+<item id="17">1</item>
+<item id="18">3.22.0.0014.00.0.1063.2030.17.0.0.00.00.0.032.032.000000.bronze_armor</item>
+<item id="19">1</item>
+<item id="20">3.22.0.0018.00.9.1122.0000.17.0.0.09.09.9.036.036.000000.scale_armor</item>
+<item id="21">1</item>
+<item id="22">3.22.0.0022.00.0.1134.2054.15.0.0.00.00.0.040.040.000000.brass_armor</item>
+<item id="23">1</item>
+
+<item id="24">1</item>
+<item id="25">1</item>
+<item id="26">1</item>
+<item id="27">1</item>
+<item id="28">1</item>
+<item id="29">1</item>
+<item id="30">1</item>
+<item id="31">1</item>
+
+<item id="32">1</item>
+<item id="33">1</item>
+<item id="34">6.22.0.0004.00.0.1051.2027.17.0.0.00.00.0.032.032.000000.bronze_gloves</item>
+<item id="35">1</item>
+<item id="36">6.22.0.0007.00.9.1092.0000.17.0.0.09.09.9.036.036.000000.scale_gloves</item>
+<item id="37">1</item>
+<item id="38">6.22.0.0009.00.0.1116.2048.15.0.0.00.00.0.040.040.000000.brass_gloves</item>
+<item id="39">1</item>
+
+<item id="40">6.22.0.0002.00.9.1029.0000.17.0.0.09.09.9.026.026.000000.leather_gloves</item>
+<item id="41">1</item>
+<item id="42">1</item>
+<item id="43">1</item>
+<item id="44">1</item>
+<item id="45">1</item>
+<item id="46">1</item>
+<item id="47">1</item>
+
+<item id="48">1</item>
+<item id="49">1</item>
+<item id="50">4.22.0.0010.00.0.1056.2029.17.0.0.00.00.0.032.032.000000.bronze_pants</item>
+<item id="51">1</item>
+<item id="52">4.22.0.0014.00.9.1102.0000.17.0.0.09.09.9.036.036.000000.scale_pants</item>
+<item id="53">1</item>
+<item id="54">4.22.0.0018.00.0.1125.2051.15.0.0.00.00.0.040.040.000000.brass_pants</item>
+<item id="55">1</item>
+
+<item id="56">4.22.0.0007.00.9.1030.0000.17.0.0.09.09.9.026.026.000000.leather_pants</item>
+<item id="57">1</item>
+<item id="58">1</item>
+<item id="59">1</item>
+<item id="60">1</item>
+<item id="61">1</item>
+<item id="62">1</item>
+<item id="63">1</item>
+
+<item id="64">1</item>
+<item id="65">1</item>
+<item id="66">7.22.0.0004.00.0.1048.2027.17.0.0.00.00.0.032.032.000000.bronze_boots</item>
+<item id="67">1</item>
+<item id="68">7.22.0.0008.00.9.1092.0000.17.0.0.09.09.9.036.036.000000.scale_boots</item>
+<item id="69">1</item>
+<item id="70">7.22.0.0010.00.0.1116.2048.15.0.0.00.00.0.040.040.000000.brass_boots</item>
+<item id="71">1</item>
+
+<item id="72">7.22.0.0002.00.9.1032.0000.17.0.0.09.09.9.026.026.000000.leather_boots</item>
+<item id="73">1</item>
+<item id="74">1</item>
+<item id="75">1</item>
+<item id="76">1</item>
+<item id="77">1</item>
+<item id="78">1</item>
+<item id="79">1</item>
+
+<item id="80">1</item>
+<item id="81">1</item>
+<item id="82">0</item>
+<item id="83">0</item>
+<item id="84">0</item>
+<item id="85">0</item>
+<item id="86">0</item>
+<item id="87">0</item>
+
+<item id="88">0</item>
+<item id="89">0</item>
+<item id="90">0</item>
+<item id="91">0</item>
+<item id="92">0</item>
+<item id="93">0</item>
+<item id="94">0</item>
+<item id="95">0</item>
+
+<item id="96">0</item>
+<item id="97">0</item>
+<item id="98">0</item>
+<item id="99">0</item>
+<item id="100">0</item>
+<item id="101">0</item>
+<item id="102">0</item>
+<item id="103">0</item>
+
+<item id="104">0</item>
+<item id="105">0</item>
+<item id="106">0</item>
+<item id="107">0</item>
+<item id="108">0</item>
+<item id="109">0</item>
+<item id="110">0</item>
+<item id="111">0</item>
+
+<item id="112">0</item>
+<item id="113">0</item>
+<item id="114">0</item>
+<item id="115">0</item>
+<item id="116">0</item>
+<item id="117">0</item>
+<item id="118">0</item>
+<item id="119">0</item>
+
+<item>lorencia2</item>
+<item>LORENCIA 2</item>
+<item>Hanzo the Blacksmith</item>
+
+</shop>

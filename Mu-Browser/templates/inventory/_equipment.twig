@@ -1,0 +1,12 @@
+{# Los 12 slots de equipo, con la misma disposición que el juego original. Espera equipment (por slot). #}
+{% set slots = {0: 'pet', 1: 'helm', 2: 'wings', 3: 'hand1', 4: 'necklace', 5: 'armor', 6: 'hand2', 7: 'gloves', 8: 'ring1', 9: 'pants', 10: 'ring2', 11: 'boots'} %}
+<div class="equipment">
+    {% for number, key in slots %}
+        <div class="equip-slot equip-{{ key }}" data-container="equipment" data-slot="{{ number }}"
+             title="{{ t('equip.' ~ key) }}" aria-label="{{ t('equip.' ~ key) }}">
+            {% if equipment[number] is defined %}
+                {{ include('inventory/_item.twig', {card: equipment[number], container: 'equipment'}) }}
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

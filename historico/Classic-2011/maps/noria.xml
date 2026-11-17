@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<map>
+
+<!-- monster data -->
+<monster name="goblin">
+<level>3</level>
+<hp>4</hp>
+<damage>10</damage>
+<defense>2</defense>
+<damage_rate>13</damage_rate>
+<defense_rate>2</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="chain_scorpion">
+<level>5</level>
+<hp>8</hp>
+<damage>17</damage>
+<defense>4</defense>
+<damage_rate>23</damage_rate>
+<defense_rate>4</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="elite_goblin">
+<level>8</level>
+<hp>12</hp>
+<damage>23</damage>
+<defense>8</defense>
+<damage_rate>33</damage_rate>
+<defense_rate>8</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="beetle_monster">
+<level>10</level>
+<hp>16</hp>
+<damage>31</damage>
+<defense>10</defense>
+<damage_rate>44</damage_rate>
+<defense_rate>10</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="hunter">
+<level>13</level>
+<hp>22</hp>
+<damage>41</damage>
+<defense>13</defense>
+<damage_rate>56</damage_rate>
+<defense_rate>13</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="forest_monster">
+<level>15</level>
+<hp>29</hp>
+<damage>51</damage>
+<defense>15</defense>
+<damage_rate>68</damage_rate>
+<defense_rate>15</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="agon">
+<level>16</level>
+<hp>34</hp>
+<damage>57</damage>
+<defense>16</defense>
+<damage_rate>74</damage_rate>
+<defense_rate>16</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="stone_golem">
+<level>18</level>
+<hp>46</hp>
+<damage>68</damage>
+<defense>20</defense>
+<damage_rate>86</damage_rate>
+<defense_rate>20</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+
+<!-- golden invasion -->
+<monster name="golden_goblin">
+<level>20</level>
+<hp>3100</hp>
+<damage>130</damage>
+<defense>50</defense>
+<damage_rate>100</damage_rate>
+<defense_rate>30</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- npc -->
+<npc id="lala" type="s" x="272" y="382">shop.php?id=noria1</npc>
+<npc id="eo" type="s" x="280" y="440">shop.php?id=noria2</npc>
+
+
+<!-- spots -->
+<spot id="spot11" x="120" y="440">
+<encounter>chain_scorpion</encounter>
+<encounter>goblin</encounter>
+</spot>
+
+<spot id="spot12" x="180" y="240">
+<encounter>chain_scorpion</encounter>
+<encounter>goblin</encounter>
+<encounter>beetle_monster</encounter>
+</spot>
+
+<spot id="spot13" x="160" y="140">
+<encounter>hunter</encounter>
+<encounter>beetle_monster</encounter>
+</spot>
+
+<spot id="spot14" x="400" y="240">
+<encounter>elite_goblin</encounter>
+<encounter>forest_monster</encounter>
+<encounter>agon</encounter>
+</spot>
+
+<spot id="spot15" x="420" y="440">
+<encounter>forest_monster</encounter>
+<encounter>stone_golem</encounter>
+</spot>
+
+</map>
+

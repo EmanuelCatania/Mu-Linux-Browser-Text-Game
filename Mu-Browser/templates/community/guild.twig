@@ -1,0 +1,89 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('menu.guild') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.guild') }}{% if guild %}: {{ guild.name }}{% endif %}</h1>
+
+<div class="quest-layout">
+    <section class="panel">
+        <h2 class="panel-title">{{ t('menu.guild') }}</h2>
+        <div class="panel-body">
+            <img class="npc-picture" src="/assets/img/guild.jpg" alt="">
+            <p>{{ t('guild.about', {level: create_level, n: create_price}) }}</p>
+        </div>
+    </section>
+
+    <div>
+        {% if invitation and not guild %}
+            <section class="panel">
+                <h2 class="panel-title">{{ t('guild.invitation') }}</h2>
+                <form method="post" action="/guild" class="panel-body quest-buttons">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <span>{{ t('guild.invited_by', {name: invitation.name}) }}</span>
+                    <button type="submit" name="do" value="accept" class="go">{{ t('guild.accept') }}</button>
+                    <button type="submit" name="do" value="decline">{{ t('guild.decline') }}</button>
+                </form>
+            </section>
+        {% endif %}
+
+        {% if guild %}
+            <section class="panel">
+                <h2 class="panel-title">{{ t('guild.members', {n: members|length, max: max_members}) }}</h2>
+                <div class="panel-body">
+                    <table class="list-table">
+                        <thead><tr><th scope="col">{{ t('characters.name') }}</th><th scope="col">{{ t('characters.class') }}</th><th scope="col" class="num">{{ t('ranking.level') }}</th><th scope="col"></th></tr></thead>
+                        <tbody>
+                            {% for m in members %}
+                                <tr>
+                                    <td>{{ m.name }}{% if m.founder %} <span class="stars" title="{{ t('guild.founder') }}">★</span>{% endif %}</td>
+                                    <td>{{ m.class_label }}</td>
+                                    <td class="num">{{ m.level }}</td>
+                                    <td>
+                                        {% if m.invited %}<small>{{ t('guild.pending') }}</small>{% endif %}
+                                        {% if is_founder and not m.founder %}
+                                            <form method="post" action="/guild">
+                                                <input type="hidden" name="_csrf" value="{{ csrf }}">
+                                                <input type="hidden" name="character" value="{{ m.id }}">
+                                                <button type="submit" name="do" value="kick" data-confirm="{{ t('guild.kick_confirm', {name: m.name}) }}">{{ t(m.invited ? 'guild.cancel_invite' : 'guild.kick') }}</button>
+                                            </form>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    {% if is_founder %}
+                        <form method="post" action="/guild" class="store-form">
+                            <input type="hidden" name="_csrf" value="{{ csrf }}">
+                            <label for="invite-name">{{ t('guild.invite_label') }}</label>
+                            <input type="text" id="invite-name" name="name" maxlength="12" required autocomplete="off">
+                            <button type="submit" name="do" value="invite">{{ t('guild.invite') }}</button>
+                        </form>
+                        <form method="post" action="/guild" class="store-form">
+                            <input type="hidden" name="_csrf" value="{{ csrf }}">
+                            <button type="submit" name="do" value="disband" class="danger" data-confirm="{{ t('guild.disband_confirm') }}">{{ t('guild.disband') }}</button>
+                        </form>
+                    {% else %}
+                        <form method="post" action="/guild" class="store-form">
+                            <input type="hidden" name="_csrf" value="{{ csrf }}">
+                            <button type="submit" name="do" value="quit" class="danger" data-confirm="{{ t('guild.quit_confirm') }}">{{ t('guild.quit') }}</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </section>
+        {% else %}
+            <section class="panel">
+                <h2 class="panel-title">{{ t('guild.create_title') }}</h2>
+                <form method="post" action="/guild" class="panel-body store-form">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <label for="guild-name">{{ t('guild.name_label') }}</label>
+                    <input type="text" id="guild-name" name="name" minlength="3" maxlength="12" pattern="[A-Za-z0-9]{3,12}" required autocomplete="off">
+                    <button type="submit" name="do" value="create">{{ t('guild.create', {n: create_price}) }}</button>
+                </form>
+            </section>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

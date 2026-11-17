@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="ice_queen">
+<level>52</level>
+<hp>850</hp>
+<damage>165</damage>
+<defense>90</defense>
+<damage_rate>260</damage_rate>
+<defense_rate>76</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="gorgon">
+<level>55</level>
+<hp>600</hp>
+<damage>175</damage>
+<defense>100</defense>
+<damage_rate>275</damage_rate>
+<defense_rate>82</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="devil">
+<level>60</level>
+<hp>5000</hp>
+<damage>195</damage>
+<defense>115</defense>
+<damage_rate>300</damage_rate>
+<defense_rate>88</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+<monster name="death_gorgon">
+<level>64</level>
+<hp>6000</hp>
+<damage>210</damage>
+<defense>130</defense>
+<damage_rate>320</damage_rate>
+<defense_rate>94</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="great_bahamut">
+<level>66</level>
+<hp>1200</hp>
+<damage>230</damage>
+<defense>150</defense>
+<damage_rate>330</damage_rate>
+<defense_rate>98</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="lizard_king">
+<level>70</level>
+<hp>9000</hp>
+<damage>270</damage>
+<defense>180</defense>
+<damage_rate>350</damage_rate>
+<defense_rate>115</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+<monster name="mutant">
+<level>72</level>
+<hp>10000</hp>
+<damage>280</damage>
+<defense>190</defense>
+<damage_rate>365</damage_rate>
+<defense_rate>120</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="hydra">
+<level>74</level>
+<hp>19000</hp>
+<damage>310</damage>
+<defense>200</defense>
+<damage_rate>430</damage_rate>
+<defense_rate>125</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+<monster name="alquamos">
+<level>75</level>
+<hp>11500</hp>
+<damage>290</damage>
+<defense>195</defense>
+<damage_rate>385</damage_rate>
+<defense_rate>125</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>ice_queen</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>ice_queen</encounter>
+<encounter>gorgon</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>gorgon</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>gorgon</encounter>
+<encounter>devil</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>devil</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>death_gorgon</encounter>
+<encounter>great_bahamut</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>death_gorgon</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>great_bahamut</encounter>
+<encounter>lizard_king</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>great_bahamut</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>lizard_king</encounter>
+<encounter>mutant</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>mutant</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>mutant</encounter>
+<encounter>hydra</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>hydra</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>alquamos</encounter>
+</spot>
+
+
+</map>

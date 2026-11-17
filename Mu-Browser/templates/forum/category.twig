@@ -1,0 +1,38 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('forum.cat_' ~ category) }} - {{ t('forum.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('forum.title') }}: {{ t('forum.cat_' ~ category) }}</h1>
+
+<div class="filters">
+    <a class="button" href="/forum">« {{ t('forum.title') }}</a>
+    {% if can_post %}<a class="button filters-info" href="/forum/{{ category }}/new">{{ t('forum.new_thread') }}</a>
+    {% elseif not account %}<span class="filters-info">{{ t('forum.login_to_post') }} <a href="/login">{{ t('nav.login') }}</a></span>{% endif %}
+</div>
+
+{% if threads %}
+    <table class="list-table forum-table">
+        <thead>
+            <tr><th scope="col">{{ t('forum.thread') }}</th><th scope="col">{{ t('forum.author') }}</th><th scope="col" class="num">{{ t('forum.replies') }}</th><th scope="col">{{ t('forum.last') }}</th></tr>
+        </thead>
+        <tbody>
+            {% for th in threads %}
+                <tr{{ th.pinned ? ' class="pinned"' }}>
+                    <td>
+                        {% if th.pinned %}<span class="forum-tag">{{ t('forum.pinned') }}</span>{% endif %}
+                        {% if th.locked %}<span class="forum-tag gray">{{ t('forum.locked') }}</span>{% endif %}
+                        <a href="/forum/thread/{{ th.id }}">{{ th.title }}</a>
+                    </td>
+                    <td>{{ th.author }}</td>
+                    <td class="num">{{ th.replies }}</td>
+                    <td><small>{{ th.last_post_at|date('d/m/Y H:i') }}</small></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {{ include('community/_pager.twig', {base: '/forum/' ~ category ~ '?page='}) }}
+{% else %}
+    <p class="empty-note">{{ t('forum.empty') }}</p>
+{% endif %}
+{% endblock %}

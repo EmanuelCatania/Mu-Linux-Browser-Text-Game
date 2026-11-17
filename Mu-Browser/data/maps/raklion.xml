@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: valores de Monster.txt (Season 5); damage = daño máximo -->
+<monster name="ice_walker">
+<level>102</level>
+<hp>68000</hp>
+<damage>1965</damage>
+<defense>615</defense>
+<damage_rate>1190</damage_rate>
+<defense_rate>800</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="giant_mammoth">
+<level>112</level>
+<hp>77000</hp>
+<damage>2017</damage>
+<defense>585</defense>
+<damage_rate>1350</damage_rate>
+<defense_rate>840</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="ice_giant">
+<level>122</level>
+<hp>84000</hp>
+<damage>2060</damage>
+<defense>620</defense>
+<damage_rate>1570</damage_rate>
+<defense_rate>770</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="coolutin">
+<level>132</level>
+<hp>88000</hp>
+<damage>2092</damage>
+<defense>650</defense>
+<damage_rate>1940</damage_rate>
+<defense_rate>840</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="iron_knight">
+<level>142</level>
+<hp>95000</hp>
+<damage>2301</damage>
+<defense>660</defense>
+<damage_rate>2000</damage_rate>
+<defense_rate>800</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="dark_iron_knight">
+<level>148</level>
+<hp>265000</hp>
+<damage>2601</damage>
+<defense>860</defense>
+<damage_rate>2441</damage_rate>
+<defense_rate>1430</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+
+<!-- golden invasion -->
+<monster name="golden_iron_knight">
+<level>145</level>
+<hp>200000</hp>
+<damage>2092</damage>
+<defense>650</defense>
+<damage_rate>1940</damage_rate>
+<defense_rate>840</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<!-- world boss -->
+<monster name="selupan">
+<level>145</level>
+<hp>1200000</hp>
+<damage>2800</damage>
+<defense>1250</defense>
+<damage_rate>2200</damage_rate>
+<defense_rate>1800</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<!-- spots -->
+<spot id="spot171" x="34" y="470">
+<encounter>ice_walker</encounter>
+<encounter>giant_mammoth</encounter>
+</spot>
+
+<spot id="spot172" x="322" y="266">
+<encounter>giant_mammoth</encounter>
+<encounter>ice_giant</encounter>
+</spot>
+
+<spot id="spot173" x="490" y="510">
+<encounter>ice_giant</encounter>
+<encounter>coolutin</encounter>
+</spot>
+
+<spot id="spot174" x="510" y="30">
+<encounter>coolutin</encounter>
+<encounter>iron_knight</encounter>
+</spot>
+
+<spot id="spot175" x="102" y="66">
+<encounter>coolutin</encounter>
+<encounter>iron_knight</encounter>
+<encounter boss="3">dark_iron_knight</encounter>
+</spot>
+
+
+</map>

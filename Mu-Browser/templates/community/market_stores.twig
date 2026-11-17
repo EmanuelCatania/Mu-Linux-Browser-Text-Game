@@ -1,0 +1,30 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('menu.market') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.market') }}</h1>
+
+{% if stores %}
+    <div class="filters">
+        <span>{{ t('market.stores_help') }}</span>
+        <a class="button filters-info" href="/market?all=1">{{ t('market.see_all') }}</a>
+    </div>
+    <ul class="store-list">
+        {% for s in stores %}
+            <li>
+                <a class="store-card" href="/market?seller={{ s.seller|url_encode }}">
+                    <strong>{{ t('market.store_of', {name: s.seller}) }}</strong>
+                    <span>{{ t('market.count', {n: s.count}) }}{% if s.own %} · {{ t('market.yours') }}{% endif %}</span>
+                    <span class="store-samples">
+                        {% for image in s.samples %}<img src="/assets/img/items/{{ image }}" alt="" loading="lazy">{% endfor %}
+                    </span>
+                    <span class="button">{{ t('market.enter') }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="empty-note">{{ t('market.no_stores') }} <a class="button" href="/store">{{ t('menu.pstore') }}</a></p>
+{% endif %}
+{% endblock %}

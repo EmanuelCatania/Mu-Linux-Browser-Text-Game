@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: valores de Monster.txt (Season 5); damage = daño máximo -->
+<monster name="twin_tale">
+<level>117</level>
+<hp>87500</hp>
+<damage>1085</damage>
+<defense>865</defense>
+<damage_rate>1080</damage_rate>
+<defense_rate>440</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="persona">
+<level>118</level>
+<hp>68000</hp>
+<damage>1213</damage>
+<defense>615</defense>
+<damage_rate>1190</damage_rate>
+<defense_rate>485</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="dreadfear">
+<level>119</level>
+<hp>94000</hp>
+<damage>996</damage>
+<defense>783</defense>
+<damage_rate>1015</damage_rate>
+<defense_rate>905</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+
+<!-- golden invasion -->
+<monster name="golden_twin_tail">
+<level>130</level>
+<hp>145000</hp>
+<damage>1085</damage>
+<defense>865</defense>
+<damage_rate>1080</damage_rate>
+<defense_rate>440</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<!-- world boss -->
+<monster name="nightmare">
+<level>135</level>
+<hp>600000</hp>
+<damage>1468</damage>
+<defense>1000</defense>
+<damage_rate>2000</damage_rate>
+<defense_rate>420</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<!-- spots -->
+<spot id="spot111" x="194" y="514">
+<encounter>twin_tale</encounter>
+</spot>
+
+<spot id="spot112" x="498" y="310">
+<encounter>twin_tale</encounter>
+<encounter>persona</encounter>
+</spot>
+
+<spot id="spot113" x="190" y="138">
+<encounter>persona</encounter>
+<encounter boss="2">dreadfear</encounter>
+</spot>
+
+
+</map>

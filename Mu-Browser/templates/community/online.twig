@@ -1,0 +1,26 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('online.title') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('online.title') }} ({{ rows|length }})</h1>
+
+{% if rows %}
+    <table class="list-table">
+        <thead>
+            <tr><th scope="col">{{ t('characters.name') }}</th><th scope="col">{{ t('characters.class') }}</th><th scope="col" class="num">{{ t('ranking.level') }}</th><th scope="col">{{ t('menu.guild') }}</th><th scope="col">{{ t('online.where') }}</th>{% if character %}<th scope="col">{{ t('menu.pvp') }}</th>{% endif %}</tr>
+        </thead>
+        <tbody>
+            {% for r in rows %}
+                <tr>
+                    <td>{{ r.name }}</td><td>{{ r.class_label }}</td><td class="num">{{ r.level }}</td><td>{{ r.guild ?? '—' }}</td>
+                    <td>{% if r.map %}{{ r.map }} / {{ t('map.spot', {n: r.spot}) }}{% else %}{{ t('online.town') }}{% endif %}</td>
+                    {% if character %}<td>{% if r.name != character.name %}<a href="/pvp?rival={{ r.name|url_encode }}">{{ t('pvp.challenge') }}</a>{% endif %}</td>{% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p class="empty-note">{{ t('online.nobody') }}</p>
+{% endif %}
+{% endblock %}

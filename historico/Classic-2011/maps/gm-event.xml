@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<map>
+
+<!-- golden invasion -->
+<monster name="golden_budge_dragon">
+<level>15</level>
+<hp>2200</hp>
+<damage>125</damage>
+<defense>45</defense>
+<damage_rate>75</damage_rate>
+<defense_rate>30</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="golden_titan">
+<level>53</level>
+<hp>8000</hp>
+<damage>180</damage>
+<defense>105</defense>
+<damage_rate>265</damage_rate>
+<defense_rate>77</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="golden_knight">
+<level>60</level>
+<hp>5000</hp>
+<damage>195</damage>
+<defense>115</defense>
+<damage_rate>300</damage_rate>
+<defense_rate>88</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="golden_rabbit">
+<level>40</level>
+<hp>3000</hp>
+<damage>135</damage>
+<defense>60</defense>
+<damage_rate>200</damage_rate>
+<defense_rate>47</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="golden_devil">
+<level>72</level>
+<hp>10000</hp>
+<damage>280</damage>
+<defense>190</defense>
+<damage_rate>365</damage_rate>
+<defense_rate>120</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+<monster name="golden_goblin">
+<level>20</level>
+<hp>3100</hp>
+<damage>130</damage>
+<defense>50</defense>
+<damage_rate>100</damage_rate>
+<defense_rate>30</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="golden_lizard_king">
+<level>83</level>
+<hp>25000</hp>
+<damage>360</damage>
+<defense>240</defense>
+<damage_rate>415</damage_rate>
+<defense_rate>150</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+
+<!-- npc -->
+<npc id="lumen" type="s" x="288" y="274">shop.php?id=lorencia1</npc>
+<npc id="hanzo" type="s" x="314" y="260">shop.php?id=lorencia2</npc>
+<npc id="pasi" type="s" x="242" y="260">shop.php?id=lorencia3</npc>
+
+
+<!-- spots -->
+<spot id="spot1" x="280" y="430">
+<encounter>golden_budge_dragon</encounter>
+<encounter>golden_goblin</encounter>
+<encounter>golden_devil</encounter>
+<encounter>golden_knight</encounter>
+<encounter>golden_lizard_king</encounter>
+<encounter>golden_rabbit</encounter>
+<encounter>golden_titan</encounter>
+</spot>
+
+<spot id="spot2" x="360" y="460">
+<encounter>golden_budge_dragon</encounter>
+<encounter>golden_goblin</encounter>
+<encounter>golden_devil</encounter>
+<encounter>golden_knight</encounter>
+<encounter>golden_lizard_king</encounter>
+<encounter>golden_rabbit</encounter>
+<encounter>golden_titan</encounter>
+</spot>
+
+<spot id="spot3" x="150" y="380">
+<encounter>golden_budge_dragon</encounter>
+<encounter>golden_goblin</encounter>
+<encounter>golden_devil</encounter>
+<encounter>golden_knight</encounter>
+<encounter>golden_lizard_king</encounter>
+<encounter>golden_rabbit</encounter>
+<encounter>golden_titan</encounter>
+</spot>
+
+<spot id="spot4" x="360" y="120">
+<encounter>golden_budge_dragon</encounter>
+<encounter>golden_goblin</encounter>
+<encounter>golden_devil</encounter>
+<encounter>golden_knight</encounter>
+<encounter>golden_lizard_king</encounter>
+<encounter>golden_rabbit</encounter>
+<encounter>golden_titan</encounter>
+</spot>
+
+<spot id="spot5" x="100" y="60">
+<encounter>golden_budge_dragon</encounter>
+<encounter>golden_goblin</encounter>
+<encounter>golden_devil</encounter>
+<encounter>golden_knight</encounter>
+<encounter>golden_lizard_king</encounter>
+<encounter>golden_rabbit</encounter>
+<encounter>golden_titan</encounter>
+</spot>
+
+<spot id="spot6" x="420" y="240">
+<encounter>golden_budge_dragon</encounter>
+<encounter>golden_goblin</encounter>
+<encounter>golden_devil</encounter>
+<encounter>golden_knight</encounter>
+<encounter>golden_lizard_king</encounter>
+<encounter>golden_rabbit</encounter>
+<encounter>golden_titan</encounter>
+</spot>
+
+</map>
+

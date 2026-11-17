@@ -1,0 +1,64 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Apostle Devin - {{ t('menu.npc') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.npc') }}: Apostle Devin</h1>
+
+<p><a href="/npc">{{ t('evo.other_npcs') }}</a> · <a href="/npc/sebina">Sebina the Priestess</a> · <a href="/npc/marlon">Marlon</a></p>
+
+{% set picture = img('/assets/img/npc/devin.jpg', '') %}
+{% if picture %}<img class="npc-picture" src="{{ picture }}" alt="">{% endif %}
+<p>{{ t('evo.devin_intro') }}</p>
+
+{% set d = evo.devin %}
+{% if d.phase == 'master' %}
+    <p class="flash"><strong>{{ t('evo.third_done', {class: character.class.label}) }}</strong> <a href="/master">{{ t('master.title') }}</a></p>
+{% elseif not d.class %}
+    <p class="flash">{{ t('evo.error_need_second') }} <a href="/npc/sebina">Sebina the Priestess</a></p>
+{% elseif d.phase == 'locked' %}
+    <p class="flash">{{ t('evo.error_need_marlon') }} <a href="/npc/marlon">Marlon</a></p>
+{% else %}
+    <section class="panel">
+        <h2 class="panel-title">{{ t('evo.third_title') }}: {{ d.class }}</h2>
+        <div class="panel-body">
+            <ol class="evo-steps">
+                <li class="{{ d.phase in ['barracks', 'dark_elf'] ? 'done' : (d.phase == 'trophies' ? 'current' : '') }}">
+                    {{ t('evo.devin_step1', {level: d.level, zen: d.zen[0], n: d.points[0]}) }}
+                    <ul>
+                        {% for trophy in d.trophies %}
+                            <li class="{{ trophy.have or d.phase in ['barracks', 'dark_elf'] ? 'done' : '' }}">{{ t('evo.devin_trophy', {item: trophy.name, monster: trophy.monster}) }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="{{ d.phase == 'dark_elf' ? 'done' : (d.phase == 'barracks' ? 'current' : '') }}">
+                    {{ t('evo.devin_step2', {level: d.final_level, zen: d.zen[1], n: d.points[1]}) }}
+                    <ul>
+                        {% for k in d.barracks %}
+                            <li class="{{ d.phase == 'dark_elf' or k.done >= k.need ? 'done' : '' }}">{{ k.label }}: {{ d.phase == 'dark_elf' ? k.need : k.done }} / {{ k.need }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="{{ d.phase == 'dark_elf' ? 'current' : '' }}">
+                    {{ t('evo.devin_step3', {zen: d.zen[2], n: d.points[2], class: d.class}) }}
+                    {% if d.phase == 'dark_elf' %}({{ d.dark_elf[0].done }} / {{ d.dark_elf[0].need }}){% endif %}
+                </li>
+            </ol>
+
+            {% if d.phase == 'ready' and not d.level_ok %}
+                <p><strong>{{ t('evo.error_level') }}</strong></p>
+            {% elseif d.phase != 'ready' and not d.complete %}
+                <p><strong>{{ t('evo.error_hunting') }}</strong></p>
+            {% elseif d.phase == 'trophies' and character.level < d.final_level %}
+                <p><strong>{{ t('evo.devin_wait_level', {level: d.final_level}) }}</strong></p>
+            {% else %}
+                <form method="post" action="/npc/devin">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <button type="submit" class="go">{{ t(d.phase == 'ready' ? 'evo.do_start' : (d.phase == 'dark_elf' ? 'evo.do_evolve' : 'evo.do_deliver')) }}</button>
+                </form>
+            {% endif %}
+            <p class="zen">{{ t('characters.zen') }}: <strong>{{ account.zen }}</strong></p>
+        </div>
+    </section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,7 @@
+* text=auto
+*.sh text eol=lf
+Classic-2011/** -text
+MuOnline-Browser-Edition-master/** -text
+*.gif binary
+*.jpg binary
+*.png binary

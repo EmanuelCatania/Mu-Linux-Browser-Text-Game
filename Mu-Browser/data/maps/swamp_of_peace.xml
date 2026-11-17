@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: valores de Monster.txt (Season 5); damage = daño máximo -->
+<monster name="sapi_unus">
+<level>95</level>
+<hp>37000</hp>
+<damage>510</damage>
+<defense>370</defense>
+<damage_rate>700</damage_rate>
+<defense_rate>220</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="sapi_duo">
+<level>96</level>
+<hp>39500</hp>
+<damage>505</damage>
+<defense>375</defense>
+<damage_rate>730</damage_rate>
+<defense_rate>225</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="thunder_napin">
+<level>97</level>
+<hp>42000</hp>
+<damage>555</damage>
+<defense>395</defense>
+<damage_rate>750</damage_rate>
+<defense_rate>235</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="shadow_pawn">
+<level>98</level>
+<hp>48500</hp>
+<damage>575</damage>
+<defense>430</defense>
+<damage_rate>830</damage_rate>
+<defense_rate>240</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="shadow_knight">
+<level>100</level>
+<hp>52000</hp>
+<damage>600</damage>
+<defense>455</defense>
+<damage_rate>860</damage_rate>
+<defense_rate>255</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="sapi_tres">
+<level>102</level>
+<hp>58000</hp>
+<damage>625</damage>
+<defense>470</defense>
+<damage_rate>880</damage_rate>
+<defense_rate>275</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="shadow_look">
+<level>104</level>
+<hp>62000</hp>
+<damage>645</damage>
+<defense>500</defense>
+<damage_rate>950</damage_rate>
+<defense_rate>290</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="ghost_napin">
+<level>106</level>
+<hp>68000</hp>
+<damage>665</damage>
+<defense>535</defense>
+<damage_rate>980</damage_rate>
+<defense_rate>295</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="blaze_napin">
+<level>107</level>
+<hp>70000</hp>
+<damage>725</damage>
+<defense>530</defense>
+<damage_rate>1000</damage_rate>
+<defense_rate>303</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="sapi_queen">
+<level>131</level>
+<hp>218000</hp>
+<damage>2017</damage>
+<defense>670</defense>
+<damage_rate>1847</damage_rate>
+<defense_rate>875</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+
+<!-- golden invasion -->
+<monster name="golden_napin">
+<level>112</level>
+<hp>77000</hp>
+<damage>2017</damage>
+<defense>585</defense>
+<damage_rate>1350</damage_rate>
+<defense_rate>840</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<!-- world boss -->
+<monster name="medusa">
+<level>150</level>
+<hp>1500000</hp>
+<damage>3200</damage>
+<defense>1450</defense>
+<damage_rate>2800</damage_rate>
+<defense_rate>2000</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<!-- spots -->
+<spot id="spot151" x="30" y="538">
+<encounter>sapi_unus</encounter>
+<encounter>sapi_duo</encounter>
+</spot>
+
+<spot id="spot152" x="246" y="314">
+<encounter>thunder_napin</encounter>
+<encounter>shadow_pawn</encounter>
+</spot>
+
+<spot id="spot153" x="50" y="74">
+<encounter>shadow_knight</encounter>
+<encounter>sapi_tres</encounter>
+</spot>
+
+<spot id="spot154" x="510" y="30">
+<encounter>shadow_look</encounter>
+<encounter>ghost_napin</encounter>
+</spot>
+
+<spot id="spot155" x="490" y="506">
+<encounter>ghost_napin</encounter>
+<encounter>blaze_napin</encounter>
+<encounter boss="3">sapi_queen</encounter>
+</spot>
+
+
+</map>

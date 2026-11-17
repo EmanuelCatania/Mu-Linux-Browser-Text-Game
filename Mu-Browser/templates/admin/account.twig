@@ -1,0 +1,124 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ target.username }} - {{ t('admin.nav_accounts') }}{% endblock %}
+
+{% macro item_list(entries, target, csrf, text) %}
+    {% if entries %}
+        <ul class="admin-items">
+            {% for e in entries %}
+                <li>
+                    <img src="/assets/img/items/{{ e.item.imagePath() }}" alt="" loading="lazy">
+                    <span>{{ e.item.isExcellent() ? 'Excellent ' }}{{ e.item.displayName() }}{% if e.item.luck %} +Luck{% endif %}{% if e.item.option %} +{{ e.item.option * 4 }}{% endif %}</span>
+                    <form method="post" action="/admin/accounts/{{ target.id }}/edit">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <input type="hidden" name="item_id" value="{{ e.id }}">
+                        <button type="submit" name="do" value="delete_item" class="linklike red" data-confirm="{{ text.confirm }}">{{ text.delete }}</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="gray">{{ text.empty }}</p>
+    {% endif %}
+{% endmacro %}
+
+{% block content %}
+{# la macro no ve el idioma: los textos van ya traducidos #}
+{% set texts = {empty: t('admin.no_items'), confirm: t('admin.confirm_delete_item'), delete: t('admin.delete')} %}
+{{ include('admin/_nav.twig', {section: 'accounts'}) }}
+
+<p><a class="button" href="/admin/accounts">« {{ t('admin.nav_accounts') }}</a></p>
+
+<section class="panel">
+    <h2 class="panel-title">{{ target.username }}{% if target.isAdmin %} <span class="forum-tag">{{ t('forum.admin') }}</span>{% endif %}{% if target.banned %} <span class="forum-tag gray">{{ t('admin.banned') }}</span>{% endif %}</h2>
+    <div class="panel-body admin-account">
+        <form method="post" action="/admin/accounts/{{ target.id }}/edit" class="admin-grid">
+            <input type="hidden" name="_csrf" value="{{ csrf }}">
+            <label for="email">{{ t('auth.email') }}</label>
+            <input type="email" id="email" name="email" value="{{ target.email }}" maxlength="255" required>
+            <label for="password">{{ t('admin.new_password') }}</label>
+            <input type="password" id="password" name="password" minlength="8" maxlength="128" autocomplete="new-password" placeholder="{{ t('admin.new_password_help') }}">
+            <span></span>
+            <button type="submit" name="do" value="account">{{ t('admin.save') }}</button>
+        </form>
+
+        <form method="post" action="/admin/accounts/{{ target.id }}" class="inline-form admin-row">
+            <input type="hidden" name="_csrf" value="{{ csrf }}">
+            <input type="hidden" name="return" value="/admin/accounts/{{ target.id }}">
+            <label>{{ t('characters.zen') }} <input type="number" name="zen" value="{{ target.zen }}" min="0" max="2000000000"></label>
+            <button type="submit" name="do" value="zen">{{ t('admin.save') }}</button>
+            {% if target.banned %}
+                <button type="submit" name="do" value="unban">{{ t('admin.unban') }}</button>
+            {% else %}
+                <button type="submit" name="do" value="ban" data-confirm="{{ t('admin.confirm_ban', {name: target.username}) }}">{{ t('admin.ban') }}</button>
+            {% endif %}
+            <button type="submit" name="do" value="{{ target.isAdmin ? 'unadmin' : 'admin' }}"
+                    data-confirm="{{ t(target.isAdmin ? 'admin.confirm_unadmin' : 'admin.confirm_admin', {name: target.username}) }}">{{ t(target.isAdmin ? 'admin.unadmin' : 'admin.make_admin') }}</button>
+            <a href="/admin/forum?author={{ target.username|url_encode }}">{{ t('admin.forum_posts', {n: posts}) }}</a>
+        </form>
+
+        <h3>{{ t('admin.account_items') }}</h3>
+        {% for container, entries in items.account %}
+            <h4>{{ t('admin.container_' ~ container) }}</h4>
+            {{ _self.item_list(entries, target, csrf, texts) }}
+        {% endfor %}
+    </div>
+</section>
+
+<h2 class="title-bar" id="characters">{{ t('menu.characters') }}</h2>
+{% for entry in characters %}
+    {% set c = entry.c %}
+    <section class="panel" id="char-{{ c.id }}">
+        <h2 class="panel-title">{{ c.name }} — {{ c.class.label }}, {{ t('characters.level', {n: c.level}) }}</h2>
+        <div class="panel-body">
+            {% if entry.in_battle %}<p class="flash flash-error">{{ t('admin.in_battle') }}</p>{% endif %}
+            <form method="post" action="/admin/accounts/{{ target.id }}/edit" class="admin-character">
+                <input type="hidden" name="_csrf" value="{{ csrf }}">
+                <input type="hidden" name="character" value="{{ c.id }}">
+                <label class="{{ (c.id ~ ':name') in invalid ? 'invalid' }}">{{ t('characters.name') }}
+                    <input type="text" name="name" value="{{ c.name }}" minlength="3" maxlength="12" pattern="[A-Za-z0-9]{3,12}" required></label>
+                <label class="{{ (c.id ~ ':class') in invalid ? 'invalid' }}">{{ t('characters.class') }}
+                    <select name="class">{% for cl in classes %}<option value="{{ cl.id }}"{{ cl.id == c.class.value ? ' selected' }}>{{ cl.label }}</option>{% endfor %}</select></label>
+                {% set values = {level: c.level, experience: c.experience, points: c.points, strength: c.strength, agility: c.agility, stamina: c.stamina, energy: c.energy, command: c.command, fruits: c.fruits, resets: c.resets, master_level: c.masterLevel, master_points: c.masterPoints} %}
+                {% for f in fields %}
+                    {% if f == 'evo_step' %}
+                        <label class="wide{{ (c.id ~ ':evo_step') in invalid ? ' invalid' }}">{{ t('admin.field_evo_step') }}
+                            <select name="evo_step">{% for step, key in evo_steps %}<option value="{{ step }}"{{ step == c.evoStep ? ' selected' }}>{{ step }}. {{ t(key) }}</option>{% endfor %}</select></label>
+                    {% else %}
+                        <label class="{{ (c.id ~ ':' ~ f) in invalid ? 'invalid' }}">{{ t('admin.field_' ~ f) }}
+                            <input type="number" name="{{ f }}" value="{{ values[f] }}" min="0" required></label>
+                    {% endif %}
+                {% endfor %}
+                <p class="quest-buttons wide">
+                    <button type="submit" name="do" value="character" class="go">{{ t('admin.save') }}</button>
+                    <button type="submit" name="do" value="delete_character" formnovalidate data-confirm="{{ t('admin.confirm_delete_character', {name: c.name}) }}">{{ t('admin.delete_character') }}</button>
+                </p>
+                <p class="inv-help wide">{{ t('admin.character_help') }}</p>
+            </form>
+
+            {% for container, entries in items.characters[c.id] %}
+                <h4>{{ t('admin.container_' ~ container) }}</h4>
+                {{ _self.item_list(entries, target, csrf, texts) }}
+            {% endfor %}
+
+            <form method="post" action="/admin/accounts/{{ target.id }}/edit" class="inline-form admin-give">
+                <input type="hidden" name="_csrf" value="{{ csrf }}">
+                <input type="hidden" name="character" value="{{ c.id }}">
+                <label>{{ t('admin.give_item') }}
+                    <input type="text" name="item" list="item-catalog" required placeholder="{{ t('admin.give_item_help') }}" size="28"></label>
+                <label>+<input type="number" name="level" value="0" min="0" max="15"></label>
+                <label>{{ t('admin.give_option') }} <input type="number" name="option" value="0" min="0" max="7"></label>
+                <label><input type="checkbox" name="luck" value="1"> Luck</label>
+                <label>Excellent <select name="excellent"><option value="0">—</option>{% for n in 1..6 %}<option value="{{ n }}">{{ n }}</option>{% endfor %}</select></label>
+                <button type="submit" name="do" value="give">{{ t('admin.give') }}</button>
+            </form>
+        </div>
+    </section>
+{% else %}
+    <p class="empty-note">{{ t('admin.no_characters') }}</p>
+{% endfor %}
+
+<datalist id="item-catalog">
+    {% for ref, label in catalog %}<option value="{{ ref }}">{{ label }}</option>{% endfor %}
+</datalist>
+{% endblock %}

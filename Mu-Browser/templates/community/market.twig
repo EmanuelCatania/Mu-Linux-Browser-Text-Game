@@ -1,0 +1,72 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('menu.market') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.market') }}{% if seller %}: {{ t('market.store_of', {name: seller}) }}{% endif %}</h1>
+
+<p><a class="button" href="/market">« {{ t('market.back_to_stores') }}</a></p>
+
+<form method="get" action="/market" class="filters">
+    {% if seller %}<input type="hidden" name="seller" value="{{ seller }}">{% else %}<input type="hidden" name="all" value="1">{% endif %}
+    <label>{{ t('market.type') }}
+        <select name="type">
+            <option value="">{{ t('market.all') }}</option>
+            {% for key in types %}<option value="{{ key }}"{{ filters.type == key ? ' selected' }}>{{ t('market.type_' ~ key) }}</option>{% endfor %}
+        </select>
+    </label>
+    <label>{{ t('characters.class') }}
+        <select name="class">
+            <option value="">{{ t('market.all') }}</option>
+            {% for key, label in classes %}<option value="{{ key }}"{{ filters.class == key ? ' selected' }}>{{ label }}</option>{% endfor %}
+        </select>
+    </label>
+    <label>{{ t('market.order') }}
+        <select name="order">
+            {% for key in orders %}<option value="{{ key }}"{{ filters.order == key ? ' selected' }}>{{ t('market.order_' ~ key) }}</option>{% endfor %}
+        </select>
+    </label>
+    <button type="submit">{{ t('market.filter') }}</button>
+    <span class="filters-info">{{ t('market.count', {n: total}) }} · {{ t('characters.zen') }}: <strong>{{ account.zen }}</strong></span>
+</form>
+
+{% if rows %}
+    <table class="list-table">
+        <thead>
+            <tr><th scope="col">{{ t('market.item') }}</th><th scope="col">{{ t('market.seller') }}</th><th scope="col" class="num">{{ t('market.price') }}</th><th scope="col"></th></tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>
+                        <span class="tip-cell market-item" tabindex="0">
+                            <img src="/assets/img/items/{{ row.card.image }}" alt="" loading="lazy">
+                            <span class="tip-label {{ row.card.color }}">{{ row.card.name }}</span>
+                            <span class="tip" role="tooltip">
+                                <strong class="{{ row.card.color }}">{{ row.card.name }}</strong>
+                                {% for line in row.card.lines %}<span class="{{ line.color }}{{ line.bold ? ' bold' }}">{{ line.text }}</span>{% endfor %}
+                                {% for class in row.card.classes %}<span class="tip-class{{ class.ok ? '' : ' redback' }}">{{ class.text }}</span>{% endfor %}
+                            </span>
+                        </span>
+                    </td>
+                    <td>{{ row.seller }}</td>
+                    <td class="num">{{ row.price }}</td>
+                    <td>
+                        {% if row.own %}
+                            <small>{{ t('market.yours') }}</small>
+                        {% else %}
+                            <form method="post" action="/market/buy" data-confirm="{{ t('market.confirm', {name: row.card.name, n: row.price}) }}">
+                                <input type="hidden" name="_csrf" value="{{ csrf }}">
+                                <button type="submit" name="id" value="{{ row.id }}">{{ t('market.buy') }}</button>
+                            </form>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {{ include('community/_pager.twig', {base: '/market?' ~ (seller ? 'seller=' ~ seller : 'all=1') ~ '&type=' ~ (filters.type ?? '') ~ '&class=' ~ (filters.class ?? '') ~ '&order=' ~ filters.order ~ '&page='}) }}
+{% else %}
+    <p class="empty-note">{{ t('market.empty') }}</p>
+{% endif %}
+{% endblock %}

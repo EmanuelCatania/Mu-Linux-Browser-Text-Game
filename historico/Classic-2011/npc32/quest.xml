@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<quest_list>
+
+<!-- experience quests -->
+
+<quest id="1" lmin="1" lmax="14">
+<id>1</id>
+<title>Spider Hunt</title>
+<description>The elder says spiders are spinning webs on the outer walls of the town and has asked us to take care of them. Although the request was made to the Shadow Phantom Guardians, I believe the job is suitable for travelers who are just starting out on their journey. Will you accept this quest? Hunt down 10 Spiders from around town, and I'll give you a reward. (Level 1-14)</description>
+<kind>monster</kind>
+<target>spider</target>
+<amount>10</amount>
+<reward>level</reward>
+</quest>
+
+<quest id="2" lmin="15" lmax="25">
+<id>2</id>
+<title>Dispose of the Town Plunderers</title>
+<description>I'm sure you are well aware of Kundun. The weakest and most disorganized monsters of Kundun's army are frequently attacking and plundering civilians just outside of town. I wanted to ask you to eliminate these plundering monsters... Will you accept this quest? Defeat 15 Liches from near the Dungeon entrance on the southwest side of town and return to me for a reward. (Level 15-25)</description>
+<kind>monster</kind>
+<target>lich</target>
+<amount>15</amount>
+<reward>level</reward>
+</quest>
+
+<quest id="3" lmin="26" lmax="35">
+<id>3</id>
+<title>Dispose of the Plunderers' Leader</title>
+<description>Our reconnaissance party reports that stolen supplies are being sent to Kundun's army. Please defeat the monsters controlling these plunderers while we ascertain the location of the supply route. Will you accept this quest? Defeat 20 Skeleton Warriors from near the Dungeon entrance on the southwest side of town and return to me for a reward. (Level 26-35)</description>
+<kind>monster</kind>
+<target>skeleton</target>
+<amount>20</amount>
+<reward>level</reward>
+</quest>
+
+<quest id="4" lmin="36" lmax="45">
+<id>4</id>
+<title>Monster Supply Route in Devias</title>
+<description>The reconnaissance party reports that the stolen supplies are being delivered to the Lost Tower by way of Devias. Severing the Kundun's supply route in Devias will be a devastating blow to the enemy. Will you accept this quest? Outside Devias, you'll encounter white monsters known as Worms. Defeat 25 Worms and return to me for a reward. (Level 36-45)</description>
+<kind>monster</kind>
+<target>worm</target>
+<amount>25</amount>
+<reward>level</reward>
+</quest>
+
+<quest id="5" lmin="46" lmax="55">
+<id>5</id>
+<title>Attack on the Supply Corps</title>
+<description>Now that the defense of the supply route has weakened, it's time to stir up the enemy's command structure a bit more. I'd like to ask you to defeat the high-ranking monsters that control those in charge of the supply route. Will you accept this quest? At Devias 2, you'll encounter semi-transparent Ice Monsters. Defeat 30 Ice Monsters and return to me for a reward. (Level 46-55)</description>
+<kind>monster</kind>
+<target>ice_monster</target>
+<amount>30</amount>
+<reward>level</reward>
+</quest>
+
+<quest id="6" lmin="56" lmax="65">
+<id>6</id>
+<title>Inland Supply Route</title>
+<description>Before attacking the supply warehouse, we plan to defeat the monsters guarding it first. Once those monsters have been dealt with, the reconnaissance party will handle the assault on the warehouse. Will you accept this quest? At Devias 2, you'll encounter Yetis covered in white fur. Defeat 30 Yetis and return to me for a reward. (Level 56-65)</description>
+<kind>monster</kind>
+<target>yeti</target>
+<amount>30</amount>
+<reward>level</reward>
+</quest>
+
+<quest id="7" lmin="66" lmax="79">
+<id>7</id>
+<title>Dungeon Sweep</title>
+<description>We launched an investigation after communication with our reconnaissance party at the Dungeon started to grow sporadic and we found out that they were too tied up in dealing with a growing number of monsters. Will you go to the Dungeon and help eradicate these monsters? At Dungeon Level 1, you'll encounter one-eyed giants that carry axes known as Cyclopses. Defeat 40 Cyclopses and return to me for a reward. (Level 66-79)</description>
+<kind>monster</kind>
+<target>cyclops</target>
+<amount>40</amount>
+<reward>level</reward>
+</quest>
+
+<quest id="8" lmin="80" lmax="90">
+<id>8</id>
+<title>Request of Elveland's Elder</title>
+<description>The quest to eliminate Totem Golems and Cursed Liches in Elveland was actually set by the elder of Elveland. He says now a larger number of monsters have appeared and asks us to deal with them. Will you accept this quest? At Elveland 3, you'll encounter Totem Golems born from totems. Defeat 50 Totem Golems and return to me for a reward. (Level 80-90)</description>
+<kind>monster</kind>
+<target>totem_golem</target>
+<amount>50</amount>
+<reward>level</reward>
+</quest>
+
+<quest id="9" lmin="91" lmax="100">
+<id>9</id>
+<title>Situation at the Dungeon (1)</title>
+<description>Monsters are taking over the Dungeon in Lorencia once again. Our reconnaissance party is too busy dealing with monsters and can't make prompt reports. I wish to ask for your help with this matter. Will you accept this quest? At Dungeon Level 2, you'll encounter poison-drooling Hell Hounds. Defeat 50 Hell Hounds and return to me for a reward. (Level 91-100)</description>
+<kind>monster</kind>
+<target>hell_hound</target>
+<amount>50</amount>
+<reward>level</reward>
+</quest>
+
+<quest id="10" lmin="101" lmax="110">
+<id>10</id>
+<title>Situation at the Dungeon (2)</title>
+<description>I have a monster hunt quest that will take you deeper into the Dungeon than before. Will you accept this quest? At Dungeon Level 2, you'll encounter Skeleton Archers that hide and fire arrows. Defeat 50 Skeleton Archers and return to me for a reward. (Level 101-110)</description>
+<kind>monster</kind>
+<target>skeleton_archer</target>
+<amount>50</amount>
+<reward>level</reward>
+</quest>
+
+
+<!-- item quests -->
+
+
+<quest id="31" lmin="80" lmax="90">
+<id>31</id>
+<title>The Beginning of Requests</title>
+<description>I need you to accept a small quest first as a test. Are you up to it? There is of course a reasonable reward for finishing. Defeat 50 Elite Yetis in Devias (Area 3). (Level 80-90)</description>
+<kind>monster</kind>
+<target>elite_yeti</target>
+<amount>50</amount>
+<reward>E.11.1.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_chaos</reward>
+</quest>
+
+</quest_list>
+
+

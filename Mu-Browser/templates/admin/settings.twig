@@ -1,0 +1,44 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('admin.nav_settings') }} - {{ t('admin.title') }}{% endblock %}
+
+{% block content %}
+{{ include('admin/_nav.twig', {section: 'settings'}) }}
+
+<nav class="catalog-tabs" aria-label="{{ t('admin.nav_settings') }}">
+    {% for g in groups %}<a href="/admin/settings/{{ g }}"{% if g == group %} class="current" aria-current="page"{% endif %}>{{ t('admin.group_' ~ g) }}</a>{% endfor %}
+</nav>
+
+<form method="post" action="/admin/settings/{{ group }}" class="panel">
+    <input type="hidden" name="_csrf" value="{{ csrf }}">
+    <h2 class="panel-title">{{ t('admin.group_' ~ group) }}</h2>
+    <div class="panel-body">
+        <table class="list-table settings-table">
+            <thead><tr><th scope="col">{{ t('admin.setting') }}</th><th scope="col">{{ t('admin.value') }}</th><th scope="col">{{ t('admin.default') }}</th></tr></thead>
+            <tbody>
+                {% for f in fields %}
+                    {% set name = f.path|replace({'.': '__'}) %}
+                    <tr class="{{ f.changed ? 'changed' }}{{ f.path in invalid ? ' invalid' }}">
+                        <th scope="row"><label for="{{ name }}">{{ t(f.key) }}</label>
+                            <br><small class="gray">{{ t('admin.type_' ~ f.type, {min: f.min, max: f.max}) }}</small></th>
+                        <td>
+                            {% if f.type == 'bool' %}
+                                <input type="checkbox" id="{{ name }}" name="{{ name }}" value="1"{{ f.value == '1' ? ' checked' }}>
+                            {% else %}
+                                <input type="text" id="{{ name }}" name="{{ name }}" value="{{ f.value }}" inputmode="numeric" size="{{ f.type == 'int' ? 12 : 28 }}">
+                            {% endif %}
+                            {% if f.path in invalid %}<br><small class="red">{{ t('admin.invalid_value') }}</small>{% endif %}
+                        </td>
+                        <td><small>{{ f.type == 'bool' ? t(f.default == '1' ? 'admin.yes' : 'admin.no') : f.default }}</small>{% if f.changed %} <span class="forum-tag">{{ t('admin.changed') }}</span>{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p class="quest-buttons">
+            <button type="submit" name="do" value="save" class="go">{{ t('admin.save') }}</button>
+            <button type="submit" name="do" value="reset" data-confirm="{{ t('admin.confirm_reset') }}">{{ t('admin.reset') }}</button>
+        </p>
+        <p class="inv-help">{{ t('admin.settings_note') }}</p>
+    </div>
+</form>
+{% endblock %}

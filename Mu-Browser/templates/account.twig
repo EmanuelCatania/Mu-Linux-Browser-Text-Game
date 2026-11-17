@@ -1,0 +1,44 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('account.title') }} - {{ t('site.title') }}{% endblock %}
+
+
+{% block content %}
+<div class="ucp ucp-wide">
+    <h1 class="title-bar">{{ t('account.title') }}</h1>
+    <div class="ucp-back ucp-columns">
+        <form class="ucp-main" method="post" action="/account/email">
+            <input type="hidden" name="_csrf" value="{{ csrf }}">
+            <h2>{{ t('account.change_email') }}</h2>
+            {% if error_form|default('') == 'email' %}{{ include('_errors.twig') }}{% endif %}
+            <p class="readonly">{{ t('account.username') }}: <b>{{ account.username }}</b><br>{{ t('auth.email') }}: <b>{{ account.email }}</b></p>
+
+            <label for="email">{{ t('account.new_email') }}</label>
+            <input type="email" id="email" name="email" value="{{ old.email|default('') }}" maxlength="255" required autocomplete="email">
+
+            <label for="email_current_password">{{ t('account.current_password') }}</label>
+            <input type="password" id="email_current_password" name="current_password" maxlength="128" required autocomplete="current-password">
+
+            <button type="submit">{{ t('account.save') }}</button>
+        </form>
+
+        <form class="ucp-main" method="post" action="/account/password">
+            <input type="hidden" name="_csrf" value="{{ csrf }}">
+            <h2>{{ t('account.change_password') }}</h2>
+            {% if error_form|default('') == 'password' %}{{ include('_errors.twig') }}{% endif %}
+
+            <label for="current_password">{{ t('account.current_password') }}</label>
+            <input type="password" id="current_password" name="current_password" maxlength="128" required autocomplete="current-password">
+
+            <label for="password">{{ t('account.new_password') }}</label>
+            <input type="password" id="password" name="password" minlength="8" maxlength="128" required autocomplete="new-password" aria-describedby="password-help">
+            <small id="password-help">{{ t('auth.password_help') }}</small>
+
+            <label for="password_again">{{ t('account.new_password_again') }}</label>
+            <input type="password" id="password_again" name="password_again" minlength="8" maxlength="128" required autocomplete="new-password">
+
+            <button type="submit">{{ t('account.save') }}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

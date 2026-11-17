@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="cursed_lich">
+<level>30</level>
+<hp>90</hp>
+<damage>110</damage>
+<defense>33</defense>
+<damage_rate>150</damage_rate>
+<defense_rate>33</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="ghost">
+<level>32</level>
+<hp>100</hp>
+<damage>115</damage>
+<defense>40</defense>
+<damage_rate>160</damage_rate>
+<defense_rate>39</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="elite_yeti">
+<level>36</level>
+<hp>420</hp>
+<damage>125</damage>
+<defense>50</defense>
+<damage_rate>180</damage_rate>
+<defense_rate>43</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="hell_hound">
+<level>38</level>
+<hp>140</hp>
+<damage>130</damage>
+<defense>55</defense>
+<damage_rate>190</damage_rate>
+<defense_rate>45</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="elite_skeleton">
+<level>42</level>
+<hp>180</hp>
+<damage>140</damage>
+<defense>65</defense>
+<damage_rate>210</damage_rate>
+<defense_rate>49</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="grizzly">
+<level>43</level>
+<hp>240</hp>
+<damage>140</damage>
+<defense>65</defense>
+<damage_rate>210</damage_rate>
+<defense_rate>52</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="vepar">
+<level>45</level>
+<hp>480</hp>
+<damage>145</damage>
+<defense>70</defense>
+<damage_rate>225</damage_rate>
+<defense_rate>58</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="valkyrie">
+<level>46</level>
+<hp>520</hp>
+<damage>150</damage>
+<defense>75</defense>
+<damage_rate>230</damage_rate>
+<defense_rate>64</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="captain_grizzly">
+<level>48</level>
+<hp>300</hp>
+<damage>150</damage>
+<defense>80</defense>
+<damage_rate>240</damage_rate>
+<defense_rate>70</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="poison_shadow">
+<level>50</level>
+<hp>2500</hp>
+<damage>160</damage>
+<defense>85</defense>
+<damage_rate>250</damage_rate>
+<defense_rate>73</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="cursed_wizard">
+<level>54</level>
+<hp>3000</hp>
+<damage>170</damage>
+<defense>95</defense>
+<damage_rate>270</damage_rate>
+<defense_rate>80</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="gorgon">
+<level>55</level>
+<hp>600</hp>
+<damage>175</damage>
+<defense>100</defense>
+<damage_rate>275</damage_rate>
+<defense_rate>82</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>cursed_lich</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>cursed_lich</encounter>
+<encounter>ghost</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>ghost</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>elite_yeti</encounter>
+<encounter>hell_hound</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>hell_hound</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>elite_skeleton</encounter>
+<encounter>grizzly</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>grizzly</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>grizzly</encounter>
+<encounter>vepar</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>vepar</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>valkyrie</encounter>
+<encounter>captain_grizzly</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>captain_grizzly</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>poison_shadow</encounter>
+<encounter>cursed_wizard</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>cursed_wizard</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>gorgon</encounter>
+</spot>
+
+
+</map>

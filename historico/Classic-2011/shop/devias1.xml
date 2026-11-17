@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<shop>
+<item id="0">E.11.1.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_chaos</item>
+<item id="1">E.11.2.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_creation</item>
+<item id="2">E.11.3.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.gemstone</item>
+<item id="3">E.11.4.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_bless_x_10</item>
+<item id="4">E.11.5.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_soul_x_10</item>
+<item id="5">E.11.6.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_guardian</item>
+<item id="6">0</item>
+<item id="7">0</item>
+
+<item id="8">2.24.1.0136.00.9.1489.2216.00.0.0.09.09.9.072.072.000000.dancer_sword</item>
+<item id="9">1</item>
+<item id="10">1.24.4.0153.00.9.1370!2085.00.0.0.09.09.9.095.095.000000.soleil_scepter</item>
+<item id="11">1</item>
+<item id="12">1.24.4.0132.00.9.1501!2117.00.0.0.09.09.9.090.090.00000A.absolute_scepter</item>
+<item id="13">1</item>
+<item id="14">1.24.1.0130.00.9.1425.2206.00.0.0.09.09.9.094.094.000000.rune_blade</item>
+<item id="15">1</item>
+
+<item id="16">1</item>
+<item id="17">1</item>
+<item id="18">1</item>
+<item id="19">1</item>
+<item id="20">1</item>
+<item id="21">1</item>
+<item id="22">1</item>
+<item id="23">1</item>
+
+<item id="24">1</item>
+<item id="25">1</item>
+<item id="26">1</item>
+<item id="27">1</item>
+<item id="28">1</item>
+<item id="29">1</item>
+<item id="30">1</item>
+<item id="31">1</item>
+
+<item id="32">1</item>
+<item id="33">1</item>
+<item id="34">1</item>
+<item id="35">1</item>
+<item id="36">1</item>
+<item id="37">1</item>
+<item id="38">1</item>
+<item id="39">1</item>
+
+<item id="40">1.14.3.0074.00.9.1191!2077.22.0.0.09.09.9.092.092.000000.grand_viper_staff</item>
+<item id="41">2.24.1.0153.00.9.1581.2176.21.0.0.09.09.9.089.089.000000.dark_breaker</item>
+<item id="42">1</item>
+<item id="43">2.24.2.0130.00.9.1335.2132.15.0.0.09.09.9.080.080.000000.chaos_dragon_axe</item>
+<item id="44">1</item>
+<item id="45">2.24.1.0168.00.9.1682.2123.21.0.0.09.09.9.092.092.000000.daybreak_sword</item>
+<item id="46">1</item>
+<item id="47">1.14.3.0078.00.9.1240.2081.24.0.0.09.09.9.096.096.000000.raven_stick</item>
+
+<item id="48">1</item>
+<item id="49">1</item>
+<item id="50">1</item>
+<item id="51">1</item>
+<item id="52">1</item>
+<item id="53">1</item>
+<item id="54">1</item>
+<item id="55">1</item>
+
+<item id="56">1</item>
+<item id="57">1</item>
+<item id="58">1</item>
+<item id="59">1</item>
+<item id="60">1</item>
+<item id="61">1</item>
+<item id="62">1</item>
+<item id="63">1</item>
+
+<item id="64">1</item>
+<item id="65">1</item>
+<item id="66">1</item>
+<item id="67">1</item>
+<item id="68">1</item>
+<item id="69">1</item>
+<item id="70">1</item>
+<item id="71">1</item>
+
+<item id="72">0</item>
+<item id="73">0</item>
+<item id="74">0</item>
+<item id="75">0</item>
+<item id="76">0</item>
+<item id="77">0</item>
+<item id="78">0</item>
+<item id="79">0</item>
+
+<item id="80">0</item>
+<item id="81">0</item>
+<item id="82">0</item>
+<item id="83">0</item>
+<item id="84">0</item>
+<item id="85">0</item>
+<item id="86">0</item>
+<item id="87">0</item>
+
+<item id="88">0</item>
+<item id="89">0</item>
+<item id="90">0</item>
+<item id="91">0</item>
+<item id="92">0</item>
+<item id="93">0</item>
+<item id="94">0</item>
+<item id="95">0</item>
+
+<item id="96">0</item>
+<item id="97">0</item>
+<item id="98">0</item>
+<item id="99">0</item>
+<item id="100">0</item>
+<item id="101">0</item>
+<item id="102">0</item>
+<item id="103">0</item>
+
+<item id="104">0</item>
+<item id="105">0</item>
+<item id="106">0</item>
+<item id="107">0</item>
+<item id="108">0</item>
+<item id="109">0</item>
+<item id="110">0</item>
+<item id="111">0</item>
+
+<item id="112">0</item>
+<item id="113">0</item>
+<item id="114">0</item>
+<item id="115">0</item>
+<item id="116">0</item>
+<item id="117">0</item>
+<item id="118">0</item>
+<item id="119">0</item>
+
+<item>devias1</item>
+<item>DEVIAS 1</item>
+<item>Isabel the Wizard</item>
+
+</shop>

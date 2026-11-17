@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" class="theme-{{ theme }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ t('site.title') }} - {{ t('site.tagline') }}{% endblock %}</title>
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="stylesheet" href="{{ asset('/assets/css/app.css') }}">
+</head>
+<body>
+{# Ítems del menú: [clave de texto, ruta]. Sin ruta = todavía no implementado. #}
+{% set menu = [
+    ['menu.characters', '/characters'],
+    ['menu.map', '/map'],
+    ['menu.inventory', '/inventory'],
+    ['menu.quest', '/quests'],
+    ['menu.npc', '/npc'],
+    ['menu.guild', '/guild'],
+    ['menu.pvp', '/pvp'],
+    ['menu.vault', '/vault'],
+    ['menu.shops', '/shops'],
+    ['menu.pstore', '/store'],
+    ['menu.market', '/market'],
+    ['menu.items', '/items'],
+    ['menu.skills', '/skills'],
+    ['menu.master', '/master'],
+] %}
+<div class="page">
+    <header class="banner">
+        <nav class="topnav" aria-label="{{ t('site.title') }}">
+            <a href="/">{{ t('nav.home') }}</a>
+            {% if account %}
+                <a href="/account">[{{ account.username }}]</a>
+                <form method="post" action="/logout">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <button type="submit" class="linklike">{{ t('nav.logout') }}</button>
+                </form>
+            {% else %}
+                <a href="/register">{{ t('nav.register') }}</a>
+                <a href="/login">{{ t('nav.login') }}</a>
+            {% endif %}
+            <a href="/forum">{{ t('nav.forum') }}</a>
+            <a href="/ranking">{{ t('nav.ranking') }}</a>
+            {% if account and account.isAdmin %}<a href="/admin" class="nav-admin">{{ t('nav.admin') }}</a>{% endif %}
+            {% if online is not null %}<a href="/online">{{ t('nav.online', {n: online}) }}</a>{% endif %}
+        </nav>
+
+        {% if account %}
+            <div class="bellbox">
+                <a href="/notifications" class="notify-bell{{ unread ? ' has-unread' }}" title="{{ t('notify.title') }}"
+                   aria-label="{{ t('notify.title') }}{{ unread ? ': ' ~ t('notify.unread', {n: unread}) }}">🔔<b class="notify-count"{{ unread ? '' : ' hidden' }}>{{ unread }}</b></a>
+            </div>
+        {% endif %}
+
+        <form class="themebox" method="post" action="/theme">
+            <input type="hidden" name="_csrf" value="{{ csrf }}">
+            <input type="hidden" name="return" value="{{ path }}">
+            <button type="submit" name="theme" value="{{ theme == 'dark' ? 'light' : 'dark' }}" class="theme-toggle"
+                    title="{{ t(theme == 'dark' ? 'nav.theme_light' : 'nav.theme_dark') }}" aria-label="{{ t(theme == 'dark' ? 'nav.theme_light' : 'nav.theme_dark') }}">{{ theme == 'dark' ? '☀' : '☾' }}</button>
+        </form>
+
+        <form class="langbox" method="post" action="/locale" aria-label="{{ t('nav.language') }}">
+            <input type="hidden" name="_csrf" value="{{ csrf }}">
+            <input type="hidden" name="return" value="{{ path }}">
+            {% for code, name in locales %}
+                <button type="submit" name="locale" value="{{ code }}" title="{{ name }}" lang="{{ code }}"
+                        class="flag{{ code == locale ? ' current' }}"{% if code == locale %} aria-current="true"{% endif %}><img src="/assets/img/flags/{{ code }}.svg" width="24" height="16" alt="{{ name }}"></button>
+            {% endfor %}
+        </form>
+    </header>
+
+    <aside class="sidebar">
+        <h2 class="panel-title">{{ t('menu.title') }}</h2>
+        <ul class="menu">
+            {% for item in menu %}
+                <li>
+                    {% if item[1] %}
+                        <a href="{{ item[1] }}">{{ t(item[0]) }}</a>
+                    {% else %}
+                        <span class="soon" title="{{ t('nav.soon') }}">{{ t(item[0]) }}</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        {% if character %}
+            {# Shadow Phantom Soldier: curarse desde cualquier pantalla, menos en plena batalla. #}
+            <div class="healer">
+                <h2 class="panel-title">Shadow Phantom Soldier</h2>
+                <form method="post" action="/quests">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <input type="hidden" name="return" value="{{ path }}">
+                    <img src="/assets/img/npc/quest.jpg" alt="" width="60" height="60">
+                    <button type="submit" name="do" value="restore"{{ fighting ? ' disabled' }}
+                            title="{{ fighting ? t('inventory.error_in_battle') : '' }}">{{ t('quest.restore') }}</button>
+                </form>
+            </div>
+        {% endif %}
+    </aside>
+
+    <main class="content">
+        {% if ticker %}
+            {# Barra de anuncios: verde = empieza en 5 minutos o menos, rojo = falta más, amarillo = en curso. #}
+            <div class="ticker" role="status" aria-label="{{ t('ticker.title') }}">
+                <div class="ticker-track" style="animation-duration: {{ 14 + ticker|length * 7 }}s">
+                    {% for item in ticker|merge(ticker) %}
+                        <{{ item.link ? 'a href="' ~ item.link ~ '"' : 'span' }} class="ticker-item ticker-{{ item.state }}">
+                            <i class="ticker-dot" aria-hidden="true"></i>
+                            {{- t(item.key|default('ticker.' ~ item.state), {event: item.name is defined ? item.name : t(item.event), time: item.time, place: item.place|default('')}) -}}
+                        </{{ item.link ? 'a' : 'span' }}>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        {% if flash %}
+            <p class="flash flash-{{ flash.type }}" role="status">{{ t(flash.key, flash.params|default({})) }}</p>
+        {% endif %}
+        {% if duel_alert and path != '/pvp' %}
+            <p class="flash flash-ok" role="status"><a href="/pvp">{{ t('pvp.alert') }}</a></p>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">{{ t('site.footer') }}</footer>
+</div>
+{% if character %}
+    <aside class="chat" data-csrf="{{ csrf }}" data-empty="{{ t('chat.empty') }}">
+        <button type="button" class="chat-toggle" aria-expanded="false" aria-controls="chat-panel">{{ t('chat.title') }}</button>
+        <div class="chat-panel" id="chat-panel" hidden>
+            <ol class="chat-log" aria-live="polite"></ol>
+            <form class="chat-form">
+                <input type="text" name="text" maxlength="120" autocomplete="off" placeholder="{{ t('chat.placeholder') }}" aria-label="{{ t('chat.placeholder') }}">
+                <button type="submit">{{ t('chat.send') }}</button>
+            </form>
+            <p class="chat-error red" role="alert" hidden></p>
+        </div>
+    </aside>
+    <script src="{{ asset('/assets/js/chat.js') }}" defer></script>
+{% endif %}
+<script src="{{ asset('/assets/js/app.js') }}" defer></script>
+</body>
+</html>

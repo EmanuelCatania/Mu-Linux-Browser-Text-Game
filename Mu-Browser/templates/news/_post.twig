@@ -1,0 +1,15 @@
+{# Una publicación. Espera post y summary (true = cortada, con enlace a la completa). #}
+<article class="news-post">
+    <header class="news-head">
+        <h2><a href="/news/{{ post.id }}">{{ post.title }}</a></h2>
+        <small>{{ post.created_at|date('d/m/Y H:i') }}{% if post.author %} · {{ post.author }}{% endif %}{% if not post.published %} · <strong class="red">{{ t('news.draft') }}</strong>{% endif %}</small>
+    </header>
+    <div class="news-content">
+        {% if post.image %}
+            <a href="/uploads/news/{{ post.image }}" class="news-image"><img src="/uploads/news/{{ post.image }}" alt="" loading="lazy"></a>
+        {% endif %}
+        {% set text = summary and post.body|length > 600 ? post.body|slice(0, 600) ~ '…' : post.body %}
+        <p>{{ text|nl2br }}</p>
+        {% if summary and post.body|length > 600 %}<p><a class="button" href="/news/{{ post.id }}">{{ t('news.read_more') }}</a></p>{% endif %}
+    </div>
+</article>

@@ -1,0 +1,51 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ npc_name }} - {{ t('menu.npc') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.npc') }}: {{ npc_name }}</h1>
+
+<nav class="catalog-tabs" aria-label="{{ t('menu.npc') }}">
+    {% for id, name in npcs %}
+        <a href="/npc/{{ id }}"{% if id == npc_id %} class="current" aria-current="page"{% endif %}>{{ name }}</a>
+    {% endfor %}
+    <a href="/npc/sebina">Sebina the Priestess</a>
+    <a href="/npc/marlon">Marlon</a>
+    <a href="/npc/devin">Apostle Devin</a>
+</nav>
+
+<div class="inv-root" data-csrf="{{ csrf }}" data-confirm-jewel="{{ t('inventory.confirm_jewel') }}">
+    {{ include('inventory/_actions.twig', {mode: 'npc'}) }}
+
+    <div class="inv-layout inv-layout-two">
+        <section class="panel">
+            <h2 class="panel-title">{{ npc_name }}</h2>
+            <div class="panel-body npc-body">
+                <img class="npc-picture" src="/assets/img/npc/{{ npc_id }}.gif" alt="">
+                <p>{{ t('npc.' ~ npc_id ~ '.text') }}</p>
+                {% if npc_id == 'chaos_machine' %}
+                    <ul class="recipes">
+                        {% for n in 1..9 %}<li>{{ t('npc.recipe_' ~ n) }}</li>{% endfor %}
+                    </ul>
+                {% endif %}
+                <h3>{{ t('npc.table') }}</h3>
+                {{ include('inventory/_grid.twig', {name: 'mix', rows: rows.mix, cards: mix}) }}
+                <form method="post" action="/npc/{{ npc_id }}/mix" class="npc-mix">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <button type="submit" class="go"{{ mix ? '' : ' disabled' }}>{{ t('npc.mix', {n: price}) }}</button>
+                </form>
+                <p class="inv-help">{{ t('npc.help') }}</p>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">{{ t('inventory.inventory') }} — {{ character.name }}</h2>
+            <div class="panel-body">
+                {{ include('inventory/_grid.twig', {name: 'inventory', rows: rows.inventory, cards: inventory}) }}
+                <p class="zen">{{ t('characters.zen') }}: <strong>{{ account.zen }}</strong></p>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="{{ asset('/assets/js/inventory.js') }}" defer></script>
+{% endblock %}

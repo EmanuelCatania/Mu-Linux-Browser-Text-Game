@@ -1,0 +1,13 @@
+# Opcional: conecta mu-web a la red externa proxy_net del reverse proxy (convención de Mu-Linux-97K).
+# Se usa sumándolo a docker-compose.yml, por ejemplo con esta línea en .env:
+#   COMPOSE_FILE=docker-compose.yml:docker-compose.proxy.yml
+# La red tiene que existir antes: docker network create proxy_net
+services:
+  mu-web:
+    networks:
+      - default
+      - proxy_net
+
+networks:
+  proxy_net:
+    external: true

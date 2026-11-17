@@ -1,0 +1,48 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('nav.ranking') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('nav.ranking') }}</h1>
+
+<form method="get" action="/ranking" class="filters">
+    <label>{{ t('characters.class') }}
+        <select name="class">
+            <option value="">{{ t('market.all') }}</option>
+            {% for key, label in classes %}<option value="{{ key }}"{{ filters.class == key ? ' selected' }}>{{ label }}</option>{% endfor %}
+        </select>
+    </label>
+    <label>{{ t('market.order') }}
+        <select name="order">
+            <option value="experience"{{ filters.order == 'experience' ? ' selected' }}>{{ t('characters.experience') }}</option>
+            <option value="kills"{{ filters.order == 'kills' ? ' selected' }}>{{ t('ranking.kills') }}</option>
+            <option value="pvp"{{ filters.order == 'pvp' ? ' selected' }}>{{ t('ranking.pvp') }}</option>
+        </select>
+    </label>
+    <button type="submit">{{ t('market.filter') }}</button>
+    <span class="filters-info">{{ t('ranking.count', {n: total}) }}</span>
+</form>
+
+{% if rows %}
+    <table class="list-table">
+        <thead>
+            <tr>
+                <th scope="col" class="num">#</th><th scope="col">{{ t('characters.name') }}</th><th scope="col">{{ t('characters.class') }}</th>
+                <th scope="col" class="num">{{ t('ranking.resets') }}</th><th scope="col" class="num">{{ t('ranking.level') }}</th><th scope="col" class="num">{{ t('characters.experience') }}</th>
+                <th scope="col" class="num">{{ t('ranking.kills') }}</th><th scope="col" class="num">{{ t('ranking.pvp') }}</th><th scope="col">{{ t('menu.guild') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in rows %}
+                <tr{% if character and character.name == r.name %} class="me"{% endif %}>
+                    <td class="num">{{ r.position }}</td><td>{{ r.name }}</td><td>{{ r.class_label }}</td>
+                    <td class="num">{{ r.resets }}</td><td class="num">{{ r.level }}</td><td class="num">{{ r.experience }}</td><td class="num">{{ r.kills }}</td><td class="num">{{ r.pvp_wins }} / {{ r.pvp_losses }}</td><td>{{ r.guild ?? '—' }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {{ include('community/_pager.twig', {base: '/ranking?class=' ~ (filters.class ?? '') ~ '&order=' ~ filters.order ~ '&page='}) }}
+{% else %}
+    <p class="empty-note">{{ t('home.top10_empty') }}</p>
+{% endif %}
+{% endblock %}

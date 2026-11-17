@@ -1,0 +1,62 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Sebina the Priestess - {{ t('menu.npc') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.npc') }}: Sebina the Priestess</h1>
+
+<p><a href="/npc">{{ t('evo.other_npcs') }}</a></p>
+
+<section class="panel">
+    <h2 class="panel-title">{{ t('evo.title') }}</h2>
+    <div class="panel-body">
+        <p>{{ t('evo.intro', {level: evo.level}) }}</p>
+
+        {% if evo.marlon.open and evo.step < 10 %}
+            <p><strong>{{ t('evo.go_to_marlon') }}</strong> <a href="/npc/marlon">Marlon</a></p>
+        {% elseif evo.devin.class or evo.devin.is_master %}
+            {# lo que sigue es con Devin #}
+            <p><strong>{{ t('evo.go_to_devin') }}</strong> <a href="/npc/devin">Apostle Devin</a></p>
+        {% elseif not evo.eligible %}
+            <p><strong>{{ t('evo.error_done') }}</strong></p>
+        {% else %}
+            <ol class="evo-steps">
+                <li class="{{ evo.step >= 2 ? 'done' : (evo.step == 1 ? 'current' : '') }}">
+                    {{ t('evo.step_scroll', {item: evo.scroll, zen: evo.scroll_zen, min: evo.scroll_levels[0], max: evo.scroll_levels[1]}) }}
+                </li>
+                <li class="{{ evo.step >= 4 ? 'done' : (evo.step == 3 ? 'current' : '') }}">
+                    {{ t('evo.step_treasure', {item: evo.treasure, zen: evo.treasure_zen, min: evo.treasure_levels[0], max: evo.treasure_levels[1]}) }}
+                </li>
+                <li>{{ t('evo.step_final', {class: evo.target, n: evo.points}) }}</li>
+            </ol>
+
+            {% if evo.step == 0 %}
+                {% if evo.level_ok %}
+                    <p>{{ t('evo.say_start', {item: evo.scroll, zen: evo.scroll_zen}) }}</p>
+                {% else %}
+                    <p><strong>{{ t('evo.error_level') }}</strong></p>
+                {% endif %}
+            {% elseif evo.step == 1 %}
+                <p><strong>{{ t('evo.say_hunting', {item: evo.scroll, min: evo.scroll_levels[0], max: evo.scroll_levels[1]}) }}</strong></p>
+            {% elseif evo.step == 2 %}
+                <p><strong>{{ t('evo.say_have', {item: evo.scroll}) }}</strong> {{ t('evo.say_next', {item: evo.treasure, zen: evo.treasure_zen, n: evo.points}) }}</p>
+            {% elseif evo.step == 3 %}
+                <p><strong>{{ t('evo.say_hunting', {item: evo.treasure, min: evo.treasure_levels[0], max: evo.treasure_levels[1]}) }}</strong></p>
+            {% elseif evo.step == 4 %}
+                <p><strong>{{ t('evo.say_have', {item: evo.treasure}) }}</strong> {{ t('evo.say_final', {class: evo.target}) }}</p>
+            {% endif %}
+
+            {% if (evo.step == 0 and evo.level_ok) or evo.step == 2 or evo.step == 4 %}
+                <form method="post" action="/npc/sebina">
+                    <input type="hidden" name="_csrf" value="{{ csrf }}">
+                    <button type="submit" class="go">
+                        {{ t(evo.step == 0 ? 'evo.do_start' : (evo.step == 2 ? 'evo.do_deliver' : 'evo.do_evolve')) }}
+                    </button>
+                </form>
+            {% endif %}
+            <p class="zen">{{ t('characters.zen') }}: <strong>{{ account.zen }}</strong></p>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

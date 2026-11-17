@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: valores de Monster.txt (Season 5); damage = daño máximo -->
+<monster name="hammer_scout">
+<level>97</level>
+<hp>45000</hp>
+<damage>560</damage>
+<defense>420</defense>
+<damage_rate>670</damage_rate>
+<defense_rate>250</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="lance_scout">
+<level>97</level>
+<hp>45000</hp>
+<damage>560</damage>
+<defense>420</defense>
+<damage_rate>670</damage_rate>
+<defense_rate>250</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="bow_scout">
+<level>97</level>
+<hp>45000</hp>
+<damage>560</damage>
+<defense>420</defense>
+<damage_rate>670</damage_rate>
+<defense_rate>250</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="werewolf">
+<level>118</level>
+<hp>110000</hp>
+<damage>850</damage>
+<defense>680</defense>
+<damage_rate>950</damage_rate>
+<defense_rate>355</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="hero_scout">
+<level>123</level>
+<hp>120000</hp>
+<damage>910</damage>
+<defense>740</defense>
+<damage_rate>980</damage_rate>
+<defense_rate>370</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="hero_werewolf">
+<level>127</level>
+<hp>123000</hp>
+<damage>1015</damage>
+<defense>800</defense>
+<damage_rate>1027</damage_rate>
+<defense_rate>397</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="balram">
+<level>132</level>
+<hp>140000</hp>
+<damage>1140</damage>
+<defense>885</defense>
+<damage_rate>1100</damage_rate>
+<defense_rate>440</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="soram">
+<level>134</level>
+<hp>164000</hp>
+<damage>1300</damage>
+<defense>982</defense>
+<damage_rate>1173</damage_rate>
+<defense_rate>500</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="balgass">
+<level>135</level>
+<hp>500000</hp>
+<damage>1500</damage>
+<defense>800</defense>
+<damage_rate>2000</damage_rate>
+<defense_rate>370</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot131" x="94" y="510">
+<encounter>hammer_scout</encounter>
+<encounter>lance_scout</encounter>
+<encounter>bow_scout</encounter>
+</spot>
+
+<spot id="spot132" x="270" y="278">
+<encounter>bow_scout</encounter>
+<encounter>werewolf</encounter>
+</spot>
+
+<spot id="spot133" x="54" y="174">
+<encounter>werewolf</encounter>
+<encounter>hero_scout</encounter>
+<encounter>hero_werewolf</encounter>
+</spot>
+
+<spot id="spot134" x="366" y="38">
+<encounter>hero_werewolf</encounter>
+<encounter>balram</encounter>
+</spot>
+
+<spot id="spot135" x="458" y="430">
+<encounter>balram</encounter>
+<encounter>soram</encounter>
+<encounter boss="3">balgass</encounter>
+</spot>
+
+
+</map>

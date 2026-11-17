@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<shop>
+<item id="0">F.11.1.0010.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.apple</item>
+<item id="1">F.11.2.0020.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.small_healing_potion</item>
+<item id="2">F.11.3.0030.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.medium_healing_potion</item>
+<item id="3">F.11.4.0040.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.large_healing_potion</item>
+<item id="4">F.11.6.0020.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.small_mana_potion</item>
+<item id="5">F.11.7.0030.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.medium_mana_potion</item>
+<item id="6">F.11.8.0040.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.large_mana_potion</item>
+<item id="7">F.11.A.0010.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.antidote</item>
+
+<item id="8">J.11.1.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.strength_fruit</item>
+<item id="9">J.11.2.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.agility_fruit</item>
+<item id="10">J.11.3.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.stamina_fruit</item>
+<item id="11">J.11.4.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.energy_fruit</item>
+<item id="12">I.12.1.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.golden_cherry_blossom_branch</item>
+<item id="13">I.12.2.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.red_cherry_blossom_branch</item>
+<item id="14">I.12.3.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.white_cherry_blossom_branch</item>
+<item id="15">I.12.4.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.blood_bone</item>
+
+<item id="16">I.12.5.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.scroll_of_archangel</item>
+<item id="17">I.12.9.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.illusion_sorcerer_covenant</item>
+<item id="18">I.11.7.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.devils_key</item>
+<item id="19">I.11.8.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.old_scroll</item>
+<item id="20">1</item>
+<item id="21">1</item>
+<item id="22">1</item>
+<item id="23">1</item>
+
+<item id="24">1</item>
+<item id="25">1</item>
+<item id="26">I.11.6.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.devils_eye</item>
+<item id="27">I.11.A.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.symbol_of_kundun</item>
+<item id="28">I.11.B.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.sign_of_dimensions</item>
+<item id="29">I.11.C.0000.00.0.0000.0000.00.0.0.00.00.0.001.020.000000.splinter_of_armor</item>
+<item id="30">I.11.D.0000.00.0.0000.0000.00.0.0.00.00.0.001.020.000000.bless_of_guardian</item>
+<item id="31">I.11.E.0000.00.0.0000.0000.00.0.0.00.00.0.001.010.000000.claw_of_beast</item>
+
+<item id="32">I.11.F.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.fragment_of_horn</item>
+<item id="33">I.22.G.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.broken_horn</item>
+<item id="34">1</item>
+<item id="35">I.11.K.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.sealed_silver_box</item>
+<item id="36">I.11.L.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.sealed_golden_box</item>
+<item id="37">I.11.M.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.silver_key</item>
+<item id="38">I.11.N.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.golden_key</item>
+<item id="39">0</item>
+
+<item id="40">0</item>
+<item id="41">1</item>
+<item id="42">1</item>
+<item id="43">0</item>
+<item id="44">0</item>
+<item id="45">0</item>
+<item id="46">0</item>
+<item id="47">0</item>
+
+<item id="48">0</item>
+<item id="49">0</item>
+<item id="50">0</item>
+<item id="51">0</item>
+<item id="52">0</item>
+<item id="53">0</item>
+<item id="54">0</item>
+<item id="55">0</item>
+
+<item id="56">0</item>
+<item id="57">0</item>
+<item id="58">0</item>
+<item id="59">0</item>
+<item id="60">0</item>
+<item id="61">0</item>
+<item id="62">0</item>
+<item id="63">0</item>
+
+<item id="64">0</item>
+<item id="65">0</item>
+<item id="66">0</item>
+<item id="67">0</item>
+<item id="68">0</item>
+<item id="69">0</item>
+<item id="70">0</item>
+<item id="71">0</item>
+
+<item id="72">0</item>
+<item id="73">0</item>
+<item id="74">0</item>
+<item id="75">0</item>
+<item id="76">0</item>
+<item id="77">0</item>
+<item id="78">0</item>
+<item id="79">0</item>
+
+<item id="80">0</item>
+<item id="81">0</item>
+<item id="82">0</item>
+<item id="83">0</item>
+<item id="84">0</item>
+<item id="85">0</item>
+<item id="86">0</item>
+<item id="87">0</item>
+
+<item id="88">0</item>
+<item id="89">0</item>
+<item id="90">0</item>
+<item id="91">0</item>
+<item id="92">0</item>
+<item id="93">0</item>
+<item id="94">0</item>
+<item id="95">0</item>
+
+<item id="96">0</item>
+<item id="97">0</item>
+<item id="98">0</item>
+<item id="99">0</item>
+<item id="100">0</item>
+<item id="101">0</item>
+<item id="102">0</item>
+<item id="103">0</item>
+
+<item id="104">0</item>
+<item id="105">0</item>
+<item id="106">0</item>
+<item id="107">0</item>
+<item id="108">0</item>
+<item id="109">0</item>
+<item id="110">0</item>
+<item id="111">0</item>
+
+<item id="112">0</item>
+<item id="113">0</item>
+<item id="114">0</item>
+<item id="115">0</item>
+<item id="116">0</item>
+<item id="117">0</item>
+<item id="118">0</item>
+<item id="119">0</item>
+
+<item>elbeland2</item>
+<item>ELBELAND 2</item>
+<item>Marseille</item>
+
+</shop>

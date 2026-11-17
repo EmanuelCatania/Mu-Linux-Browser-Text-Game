@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('catalog.skills_title') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('catalog.skills_title') }}</h1>
+<p class="catalog-hint">{{ t('catalog.skills_hint') }}</p>
+
+{% for group, skills in groups %}
+    {% if skills %}
+        <section class="panel">
+            <h2 class="panel-title">{{ t('skill.group_' ~ group) }}</h2>
+            <ul class="panel-body tip-grid tip-grid-skills">
+                {% for s in skills %}
+                    {{ include('catalog/_skill.twig', {s: s}) }}
+                {% endfor %}
+            </ul>
+        </section>
+    {% endif %}
+{% endfor %}
+{% endblock %}

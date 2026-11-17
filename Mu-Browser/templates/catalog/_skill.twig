@@ -1,0 +1,11 @@
+{# Una habilidad con su ficha emergente. Espera s = {code, name, lines}. #}
+<li class="tip-cell" tabindex="0">
+    <img src="/assets/img/skills/skill{{ s.code }}.gif" width="20" height="28" alt="">
+    <span class="tip-label">{{ s.name }}</span>
+    <div class="tip" role="tooltip">
+        <strong>{{ s.name }}</strong>
+        {% for line in s.lines %}
+            <span class="{{ line.color }}">{{ line.text }}</span>
+        {% endfor %}
+    </div>
+</li>

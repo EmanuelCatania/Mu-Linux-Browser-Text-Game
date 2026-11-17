@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: valores de Monster.txt (Season 5); damage = daño máximo -->
+<monster name="venomous_chain_scorpion">
+<level>99</level>
+<hp>50000</hp>
+<damage>590</damage>
+<defense>445</defense>
+<damage_rate>845</damage_rate>
+<defense_rate>248</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="bone_scorpion">
+<level>103</level>
+<hp>60000</hp>
+<damage>635</damage>
+<defense>485</defense>
+<damage_rate>915</damage_rate>
+<defense_rate>283</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="orcus">
+<level>105</level>
+<hp>65000</hp>
+<damage>655</damage>
+<defense>518</defense>
+<damage_rate>965</damage_rate>
+<defense_rate>293</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="gollock">
+<level>108</level>
+<hp>72000</hp>
+<damage>735</damage>
+<defense>545</defense>
+<damage_rate>1020</damage_rate>
+<defense_rate>315</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="crypta">
+<level>111</level>
+<hp>78000</hp>
+<damage>755</damage>
+<defense>560</defense>
+<damage_rate>1080</damage_rate>
+<defense_rate>340</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="crypos">
+<level>114</level>
+<hp>83000</hp>
+<damage>770</damage>
+<defense>575</defense>
+<damage_rate>1140</damage_rate>
+<defense_rate>375</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="condra">
+<level>117</level>
+<hp>90000</hp>
+<damage>790</damage>
+<defense>610</defense>
+<damage_rate>1200</damage_rate>
+<defense_rate>405</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="narcondra">
+<level>120</level>
+<hp>96000</hp>
+<damage>815</damage>
+<defense>640</defense>
+<damage_rate>1265</damage_rate>
+<defense_rate>425</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot121" x="30" y="462">
+<encounter>venomous_chain_scorpion</encounter>
+<encounter>bone_scorpion</encounter>
+</spot>
+
+<spot id="spot122" x="238" y="326">
+<encounter>bone_scorpion</encounter>
+<encounter>orcus</encounter>
+</spot>
+
+<spot id="spot123" x="458" y="506">
+<encounter>orcus</encounter>
+<encounter>gollock</encounter>
+<encounter>crypta</encounter>
+</spot>
+
+<spot id="spot124" x="506" y="142">
+<encounter>crypta</encounter>
+<encounter>crypos</encounter>
+</spot>
+
+<spot id="spot125" x="114" y="58">
+<encounter>crypos</encounter>
+<encounter>condra</encounter>
+<encounter boss="2">narcondra</encounter>
+</spot>
+
+
+</map>

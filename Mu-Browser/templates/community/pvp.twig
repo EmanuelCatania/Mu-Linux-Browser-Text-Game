@@ -1,0 +1,112 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('menu.pvp') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.pvp') }}</h1>
+
+<section class="panel">
+    <h2 class="panel-title">{{ character.name }} — {{ t('pvp.record', {wins: record.wins, losses: record.losses}) }}</h2>
+    <div class="panel-body">
+        {% if duel %}
+            {% set rival_name = role == 'challenger' ? duel.targetName : duel.challengerName %}
+            {% if role == 'target' and duel.status == 'pending' %}
+                <p><strong>{{ t('pvp.incoming', {name: rival_name}) }}</strong></p>
+            {% elseif role == 'target' %}
+                <p><strong>{{ t('pvp.wait_confirm', {name: rival_name}) }}</strong></p>
+            {% elseif duel.status == 'pending' %}
+                <p><strong>{{ t('pvp.wait_answer', {name: rival_name}) }}</strong></p>
+            {% else %}
+                <p><strong>{{ t('pvp.review', {name: rival_name}) }}</strong></p>
+            {% endif %}
+
+            <p>{{ t('pvp.stake_zen', {n: duel.zen}) }}</p>
+            {% if role == 'target' or duel.status == 'answered' %}
+                <p>{{ t('pvp.rival_items', {name: rival_name}) }}{% if not rival_stake %} {{ t('pvp.nothing') }}{% endif %}</p>
+                {% if rival_stake %}
+                    {{ include('inventory/_grid.twig', {name: 'rival', rows: rows.duel, cards: rival_stake}) }}
+                {% endif %}
+            {% endif %}
+
+            <form method="post" action="/pvp" class="store-form">
+                <input type="hidden" name="_csrf" value="{{ csrf }}">
+                <input type="hidden" name="duel" value="{{ duel.id }}">
+                {% if role == 'target' and duel.status == 'pending' %}
+                    <button type="submit" name="do" value="accept" class="go">{{ t('pvp.accept') }}</button>
+                    <button type="submit" name="do" value="withdraw">{{ t('pvp.decline') }}</button>
+                {% elseif role == 'challenger' and duel.status == 'answered' %}
+                    <button type="submit" name="do" value="confirm" class="go">{{ t('pvp.confirm') }}</button>
+                    <button type="submit" name="do" value="withdraw">{{ t('pvp.cancel') }}</button>
+                {% else %}
+                    <button type="submit" name="do" value="withdraw">{{ t('pvp.cancel') }}</button>
+                {% endif %}
+            </form>
+            {% if role == 'target' and duel.status == 'pending' %}
+                <p class="inv-help">{{ t('pvp.accept_help') }}</p>
+            {% endif %}
+        {% else %}
+            <form method="post" action="/pvp" class="store-form">
+                <input type="hidden" name="_csrf" value="{{ csrf }}">
+                <label for="pvp-rival">{{ t('pvp.rival') }}</label>
+                <input type="text" id="pvp-rival" name="rival" value="{{ rival }}" maxlength="12" required autocomplete="off">
+                <label for="pvp-zen">{{ t('pvp.zen') }}</label>
+                <input type="number" id="pvp-zen" name="zen" value="0" min="0" max="{{ max_zen }}" step="1" inputmode="numeric">
+                <button type="submit" name="do" value="challenge" class="go">{{ t('pvp.challenge') }}</button>
+            </form>
+            <p class="inv-help">{{ t('pvp.help') }} <a href="/online">{{ t('online.title') }}</a></p>
+        {% endif %}
+    </div>
+</section>
+
+<div class="inv-root" data-csrf="{{ csrf }}" data-confirm-jewel="{{ t('inventory.confirm_jewel') }}">
+    {{ include('inventory/_actions.twig', {mode: 'vault'}) }}
+
+    <div class="inv-layout inv-layout-two">
+        <section class="panel">
+            <h2 class="panel-title">{{ t('pvp.stake') }}{% if locked %} — {{ t('pvp.locked') }}{% endif %}</h2>
+            <div class="panel-body">
+                {{ include('inventory/_grid.twig', {name: 'duel', rows: rows.duel, cards: stake}) }}
+                <p class="inv-help">{{ t('pvp.stake_help') }}</p>
+                <h3>{{ t('pvp.prize') }}</h3>
+                {{ include('inventory/_grid.twig', {name: 'prize', rows: rows.prize, cards: prize}) }}
+                <p class="inv-help">{{ t('pvp.prize_help') }}</p>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">{{ t('inventory.inventory') }} — {{ character.name }}</h2>
+            <div class="panel-body">
+                {{ include('inventory/_grid.twig', {name: 'inventory', rows: rows.inventory, cards: inventory}) }}
+                <p class="zen">{{ t('characters.zen') }}: <strong>{{ account.zen }}</strong></p>
+            </div>
+        </section>
+    </div>
+</div>
+
+<h2 class="title-bar">{{ t('pvp.history') }}</h2>
+{% if history %}
+    <table class="list-table">
+        <thead>
+            <tr>
+                <th scope="col">{{ t('pvp.when') }}</th><th scope="col">{{ t('pvp.rival') }}</th><th scope="col">{{ t('pvp.outcome') }}</th>
+                <th scope="col" class="num">{{ t('characters.zen') }}</th><th scope="col" class="num">{{ t('pvp.items') }}</th><th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for h in history %}
+                {% set sign = h.outcome == 'win' ? '+' : (h.outcome == 'loss' ? '-' : '') %}
+                <tr>
+                    <td>{{ h.when }}</td><td>{{ h.rival }}</td>
+                    <td class="{{ h.outcome == 'win' ? 'green' : (h.outcome == 'loss' ? 'red' : '') }}">{{ t('pvp.outcome_' ~ h.outcome) }}</td>
+                    <td class="num">{{ h.outcome == 'draw' or h.zen == 0 ? '—' : sign ~ h.zen }}</td>
+                    <td class="num">{{ h.outcome == 'draw' or h.items == 0 ? '—' : sign ~ h.items }}</td>
+                    <td><a href="/pvp/{{ h.id }}">{{ t('pvp.see_report') }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p class="empty-note">{{ t('pvp.history_empty') }}</p>
+{% endif %}
+<script src="{{ asset('/assets/js/inventory.js') }}" defer></script>
+{% endblock %}

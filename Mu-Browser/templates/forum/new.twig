@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('forum.new_thread') }} - {{ t('forum.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('forum.cat_' ~ category) }}: {{ t('forum.new_thread') }}</h1>
+
+<p><a class="button" href="/forum/{{ category }}">« {{ t('forum.cat_' ~ category) }}</a></p>
+
+<form method="post" action="/forum/{{ category }}/new" class="panel forum-form">
+    <input type="hidden" name="_csrf" value="{{ csrf }}">
+    <div class="panel-body">
+        <label for="title">{{ t('forum.thread_title') }}</label>
+        <input type="text" id="title" name="title" maxlength="80" minlength="3" required value="{{ old.title|default('') }}">
+        <label for="body">{{ t('forum.message') }}</label>
+        <textarea id="body" name="body" rows="10" maxlength="5000" required>{{ old.body|default('') }}</textarea>
+        {% if category == 'bugs' %}<p class="inv-help">{{ t('forum.bugs_hint') }}</p>{% endif %}
+        <button type="submit" class="go">{{ t('forum.publish') }}</button>
+    </div>
+</form>
+{% endblock %}

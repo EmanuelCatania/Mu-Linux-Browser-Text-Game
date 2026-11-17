@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="orcus">
+<level>105</level>
+<hp>65000</hp>
+<damage>655</damage>
+<defense>518</defense>
+<damage_rate>965</damage_rate>
+<defense_rate>293</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="blaze_napin">
+<level>107</level>
+<hp>70000</hp>
+<damage>725</damage>
+<defense>530</defense>
+<damage_rate>1000</damage_rate>
+<defense_rate>303</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="phoenix_of_darkness">
+<level>108</level>
+<hp>95000</hp>
+<damage>1000</damage>
+<defense>600</defense>
+<damage_rate>900</damage_rate>
+<defense_rate>350</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="crypta">
+<level>111</level>
+<hp>78000</hp>
+<damage>755</damage>
+<defense>560</defense>
+<damage_rate>1080</damage_rate>
+<defense_rate>340</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="ruthless_lava_giant">
+<level>113</level>
+<hp>55000</hp>
+<damage>680</damage>
+<defense>535</defense>
+<damage_rate>1000</damage_rate>
+<defense_rate>340</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="balram">
+<level>117</level>
+<hp>75000</hp>
+<damage>650</damage>
+<defense>480</defense>
+<damage_rate>1200</damage_rate>
+<defense_rate>370</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="twin_tale">
+<level>117</level>
+<hp>87500</hp>
+<damage>1085</damage>
+<defense>865</defense>
+<damage_rate>1080</damage_rate>
+<defense_rate>440</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="persona">
+<level>118</level>
+<hp>68000</hp>
+<damage>1213</damage>
+<defense>615</defense>
+<damage_rate>1190</damage_rate>
+<defense_rate>485</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="dreadfear">
+<level>119</level>
+<hp>94000</hp>
+<damage>996</damage>
+<defense>783</defense>
+<damage_rate>1015</damage_rate>
+<defense_rate>905</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="narcondra">
+<level>120</level>
+<hp>96000</hp>
+<damage>815</damage>
+<defense>640</defense>
+<damage_rate>1265</damage_rate>
+<defense_rate>425</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="hero_scout">
+<level>123</level>
+<hp>120000</hp>
+<damage>910</damage>
+<defense>740</defense>
+<damage_rate>980</damage_rate>
+<defense_rate>370</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="hero_werewolf">
+<level>127</level>
+<hp>123000</hp>
+<damage>1015</damage>
+<defense>800</defense>
+<damage_rate>1027</damage_rate>
+<defense_rate>397</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>orcus</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>orcus</encounter>
+<encounter>blaze_napin</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>blaze_napin</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>phoenix_of_darkness</encounter>
+<encounter>crypta</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>crypta</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>ruthless_lava_giant</encounter>
+<encounter>balram</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>balram</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>balram</encounter>
+<encounter>twin_tale</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>twin_tale</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>persona</encounter>
+<encounter>dreadfear</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>dreadfear</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>narcondra</encounter>
+<encounter>hero_scout</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>hero_scout</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>hero_werewolf</encounter>
+</spot>
+
+
+</map>

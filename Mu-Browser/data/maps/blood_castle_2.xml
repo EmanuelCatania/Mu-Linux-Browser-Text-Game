@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="yeti">
+<level>30</level>
+<hp>290</hp>
+<damage>110</damage>
+<defense>37</defense>
+<damage_rate>150</damage_rate>
+<defense_rate>37</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="skeleton_archer">
+<level>34</level>
+<hp>110</hp>
+<damage>120</damage>
+<defense>45</defense>
+<damage_rate>170</damage_rate>
+<defense_rate>41</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="totem_golem">
+<level>36</level>
+<hp>120</hp>
+<damage>125</damage>
+<defense>50</defense>
+<damage_rate>180</damage_rate>
+<defense_rate>43</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="hell_spider">
+<level>40</level>
+<hp>160</hp>
+<damage>135</damage>
+<defense>60</defense>
+<damage_rate>200</damage_rate>
+<defense_rate>47</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="bahamut">
+<level>43</level>
+<hp>440</hp>
+<damage>140</damage>
+<defense>65</defense>
+<damage_rate>215</damage_rate>
+<defense_rate>52</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="thunder_lich">
+<level>44</level>
+<hp>200</hp>
+<damage>145</damage>
+<defense>70</defense>
+<damage_rate>220</damage_rate>
+<defense_rate>55</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+<monster name="poison_bull_fighter">
+<level>46</level>
+<hp>250</hp>
+<damage>150</damage>
+<defense>75</defense>
+<damage_rate>230</damage_rate>
+<defense_rate>61</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="shadow">
+<level>47</level>
+<hp>1800</hp>
+<damage>153</damage>
+<defense>78</defense>
+<damage_rate>235</damage_rate>
+<defense_rate>67</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+<monster name="dark_knight">
+<level>48</level>
+<hp>300</hp>
+<damage>155</damage>
+<defense>80</defense>
+<damage_rate>240</damage_rate>
+<defense_rate>70</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="ice_queen">
+<level>52</level>
+<hp>850</hp>
+<damage>165</damage>
+<defense>90</defense>
+<damage_rate>260</damage_rate>
+<defense_rate>76</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="gorgon">
+<level>55</level>
+<hp>600</hp>
+<damage>175</damage>
+<defense>100</defense>
+<damage_rate>275</damage_rate>
+<defense_rate>82</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>yeti</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>yeti</encounter>
+<encounter>skeleton_archer</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>skeleton_archer</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>totem_golem</encounter>
+<encounter>hell_spider</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>hell_spider</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>hell_spider</encounter>
+<encounter>bahamut</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>bahamut</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>thunder_lich</encounter>
+<encounter>poison_bull_fighter</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>poison_bull_fighter</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>poison_bull_fighter</encounter>
+<encounter>shadow</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>shadow</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>dark_knight</encounter>
+<encounter>ice_queen</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>ice_queen</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>gorgon</encounter>
+</spot>
+
+
+</map>

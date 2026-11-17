@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="death_tree">
+<level>72</level>
+<hp>10000</hp>
+<damage>272</damage>
+<defense>187</defense>
+<damage_rate>362</damage_rate>
+<defense_rate>120</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="forest_orc">
+<level>74</level>
+<hp>11000</hp>
+<damage>282</damage>
+<defense>197</defense>
+<damage_rate>390</damage_rate>
+<defense_rate>127</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="alquamos">
+<level>75</level>
+<hp>11500</hp>
+<damage>290</damage>
+<defense>195</defense>
+<damage_rate>385</damage_rate>
+<defense_rate>125</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="death_rider">
+<level>78</level>
+<hp>14000</hp>
+<damage>294</damage>
+<defense>222</defense>
+<damage_rate>402</damage_rate>
+<defense_rate>144</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="iron_wheel">
+<level>80</level>
+<hp>17500</hp>
+<damage>340</damage>
+<defense>220</defense>
+<damage_rate>445</damage_rate>
+<defense_rate>150</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="iron_rider">
+<level>82</level>
+<hp>18000</hp>
+<damage>365</damage>
+<defense>250</defense>
+<damage_rate>490</damage_rate>
+<defense_rate>168</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="tantalos">
+<level>82</level>
+<hp>22500</hp>
+<damage>395</damage>
+<defense>255</defense>
+<damage_rate>500</damage_rate>
+<defense_rate>175</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="blue_golem">
+<level>84</level>
+<hp>25000</hp>
+<damage>322</damage>
+<defense>277</defense>
+<damage_rate>507</damage_rate>
+<defense_rate>170</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="drakan">
+<level>86</level>
+<hp>29000</hp>
+<damage>480</damage>
+<defense>305</defense>
+<damage_rate>570</damage_rate>
+<defense_rate>210</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="zaikan">
+<level>90</level>
+<hp>34000</hp>
+<damage>590</damage>
+<defense>400</defense>
+<damage_rate>550</damage_rate>
+<defense_rate>185</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="alpha_crust">
+<level>92</level>
+<hp>34500</hp>
+<damage>540</damage>
+<defense>360</defense>
+<damage_rate>620</damage_rate>
+<defense_rate>240</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="kentauros">
+<level>93</level>
+<hp>38500</hp>
+<damage>505</damage>
+<defense>370</defense>
+<damage_rate>645</damage_rate>
+<defense_rate>220</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="witch_queen">
+<level>94</level>
+<hp>38500</hp>
+<damage>442</damage>
+<defense>357</defense>
+<damage_rate>637</damage_rate>
+<defense_rate>230</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="sapi_unus">
+<level>95</level>
+<hp>37000</hp>
+<damage>510</damage>
+<defense>370</defense>
+<damage_rate>700</damage_rate>
+<defense_rate>220</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>death_tree</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>forest_orc</encounter>
+<encounter>alquamos</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>alquamos</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>death_rider</encounter>
+<encounter>iron_wheel</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>iron_wheel</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>iron_rider</encounter>
+<encounter>tantalos</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>tantalos</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>blue_golem</encounter>
+<encounter>drakan</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>drakan</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>zaikan</encounter>
+<encounter>alpha_crust</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>alpha_crust</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>kentauros</encounter>
+<encounter>witch_queen</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>witch_queen</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>sapi_unus</encounter>
+</spot>
+
+
+</map>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="beetle_monster">
+<level>10</level>
+<hp>16</hp>
+<damage>31</damage>
+<defense>10</defense>
+<damage_rate>44</damage_rate>
+<defense_rate>10</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="hunter">
+<level>13</level>
+<hp>22</hp>
+<damage>41</damage>
+<defense>13</defense>
+<damage_rate>56</damage_rate>
+<defense_rate>13</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="lich">
+<level>14</level>
+<hp>25</hp>
+<damage>46</damage>
+<defense>14</defense>
+<damage_rate>62</damage_rate>
+<defense_rate>14</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="agon">
+<level>16</level>
+<hp>34</hp>
+<damage>57</damage>
+<defense>16</defense>
+<damage_rate>74</damage_rate>
+<defense_rate>16</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="stone_golem">
+<level>18</level>
+<hp>46</hp>
+<damage>68</damage>
+<defense>20</defense>
+<damage_rate>86</damage_rate>
+<defense_rate>20</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="skeleton">
+<level>19</level>
+<hp>52</hp>
+<damage>74</damage>
+<defense>22</defense>
+<damage_rate>93</damage_rate>
+<defense_rate>22</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="ice_monster">
+<level>22</level>
+<hp>65</hp>
+<damage>85</damage>
+<defense>27</defense>
+<damage_rate>110</damage_rate>
+<defense_rate>27</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="larva">
+<level>25</level>
+<hp>75</hp>
+<damage>95</damage>
+<defense>31</defense>
+<damage_rate>125</damage_rate>
+<defense_rate>31</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="cyclops">
+<level>28</level>
+<hp>85</hp>
+<damage>105</damage>
+<defense>35</defense>
+<damage_rate>140</damage_rate>
+<defense_rate>35</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="yeti">
+<level>30</level>
+<hp>290</hp>
+<damage>110</damage>
+<defense>37</defense>
+<damage_rate>150</damage_rate>
+<defense_rate>37</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="skeleton_archer">
+<level>34</level>
+<hp>110</hp>
+<damage>120</damage>
+<defense>45</defense>
+<damage_rate>170</damage_rate>
+<defense_rate>41</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>beetle_monster</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>beetle_monster</encounter>
+<encounter>hunter</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>hunter</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>lich</encounter>
+<encounter>agon</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>agon</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>agon</encounter>
+<encounter>stone_golem</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>stone_golem</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>skeleton</encounter>
+<encounter>ice_monster</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>ice_monster</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>ice_monster</encounter>
+<encounter>larva</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>larva</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>cyclops</encounter>
+<encounter>yeti</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>yeti</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>skeleton_archer</encounter>
+</spot>
+
+
+</map>

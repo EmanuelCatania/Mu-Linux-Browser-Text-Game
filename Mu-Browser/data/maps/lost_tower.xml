@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data -->
+<monster name="shadow">
+<level>47</level>
+<hp>1800</hp>
+<damage>153</damage>
+<defense>78</defense>
+<damage_rate>235</damage_rate>
+<defense_rate>67</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+<monster name="poison_shadow">
+<level>50</level>
+<hp>2500</hp>
+<damage>160</damage>
+<defense>85</defense>
+<damage_rate>250</damage_rate>
+<defense_rate>73</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="cursed_wizard">
+<level>54</level>
+<hp>3000</hp>
+<damage>170</damage>
+<defense>95</defense>
+<damage_rate>270</damage_rate>
+<defense_rate>80</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="death_cow">
+<level>57</level>
+<hp>3500</hp>
+<damage>180</damage>
+<defense>110</defense>
+<damage_rate>285</damage_rate>
+<defense_rate>85</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="devil">
+<level>60</level>
+<hp>5000</hp>
+<damage>195</damage>
+<defense>115</defense>
+<damage_rate>300</damage_rate>
+<defense_rate>88</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+<monster name="death_knight">
+<level>62</level>
+<hp>5500</hp>
+<damage>200</damage>
+<defense>120</defense>
+<damage_rate>310</damage_rate>
+<defense_rate>91</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="death_gorgon">
+<level>64</level>
+<hp>6000</hp>
+<damage>210</damage>
+<defense>130</defense>
+<damage_rate>320</damage_rate>
+<defense_rate>94</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="balrog">
+<level>66</level>
+<hp>9000</hp>
+<damage>240</damage>
+<defense>160</defense>
+<damage_rate>330</damage_rate>
+<defense_rate>105</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+
+<!-- golden invasion -->
+<monster name="golden_devil">
+<level>72</level>
+<hp>15000</hp>
+<damage>280</damage>
+<defense>190</defense>
+<damage_rate>365</damage_rate>
+<defense_rate>120</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+
+<!-- npc -->
+
+
+<!-- spots -->
+<spot id="spot51" x="180" y="460">
+<encounter>shadow</encounter>
+<encounter>poison_shadow</encounter>
+</spot>
+
+<spot id="spot52" x="480" y="470">
+<encounter>shadow</encounter>
+<encounter>poison_shadow</encounter>
+<encounter>cursed_wizard</encounter>
+</spot>
+
+<spot id="spot53" x="382" y="220">
+<encounter>cursed_wizard</encounter>
+<encounter>death_cow</encounter>
+</spot>
+
+<spot id="spot54" x="86" y="244">
+<encounter>devil</encounter>
+<encounter>death_knight</encounter>
+</spot>
+
+<spot id="spot55" x="198" y="104">
+<encounter>devil</encounter>
+<encounter>death_knight</encounter>
+<encounter>death_gorgon</encounter>
+</spot>
+
+<spot id="spot56" x="474" y="60">
+<encounter boss="1">balrog</encounter>
+<encounter>death_knight</encounter>
+<encounter>death_gorgon</encounter>
+</spot>
+
+</map>
+

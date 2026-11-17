@@ -1,0 +1,30 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('menu.vault') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('menu.vault') }}</h1>
+
+<div class="inv-root" data-csrf="{{ csrf }}" data-confirm-jewel="{{ t('inventory.confirm_jewel') }}">
+    {{ include('inventory/_actions.twig', {mode: 'vault'}) }}
+
+    <div class="inv-layout inv-layout-two">
+        <section class="panel">
+            <h2 class="panel-title">{{ t('menu.vault') }}</h2>
+            <div class="panel-body">
+                {{ include('inventory/_grid.twig', {name: 'vault', rows: rows.vault, cards: vault}) }}
+                <p class="inv-help">{{ t('vault.shared') }}</p>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">{{ t('inventory.inventory') }} — {{ character.name }}</h2>
+            <div class="panel-body">
+                {{ include('inventory/_grid.twig', {name: 'inventory', rows: rows.inventory, cards: inventory}) }}
+                <p class="zen">{{ t('characters.zen') }}: <strong>{{ account.zen }}</strong></p>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="{{ asset('/assets/js/inventory.js') }}" defer></script>
+{% endblock %}

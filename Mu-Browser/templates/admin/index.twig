@@ -1,0 +1,15 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('admin.title') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+{{ include('admin/_nav.twig', {section: 'home'}) }}
+
+<ul class="store-list">
+    <li><a class="store-card" href="/admin/settings"><strong>{{ t('admin.nav_settings') }}</strong><span>{{ t('admin.settings_help') }}</span><span>{{ t('admin.settings_count', {n: counts.settings}) }}</span><span class="button">{{ t('market.enter') }}</span></a></li>
+    <li><a class="store-card" href="/admin/news"><strong>{{ t('admin.nav_news') }}</strong><span>{{ t('admin.news_help') }}</span><span>{{ t('admin.news_count', {n: counts.news}) }}</span><span class="button">{{ t('market.enter') }}</span></a></li>
+    <li><a class="store-card" href="/admin/accounts"><strong>{{ t('admin.nav_accounts') }}</strong><span>{{ t('admin.accounts_help') }}</span><span>{{ t('admin.accounts_count', {n: counts.accounts}) }}</span><span class="button">{{ t('market.enter') }}</span></a></li>
+    <li><a class="store-card" href="/admin/forum"><strong>{{ t('admin.nav_forum') }}</strong><span>{{ t('admin.forum_help') }}</span><span class="button">{{ t('market.enter') }}</span></a></li>
+</ul>
+<p class="inv-help">{{ t('admin.files_help') }}</p>
+{% endblock %}

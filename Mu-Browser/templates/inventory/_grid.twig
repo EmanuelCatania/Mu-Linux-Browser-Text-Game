@@ -1,0 +1,6 @@
+{# Grilla de 8 columnas. Espera name (contenedor), rows y cards. #}
+<div class="grid" data-container="{{ name }}" data-rows="{{ rows }}" style="--rows: {{ rows }};">
+    {% for card in cards %}
+        {{ include('inventory/_item.twig', {card: card, container: name}) }}
+    {% endfor %}
+</div>

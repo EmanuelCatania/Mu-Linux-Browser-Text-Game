@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: valores de Monster.txt (Season 5); damage = daño máximo -->
+<monster name="alquamos">
+<level>75</level>
+<hp>11500</hp>
+<damage>290</damage>
+<defense>195</defense>
+<damage_rate>385</damage_rate>
+<defense_rate>125</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="mega_crust">
+<level>78</level>
+<hp>15000</hp>
+<damage>320</damage>
+<defense>210</defense>
+<damage_rate>430</damage_rate>
+<defense_rate>140</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="queen_rainier">
+<level>82</level>
+<hp>19000</hp>
+<damage>350</damage>
+<defense>230</defense>
+<damage_rate>475</damage_rate>
+<defense_rate>160</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="drakan">
+<level>86</level>
+<hp>29000</hp>
+<damage>480</damage>
+<defense>305</defense>
+<damage_rate>570</damage_rate>
+<defense_rate>210</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="alpha_crust">
+<level>92</level>
+<hp>34500</hp>
+<damage>540</damage>
+<defense>360</defense>
+<damage_rate>620</damage_rate>
+<defense_rate>240</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="phantom_knight">
+<level>96</level>
+<hp>41000</hp>
+<damage>610</damage>
+<defense>425</defense>
+<damage_rate>690</damage_rate>
+<defense_rate>270</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="great_drakan">
+<level>100</level>
+<hp>50000</hp>
+<damage>700</damage>
+<defense>495</defense>
+<damage_rate>800</damage_rate>
+<defense_rate>305</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="phoenix_of_darkness">
+<level>108</level>
+<hp>95000</hp>
+<damage>1000</damage>
+<defense>600</defense>
+<damage_rate>900</damage_rate>
+<defense_rate>350</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+
+<!-- golden invasion -->
+<monster name="golden_crust">
+<level>92</level>
+<hp>34500</hp>
+<damage>540</damage>
+<defense>360</defense>
+<damage_rate>620</damage_rate>
+<defense_rate>240</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<!-- spots -->
+<spot id="spot81" x="74" y="214">
+<encounter>alquamos</encounter>
+<encounter>mega_crust</encounter>
+</spot>
+
+<spot id="spot82" x="30" y="30">
+<encounter>mega_crust</encounter>
+<encounter>queen_rainier</encounter>
+</spot>
+
+<spot id="spot83" x="270" y="78">
+<encounter>queen_rainier</encounter>
+<encounter>drakan</encounter>
+</spot>
+
+<spot id="spot84" x="394" y="138">
+<encounter>drakan</encounter>
+<encounter>alpha_crust</encounter>
+<encounter>phantom_knight</encounter>
+</spot>
+
+<spot id="spot85" x="510" y="62">
+<encounter>phantom_knight</encounter>
+<encounter>great_drakan</encounter>
+<encounter boss="3">phoenix_of_darkness</encounter>
+</spot>
+
+
+</map>

@@ -1,0 +1,126 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ map.label }} - {{ t('map.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ map.label }}{% if selected %} / {{ t('map.spot', {n: selected.number}) }}{% endif %}</h1>
+
+<div class="map-layout">
+    <div class="map-frame">
+        <img src="{{ img('/assets/img/maps/' ~ map.id ~ '.jpg', '/assets/img/maps/zone_blank.jpg') }}" width="572" height="572" alt="">
+        {% for s in spots %}
+            <a class="map-point map-spot{{ selected and selected.id == s.id ? ' current' }}"
+               href="/map/{{ map.id }}?spot={{ s.id }}" style="left: {{ s.left }}%; top: {{ s.top }}%;"
+               {% if selected and selected.id == s.id %}aria-current="true"{% endif %}>
+                <span class="map-dot" aria-hidden="true"></span>
+                <span class="map-tag">{{ t('map.spot', {n: s.number}) }}<br>{{ t('map.levels', {min: s.min, max: s.max}) }}</span>
+            </a>
+        {% endfor %}
+        <a class="map-return" href="/map">{{ t('map.back') }}</a>
+    </div>
+
+    <div class="map-side">
+        {% if selected %}
+            <section class="panel">
+                <h2 class="panel-title">{{ t('map.spot', {n: selected.number}) }}</h2>
+                <div class="panel-body">
+                    <img class="spot-picture" src="{{ img('/assets/img/maps/' ~ selected.id ~ '.jpg', '/assets/img/maps/spot_blank.jpg') }}" alt="">
+                    <p>{{ t('map.players', {n: selected.players, max: selected.capacity}) }}</p>
+                    <h3>{{ t('map.encounters') }}</h3>
+                    <ul class="monster-list">
+                        {% for m in selected.monsters %}
+                            <li>
+                                <img src="{{ img('/assets/img/monsters/' ~ m.name ~ '.gif', '/assets/img/monsters/unknown.gif') }}" width="64" height="64" alt="">
+                                <span>{{ m.label }}<br><small>{{ t('map.level', {n: m.level}) }}</small>
+                                    {% if m.stars %}<br><span class="stars" title="{{ t('map.boss') }}">{% for i in 1..m.stars %}★{% endfor %}</span>{% endif %}
+                                </span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% if character %}
+                        <form method="post" action="/battle/enter">
+                            <input type="hidden" name="_csrf" value="{{ csrf }}">
+                            <input type="hidden" name="map" value="{{ map.id }}">
+                            <input type="hidden" name="spot" value="{{ selected.id }}">
+                            <button type="submit" class="go">{{ t('map.go') }}</button>
+                        </form>
+                    {% else %}
+                        <p><a href="/characters">{{ t('map.need_character') }}</a></p>
+                    {% endif %}
+                </div>
+            </section>
+        {% else %}
+            <section class="panel">
+                <h2 class="panel-title">{{ t('map.spots') }}</h2>
+                <ul class="panel-body map-list">
+                    {% for s in spots %}
+                        <li><a href="/map/{{ map.id }}?spot={{ s.id }}">{{ t('map.spot', {n: s.number}) }}</a> <span>{{ t('map.levels', {min: s.min, max: s.max}) }}</span></li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        {% set here = path ~ (selected ? '?spot=' ~ selected.id : '') %}
+        <section class="panel">
+            <h2 class="panel-title">{{ t('party.players') }}</h2>
+            <div class="panel-body">
+                {% if players %}
+                    <ul class="party-list">
+                        {% for p in players %}
+                            <li>
+                                <span><strong>{{ p.name }}</strong><br><small>{{ p.class }} · {{ t('characters.level', {n: p.level}) }} · {{ t('map.spot', {n: p.spot|replace({'spot': ''})}) }}</small></span>
+                                {% if character and p.name != character.name %}
+                                    {% if p.party_id %}
+                                        <small>{{ t(party.id and p.party_id == party.id ? 'party.mate' : 'party.taken') }}</small>
+                                    {% else %}
+                                        <form method="post" action="/party">
+                                            <input type="hidden" name="_csrf" value="{{ csrf }}">
+                                            <input type="hidden" name="return" value="{{ here }}">
+                                            <input type="hidden" name="name" value="{{ p.name }}">
+                                            <button type="submit" name="do" value="invite">{{ t('party.invite') }}</button>
+                                        </form>
+                                    {% endif %}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>{{ t('party.nobody') }}</p>
+                {% endif %}
+            </div>
+        </section>
+
+        {% if character %}
+            <section class="panel">
+                <h2 class="panel-title">{{ t('party.title') }}</h2>
+                <div class="panel-body">
+                    {% if party.inviter and not party.id %}
+                        <form method="post" action="/party" class="quest-buttons">
+                            <input type="hidden" name="_csrf" value="{{ csrf }}">
+                            <input type="hidden" name="return" value="{{ here }}">
+                            <p>{{ t('party.invited_by', {name: party.inviter}) }}</p>
+                            <button type="submit" name="do" value="accept" class="go">{{ t('party.accept') }}</button>
+                            <button type="submit" name="do" value="decline">{{ t('party.decline') }}</button>
+                        </form>
+                    {% endif %}
+                    {% if party.id %}
+                        <ul class="party-list">
+                            {% for m in party.members %}
+                                <li><span><strong>{{ m.name }}</strong>{% if m.leader %} ★{% endif %}<br><small>{{ m.class }} · {{ t('characters.level', {n: m.level}) }}</small></span></li>
+                            {% endfor %}
+                        </ul>
+                        <form method="post" action="/party">
+                            <input type="hidden" name="_csrf" value="{{ csrf }}">
+                            <input type="hidden" name="return" value="{{ here }}">
+                            <button type="submit" name="do" value="leave">{{ t('party.leave') }}</button>
+                        </form>
+                    {% elseif not party.inviter %}
+                        <p>{{ t('party.none') }}</p>
+                    {% endif %}
+                    <p class="golden-help">{{ t('party.help', {n: share}) }}</p>
+                </div>
+            </section>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

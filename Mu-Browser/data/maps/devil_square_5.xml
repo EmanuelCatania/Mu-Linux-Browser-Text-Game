@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="zaikan">
+<level>90</level>
+<hp>34000</hp>
+<damage>590</damage>
+<defense>400</defense>
+<damage_rate>550</damage_rate>
+<defense_rate>185</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="alpha_crust">
+<level>92</level>
+<hp>34500</hp>
+<damage>540</damage>
+<defense>360</defense>
+<damage_rate>620</damage_rate>
+<defense_rate>240</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="kentauros">
+<level>93</level>
+<hp>38500</hp>
+<damage>505</damage>
+<defense>370</defense>
+<damage_rate>645</damage_rate>
+<defense_rate>220</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="witch_queen">
+<level>94</level>
+<hp>38500</hp>
+<damage>442</damage>
+<defense>357</defense>
+<damage_rate>637</damage_rate>
+<defense_rate>230</defense_rate>
+<attribute>earth</attribute>
+</monster>
+
+<monster name="phantom_knight">
+<level>96</level>
+<hp>41000</hp>
+<damage>610</damage>
+<defense>425</defense>
+<damage_rate>690</damage_rate>
+<defense_rate>270</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="bow_scout">
+<level>97</level>
+<hp>45000</hp>
+<damage>560</damage>
+<defense>420</defense>
+<damage_rate>670</damage_rate>
+<defense_rate>250</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="lance_scout">
+<level>97</level>
+<hp>45000</hp>
+<damage>560</damage>
+<defense>420</defense>
+<damage_rate>670</damage_rate>
+<defense_rate>250</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="gigantis">
+<level>98</level>
+<hp>43000</hp>
+<damage>581</damage>
+<defense>430</defense>
+<damage_rate>715</damage_rate>
+<defense_rate>250</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="shadow_pawn">
+<level>98</level>
+<hp>48500</hp>
+<damage>575</damage>
+<defense>430</defense>
+<damage_rate>830</damage_rate>
+<defense_rate>240</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="ash_slaughterer">
+<level>100</level>
+<hp>27000</hp>
+<damage>370</damage>
+<defense>270</defense>
+<damage_rate>810</damage_rate>
+<defense_rate>230</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="great_drakan">
+<level>100</level>
+<hp>50000</hp>
+<damage>700</damage>
+<defense>495</defense>
+<damage_rate>800</damage_rate>
+<defense_rate>305</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="ice_walker">
+<level>102</level>
+<hp>68000</hp>
+<damage>1965</damage>
+<defense>615</defense>
+<damage_rate>1190</damage_rate>
+<defense_rate>800</defense_rate>
+<attribute>ice</attribute>
+</monster>
+
+<monster name="bone_scorpion">
+<level>103</level>
+<hp>60000</hp>
+<damage>635</damage>
+<defense>485</defense>
+<damage_rate>915</damage_rate>
+<defense_rate>283</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="genocider">
+<level>105</level>
+<hp>48500</hp>
+<damage>675</damage>
+<defense>515</defense>
+<damage_rate>810</damage_rate>
+<defense_rate>290</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="ghost_napin">
+<level>106</level>
+<hp>68000</hp>
+<damage>665</damage>
+<defense>535</defense>
+<damage_rate>980</damage_rate>
+<defense_rate>295</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="gollock">
+<level>108</level>
+<hp>72000</hp>
+<damage>735</damage>
+<defense>545</defense>
+<damage_rate>1020</damage_rate>
+<defense_rate>315</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="phoenix_of_darkness">
+<level>108</level>
+<hp>95000</hp>
+<damage>1000</damage>
+<defense>600</defense>
+<damage_rate>900</damage_rate>
+<defense_rate>350</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>zaikan</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>alpha_crust</encounter>
+<encounter>kentauros</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>kentauros</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>witch_queen</encounter>
+<encounter>phantom_knight</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>phantom_knight</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>lance_scout</encounter>
+<encounter>gigantis</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>gigantis</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>shadow_pawn</encounter>
+<encounter>ash_slaughterer</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>ash_slaughterer</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>ice_walker</encounter>
+<encounter>bone_scorpion</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>bone_scorpion</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>genocider</encounter>
+<encounter>ghost_napin</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>ghost_napin</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>phoenix_of_darkness</encounter>
+</spot>
+
+
+</map>

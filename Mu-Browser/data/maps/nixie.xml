@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: mapa posterior a Season 5; valores propios, que continúan la curva de los monstruos comunes de Raklion -->
+<monster name="vasuki">
+<level>154</level>
+<hp>132000</hp>
+<damage>2710</damage>
+<defense>795</defense>
+<damage_rate>2410</damage_rate>
+<defense_rate>985</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="bass">
+<level>156</level>
+<hp>141000</hp>
+<damage>2800</damage>
+<defense>825</defense>
+<damage_rate>2500</damage_rate>
+<defense_rate>1020</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="paraca">
+<level>158</level>
+<hp>150000</hp>
+<damage>2900</damage>
+<defense>855</defense>
+<damage_rate>2600</damage_rate>
+<defense_rate>1060</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- world boss -->
+<monster name="nix">
+<level>164</level>
+<hp>2200000</hp>
+<damage>3800</damage>
+<defense>1700</defense>
+<damage_rate>3300</damage_rate>
+<defense_rate>2200</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<!-- spots -->
+<spot id="spot191" x="158" y="446">
+<encounter>vasuki</encounter>
+</spot>
+
+<spot id="spot192" x="342" y="294">
+<encounter>vasuki</encounter>
+<encounter>bass</encounter>
+</spot>
+
+<spot id="spot193" x="150" y="174">
+<encounter>bass</encounter>
+<encounter>paraca</encounter>
+</spot>
+
+<spot id="spot194" x="322" y="58">
+<encounter>paraca</encounter>
+</spot>
+
+
+</map>

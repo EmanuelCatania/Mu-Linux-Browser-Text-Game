@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data: valores de Monster.txt (Season 5); damage = daño máximo -->
+<monster name="splinter_wolf">
+<level>80</level>
+<hp>16000</hp>
+<damage>340</damage>
+<defense>230</defense>
+<damage_rate>460</damage_rate>
+<defense_rate>163</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="iron_rider">
+<level>82</level>
+<hp>18000</hp>
+<damage>365</damage>
+<defense>250</defense>
+<damage_rate>490</damage_rate>
+<defense_rate>168</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="satyros">
+<level>85</level>
+<hp>22000</hp>
+<damage>395</damage>
+<defense>280</defense>
+<damage_rate>540</damage_rate>
+<defense_rate>177</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="blade_hunter">
+<level>88</level>
+<hp>32000</hp>
+<damage>443</damage>
+<defense>315</defense>
+<damage_rate>587</damage_rate>
+<defense_rate>195</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="kentauros">
+<level>93</level>
+<hp>38500</hp>
+<damage>505</damage>
+<defense>370</defense>
+<damage_rate>645</damage_rate>
+<defense_rate>220</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="gigantis">
+<level>98</level>
+<hp>43000</hp>
+<damage>581</damage>
+<defense>430</defense>
+<damage_rate>715</damage_rate>
+<defense_rate>250</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="berserker">
+<level>100</level>
+<hp>44370</hp>
+<damage>590</damage>
+<defense>443</defense>
+<damage_rate>728</damage_rate>
+<defense_rate>255</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="genocider">
+<level>105</level>
+<hp>48500</hp>
+<damage>675</damage>
+<defense>515</defense>
+<damage_rate>810</damage_rate>
+<defense_rate>290</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+
+<!-- golden invasion -->
+<monster name="golden_satyros">
+<level>108</level>
+<hp>95000</hp>
+<damage>1000</damage>
+<defense>600</defense>
+<damage_rate>900</damage_rate>
+<defense_rate>350</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<!-- spots -->
+<spot id="spot101" x="82" y="498">
+<encounter>splinter_wolf</encounter>
+<encounter>iron_rider</encounter>
+</spot>
+
+<spot id="spot102" x="290" y="538">
+<encounter>iron_rider</encounter>
+<encounter>satyros</encounter>
+</spot>
+
+<spot id="spot103" x="474" y="430">
+<encounter>satyros</encounter>
+<encounter>blade_hunter</encounter>
+<encounter>kentauros</encounter>
+</spot>
+
+<spot id="spot104" x="498" y="42">
+<encounter>kentauros</encounter>
+<encounter>gigantis</encounter>
+</spot>
+
+<spot id="spot105" x="82" y="90">
+<encounter>gigantis</encounter>
+<encounter>berserker</encounter>
+<encounter boss="2">genocider</encounter>
+</spot>
+
+
+</map>

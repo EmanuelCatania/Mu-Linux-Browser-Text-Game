@@ -1,0 +1,30 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('admin.nav_news') }} - {{ t('admin.title') }}{% endblock %}
+
+{% block content %}
+{{ include('admin/_nav.twig', {section: 'news'}) }}
+
+<div class="filters">
+    <span>{{ t('admin.news_help') }}</span>
+    <a class="button filters-info" href="/admin/news/new">{{ t('admin.news_new') }}</a>
+</div>
+
+{% if posts %}
+    <table class="list-table">
+        <thead><tr><th scope="col">{{ t('admin.news_title') }}</th><th scope="col">{{ t('admin.news_date') }}</th><th scope="col">{{ t('admin.news_state') }}</th><th scope="col"></th></tr></thead>
+        <tbody>
+            {% for p in posts %}
+                <tr>
+                    <td>{% if p.image %}🖼 {% endif %}{{ p.title }}</td>
+                    <td>{{ p.created_at|date('d/m/Y H:i') }}</td>
+                    <td>{{ t(p.published ? 'admin.news_published' : 'news.draft') }}</td>
+                    <td><a class="button" href="/admin/news/{{ p.id }}">{{ t('admin.edit') }}</a> <a href="/news/{{ p.id }}">{{ t('admin.view') }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p class="empty-note">{{ t('admin.news_empty') }}</p>
+{% endif %}
+{% endblock %}

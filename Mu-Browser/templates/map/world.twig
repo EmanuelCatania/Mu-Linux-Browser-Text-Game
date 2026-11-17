@@ -1,0 +1,99 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ t('map.title') }} - {{ t('site.title') }}{% endblock %}
+
+{% block content %}
+<h1 class="title-bar">{{ t('map.title') }}</h1>
+
+<div class="map-layout">
+    <div class="map-frame">
+        <img src="/assets/img/maps/main.jpg" width="572" height="572" alt="">
+        {% for p in points %}
+            <a class="map-point tag-{{ p.side }}" href="/map/{{ p.id }}" style="left: {{ p.left }}%; top: {{ p.top }}%;">
+                <span class="map-dot" aria-hidden="true"></span>
+                <span class="map-tag">{{ p.label }}<br>{{ t('map.levels', {min: p.min, max: p.max}) }}</span>
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="map-side">
+        <section class="panel">
+            <h2 class="panel-title">{{ t('map.exploration') }}</h2>
+            <ul class="panel-body map-list">
+                {% for p in points %}
+                    <li><a href="/map/{{ p.id }}">{{ p.label }}</a> <span>{{ t('map.levels', {min: p.min, max: p.max}) }}</span></li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">{{ t('map.event') }}</h2>
+            <div class="panel-body">
+                {% if event_map %}
+                    <form method="post" action="/battle/enter-event">
+                        <input type="hidden" name="_csrf" value="{{ csrf }}">
+                        <button type="submit" class="go"{{ event_closed ? ' disabled' }}>{{ t('map.event_enter', {map: event_map}) }}</button>
+                    </form>
+                    {% if event_closed %}<p class="golden-help">{{ t('event.error_closed') }}</p>{% endif %}
+                    <p class="golden-help">{{ t('map.event_warning') }}</p>
+                {% else %}
+                    <p>{{ t('map.event_none') }}</p>
+                {% endif %}
+                {% if events %}
+                    <table class="golden-table">
+                        {% for e in events %}
+                            <tr>
+                                <th scope="row">{{ t('event.' ~ e.id) }}</th>
+                                <td>{% if e.open %}<span class="golden-here">{{ t('event.open', {time: e.time}) }}</span>{% else %}{{ t('event.opens_in', {time: e.time}) }}{% endif %}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    <p class="golden-help">{{ t('event.help') }}</p>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">{{ t('golden.title') }}</h2>
+            <div class="panel-body">
+                <p class="golden-timer">
+                    {{ t(golden_active ? 'golden.ends_in' : 'golden.starts_in') }} <strong>{{ golden_timer }}</strong>
+                </p>
+                <table class="golden-table">
+                    {% for g in golden %}
+                        <tr>
+                            <th scope="row">{{ g.monster }}</th>
+                            <td>
+                                {% if g.map %}<span class="golden-here">{{ g.map }}</span>
+                                {% elseif g.by %}{{ g.by }}
+                                {% else %}???{% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <p class="golden-help">{{ t('golden.help') }}</p>
+            </div>
+        </section>
+
+        {% if bosses %}
+            <section class="panel">
+                <h2 class="panel-title">{{ t('boss.title') }}</h2>
+                <div class="panel-body">
+                    <table class="golden-table">
+                        {% for b in bosses %}
+                            <tr>
+                                <th scope="row">{{ b.monster }}</th>
+                                <td>
+                                    {% if b.alive %}<span class="golden-here">{{ b.map }}</span>
+                                    {% else %}{{ t('boss.back_in', {time: b.time}) }}{% if b.by %} · {{ b.by }}{% endif %}{% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    <p class="golden-help">{{ t('boss.help') }}</p>
+                </div>
+            </section>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

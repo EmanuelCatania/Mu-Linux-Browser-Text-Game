@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- generado por tools/events.py -->
+<monster name="lizard_king">
+<level>70</level>
+<hp>9000</hp>
+<damage>270</damage>
+<defense>180</defense>
+<damage_rate>350</damage_rate>
+<defense_rate>115</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+<monster name="mutant">
+<level>72</level>
+<hp>10000</hp>
+<damage>280</damage>
+<defense>190</defense>
+<damage_rate>365</damage_rate>
+<defense_rate>120</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="hydra">
+<level>74</level>
+<hp>19000</hp>
+<damage>310</damage>
+<defense>200</defense>
+<damage_rate>430</damage_rate>
+<defense_rate>125</defense_rate>
+<attribute>lighting</attribute>
+</monster>
+
+<monster name="bloody_wolf">
+<level>76</level>
+<hp>13500</hp>
+<damage>300</damage>
+<defense>200</defense>
+<damage_rate>410</damage_rate>
+<defense_rate>130</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="mega_crust">
+<level>78</level>
+<hp>15000</hp>
+<damage>320</damage>
+<defense>210</defense>
+<damage_rate>430</damage_rate>
+<defense_rate>140</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="splinter_wolf">
+<level>80</level>
+<hp>16000</hp>
+<damage>340</damage>
+<defense>230</defense>
+<damage_rate>460</damage_rate>
+<defense_rate>163</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="queen_rainier">
+<level>82</level>
+<hp>19000</hp>
+<damage>350</damage>
+<defense>230</defense>
+<damage_rate>475</damage_rate>
+<defense_rate>160</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="beam_knight">
+<level>84</level>
+<hp>26500</hp>
+<damage>440</damage>
+<defense>280</defense>
+<damage_rate>530</damage_rate>
+<defense_rate>190</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="satyros">
+<level>85</level>
+<hp>22000</hp>
+<damage>395</damage>
+<defense>280</defense>
+<damage_rate>540</damage_rate>
+<defense_rate>177</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="blade_hunter">
+<level>88</level>
+<hp>32000</hp>
+<damage>443</damage>
+<defense>315</defense>
+<damage_rate>587</damage_rate>
+<defense_rate>195</defense_rate>
+<attribute>lightning</attribute>
+</monster>
+
+<monster name="zombie_fighter">
+<level>90</level>
+<hp>20000</hp>
+<damage>345</damage>
+<defense>200</defense>
+<damage_rate>750</damage_rate>
+<defense_rate>170</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="death_beam_knight">
+<level>93</level>
+<hp>40000</hp>
+<damage>650</damage>
+<defense>420</defense>
+<damage_rate>575</damage_rate>
+<defense_rate>220</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="resurrected_gladiator">
+<level>93</level>
+<hp>23000</hp>
+<damage>360</damage>
+<defense>220</defense>
+<damage_rate>780</damage_rate>
+<defense_rate>200</defense_rate>
+<attribute>fire</attribute>
+</monster>
+
+<monster name="sapi_unus">
+<level>95</level>
+<hp>37000</hp>
+<damage>510</damage>
+<defense>370</defense>
+<damage_rate>700</damage_rate>
+<defense_rate>220</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>lizard_king</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>mutant</encounter>
+<encounter>hydra</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>hydra</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>bloody_wolf</encounter>
+<encounter>mega_crust</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>mega_crust</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>splinter_wolf</encounter>
+<encounter>queen_rainier</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>queen_rainier</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>beam_knight</encounter>
+<encounter>satyros</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>satyros</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>blade_hunter</encounter>
+<encounter>zombie_fighter</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>zombie_fighter</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>death_beam_knight</encounter>
+<encounter>resurrected_gladiator</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>resurrected_gladiator</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>sapi_unus</encounter>
+</spot>
+
+
+</map>

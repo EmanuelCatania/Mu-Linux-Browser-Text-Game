@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<shop>
+<item id="0">F.11.1.0010.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.apple</item>
+<item id="1">F.11.2.0020.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.small_healing_potion</item>
+<item id="2">F.11.3.0030.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.medium_healing_potion</item>
+<item id="3">F.11.4.0040.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.large_healing_potion</item>
+<item id="4">F.11.6.0020.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.small_mana_potion</item>
+<item id="5">F.11.7.0030.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.medium_mana_potion</item>
+<item id="6">F.11.8.0040.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.large_mana_potion</item>
+<item id="7">F.11.A.0010.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.antidote</item>
+
+<item id="8">5.22.0.0020.00.9.1199.0000.15.0.0.09.09.9.050.050.000000.plate_helm</item>
+<item id="9">1</item>
+<item id="10">8.42.1.0010.00.0.4180.0000.01.0.0.00.00.0.200.200.000000.satan_wings</item>
+<item id="11">1</item>
+<item id="12">1</item>
+<item id="13">1</item>
+<item id="14">D.11.1.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_bless</item>
+<item id="15">D.11.2.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_soul</item>
+
+<item id="16">1</item>
+<item id="17">1</item>
+<item id="18">1</item>
+<item id="19">1</item>
+<item id="20">1</item>
+<item id="21">1</item>
+<item id="22">C.11.2.0000.00.0.4020.0000.00.0.0.00.00.0.255.255.000000.imp</item>
+<item id="23">C.11.1.0000.00.0.4020.0000.00.0.0.00.00.0.255.255.000000.guardian_angel</item>
+
+<item id="24">3.22.0.0030.00.9.1207.0000.15.0.0.09.09.9.050.050.000000.plate_armor</item>
+<item id="25">1</item>
+<item id="26">8.42.1.0010.00.0.4180.0000.02.0.0.00.00.0.200.200.000000.heaven_wings</item>
+<item id="27">1</item>
+<item id="28">1</item>
+<item id="29">1</item>
+<item id="30">B.11.1.0000.13.9.4010.0000.00.0.0.09.09.9.040.040.000000.ring_of_wind</item>
+<item id="31">B.11.2.0000.13.9.4010.0000.00.0.0.09.09.9.040.040.000000.ring_of_fire</item>
+
+<item id="32">1</item>
+<item id="33">1</item>
+<item id="34">1</item>
+<item id="35">1</item>
+<item id="36">1</item>
+<item id="37">1</item>
+<item id="38">B.11.3.0000.13.9.4010.0000.00.0.0.09.09.9.040.040.000000.ring_of_ice</item>
+<item id="39">B.11.4.0000.13.9.4010.0000.00.0.0.09.09.9.040.040.000000.ring_of_earth</item>
+
+<item id="40">6.22.0.0012.00.9.1183.0000.15.0.0.09.09.9.050.050.000000.plate_gloves</item>
+<item id="41">1</item>
+<item id="42">8.42.1.0010.00.0.4180.0000.03.0.0.00.00.0.200.200.000000.fairy_wings</item>
+<item id="43">1</item>
+<item id="44">1</item>
+<item id="45">1</item>
+<item id="46">B.11.5.0000.13.9.4010.0000.00.0.0.09.09.9.040.040.000000.ring_of_poison</item>
+<item id="47">B.11.7.0000.13.9.4010.0000.00.0.0.09.09.9.040.040.000000.ring_of_magic</item>
+
+<item id="48">1</item>
+<item id="49">1</item>
+<item id="50">1</item>
+<item id="51">1</item>
+<item id="52">1</item>
+<item id="53">1</item>
+<item id="54">B.11.9.0000.13.9.0000.0000.00.0.0.09.09.9.030.030.000000.wizard_ring</item>
+<item id="55">E.11.1.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_chaos</item>
+
+<item id="56">4.22.0.0022.00.9.1195.0000.15.0.0.09.09.9.050.050.000000.plate_pants</item>
+<item id="57">1</item>
+<item id="58">8.42.1.0010.00.0.4180.0000.04.0.0.00.00.0.200.200.000000.mystery_wings</item>
+<item id="59">1</item>
+<item id="60">1</item>
+<item id="61">1</item>
+<item id="62">E.11.2.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_creation</item>
+<item id="63">E.12.7.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.loch_feather</item>
+
+<item id="64">1</item>
+<item id="65">1</item>
+<item id="66">1</item>
+<item id="67">1</item>
+<item id="68">1</item>
+<item id="69">1</item>
+<item id="70">D.11.3.0000.00.0.0000.0000.00.0.0.00.00.0.000.000.000000.jewel_of_life</item>
+<item id="71">1</item>
+
+<item id="72">7.22.0.0012.00.9.1183.0000.15.0.0.09.09.9.050.050.000000.plate_boots</item>
+<item id="73">1</item>
+<item id="74">0</item>
+<item id="75">0</item>
+<item id="76">0</item>
+<item id="77">0</item>
+<item id="78">0</item>
+<item id="79">0</item>
+
+<item id="80">1</item>
+<item id="81">1</item>
+<item id="82">0</item>
+<item id="83">0</item>
+<item id="84">0</item>
+<item id="85">0</item>
+<item id="86">0</item>
+<item id="87">0</item>
+
+<item id="88">0</item>
+<item id="89">0</item>
+<item id="90">0</item>
+<item id="91">0</item>
+<item id="92">0</item>
+<item id="93">0</item>
+<item id="94">0</item>
+<item id="95">0</item>
+
+<item id="96">0</item>
+<item id="97">0</item>
+<item id="98">0</item>
+<item id="99">0</item>
+<item id="100">0</item>
+<item id="101">0</item>
+<item id="102">0</item>
+<item id="103">0</item>
+
+<item id="104">0</item>
+<item id="105">0</item>
+<item id="106">0</item>
+<item id="107">0</item>
+<item id="108">0</item>
+<item id="109">0</item>
+<item id="110">0</item>
+<item id="111">0</item>
+
+<item id="112">0</item>
+<item id="113">0</item>
+<item id="114">0</item>
+<item id="115">0</item>
+<item id="116">0</item>
+<item id="117">0</item>
+<item id="118">0</item>
+<item id="119">0</item>
+
+<item>lorencia1</item>
+<item>LORENCIA 1</item>
+<item>Lumen the Barmaid</item>
+
+</shop>

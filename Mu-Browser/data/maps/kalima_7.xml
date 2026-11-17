@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<map>
+
+<!-- monster data -->
+<monster name="aegis">
+<level>111</level>
+<hp>82000</hp>
+<damage>752</damage>
+<defense>584</defense>
+<damage_rate>850</damage_rate>
+<defense_rate>315</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="lord_centurion">
+<level>114</level>
+<hp>88000</hp>
+<damage>791</damage>
+<defense>615</defense>
+<damage_rate>880</damage_rate>
+<defense_rate>330</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="bloody_soldier">
+<level>117</level>
+<hp>97300</hp>
+<damage>845</damage>
+<defense>660</defense>
+<damage_rate>920</damage_rate>
+<defense_rate>345</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="death_angel">
+<level>121</level>
+<hp>110000</hp>
+<damage>915</damage>
+<defense>720</defense>
+<damage_rate>960</damage_rate>
+<defense_rate>370</defense_rate>
+<attribute>water</attribute>
+</monster>
+
+<monster name="necron">
+<level>125</level>
+<hp>125000</hp>
+<damage>996</damage>
+<defense>783</defense>
+<damage_rate>1015</damage_rate>
+<defense_rate>405</defense_rate>
+<attribute>poison</attribute>
+</monster>
+
+<monster name="death_centurion">
+<level>130</level>
+<hp>145000</hp>
+<damage>1085</damage>
+<defense>865</defense>
+<damage_rate>1080</damage_rate>
+<defense_rate>440</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="schriker">
+<level>135</level>
+<hp>170000</hp>
+<damage>1213</damage>
+<defense>992</defense>
+<damage_rate>1190</damage_rate>
+<defense_rate>485</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+<monster name="kundun">
+<level>147</level>
+<hp>5000000</hp>
+<damage>2500</damage>
+<defense>1500</defense>
+<damage_rate>2000</damage_rate>
+<defense_rate>2000</defense_rate>
+<attribute>none</attribute>
+</monster>
+
+
+<!-- npc -->
+
+
+<!-- spots -->
+<spot id="spot14" x="0" y="0">
+<encounter>aegis</encounter>
+</spot>
+
+<spot id="spot13" x="0" y="0">
+<encounter>aegis</encounter>
+<encounter>lord_centurion</encounter>
+</spot>
+
+<spot id="spot12" x="0" y="0">
+<encounter>lord_centurion</encounter>
+</spot>
+
+<spot id="spot11" x="0" y="0">
+<encounter>bloody_soldier</encounter>
+<encounter>lord_centurion</encounter>
+</spot>
+
+<spot id="spot10" x="0" y="0">
+<encounter>bloody_soldier</encounter>
+</spot>
+
+<spot id="spot9" x="0" y="0">
+<encounter>bloody_soldier</encounter>
+<encounter>death_angel</encounter>
+</spot>
+
+<spot id="spot8" x="0" y="0">
+<encounter>death_angel</encounter>
+</spot>
+
+<spot id="spot7" x="0" y="0">
+<encounter>necron</encounter>
+<encounter>death_angel</encounter>
+</spot>
+
+<spot id="spot6" x="0" y="0">
+<encounter>necron</encounter>
+</spot>
+
+<spot id="spot5" x="0" y="0">
+<encounter>necron</encounter>
+<encounter>death_centurion</encounter>
+</spot>
+
+<spot id="spot4" x="0" y="0">
+<encounter>death_centurion</encounter>
+</spot>
+
+<spot id="spot3" x="0" y="0">
+<encounter>schriker</encounter>
+<encounter>death_centurion</encounter>
+</spot>
+
+<spot id="spot2" x="0" y="0">
+<encounter>schriker</encounter>
+</spot>
+
+<spot id="spot1" x="0" y="0">
+<encounter>kundun</encounter>
+</spot>
+
+
+</map>
