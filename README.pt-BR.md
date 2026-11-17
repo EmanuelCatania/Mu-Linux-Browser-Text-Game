@@ -22,6 +22,12 @@ Jogo de navegador de MU Online, em texto e por turnos. É uma reescrita completa
 - **Painel de administração**: configurações do jogo, notícias com imagens para a página inicial, contas, editor de personagens e itens e moderação do fórum.
 - **Três idiomas** (espanhol, inglês e português) e modo escuro opcional.
 
+## Testar sem instalar nada
+
+[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/EmanuelCatania/Mu-Linux-Browser-Text-Game/main/Mu-Browser/docker-compose.images.yml)
+
+Abre o jogo no [Play with Docker](https://labs.play-with-docker.com/): entra-se com uma conta do Docker (grátis), ele sobe sozinho num servidor temporário e dura 4 horas. Quando terminar de iniciar, clique na porta **8086** que aparece em cima. O código para criar a conta de administrador aparece no terminal com `docker logs $(docker ps -qf name=mu-web)`, mas para jogar basta registrar uma conta normal.
+
 ## Início rápido
 
 Só é preciso o Docker com o plugin Compose. Com a imagem publicada, sem compilar nada:
