@@ -24,9 +24,9 @@ A text-based, turn-based MU Online browser game. It is a full rewrite, on PHP 8.
 
 ## Try it without installing anything
 
-[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/EmanuelCatania/Mu-Linux-Browser-Text-Game/main/Mu-Browser/docker-compose.images.yml)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/EmanuelCatania/Mu-Linux-Browser-Text-Game?quickstart=1)
 
-Opens the game in [Play with Docker](https://labs.play-with-docker.com/): sign in with a (free) Docker account and it starts by itself on a temporary server that lasts 4 hours. Once it has started, click the **8086** port shown at the top. The code to create the admin account is shown in the terminal with `docker logs $(docker ps -qf name=mu-web)`, but a normal account is enough to play.
+Opens the game in [GitHub Codespaces](https://github.com/features/codespaces): sign in with your GitHub account, which includes free hours every month, and the game starts by itself on a temporary server. Once it has started, it opens on port **8086** (*Ports* tab). The code to create the admin account is shown in the terminal with `docker compose -f Mu-Browser/docker-compose.images.yml logs mu-web`, but a normal account is enough to play. When you are done, stop the Codespace so it does not use up your hours.
 
 ## Quick start
 

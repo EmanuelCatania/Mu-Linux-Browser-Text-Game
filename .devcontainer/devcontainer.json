@@ -1,0 +1,15 @@
+{
+    // Demo en GitHub Codespaces: levanta el juego con la imagen publicada y abre el puerto 8086.
+    "name": "Mu-Linux Browser Text Game",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    "hostRequirements": { "cpus": 2 },
+    "forwardPorts": [8086],
+    "portsAttributes": {
+        "8086": { "label": "Mu-Linux Browser", "onAutoForward": "openPreview" }
+    },
+    "postStartCommand": "docker compose -f Mu-Browser/docker-compose.images.yml up -d",
+    "postAttachCommand": "echo 'El juego queda en el puerto 8086 (pestaña Ports). Código de admin: docker compose -f Mu-Browser/docker-compose.images.yml logs mu-web'"
+}

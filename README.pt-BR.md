@@ -24,9 +24,9 @@ Jogo de navegador de MU Online, em texto e por turnos. É uma reescrita completa
 
 ## Testar sem instalar nada
 
-[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/EmanuelCatania/Mu-Linux-Browser-Text-Game/main/Mu-Browser/docker-compose.images.yml)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/EmanuelCatania/Mu-Linux-Browser-Text-Game?quickstart=1)
 
-Abre o jogo no [Play with Docker](https://labs.play-with-docker.com/): entra-se com uma conta do Docker (grátis), ele sobe sozinho num servidor temporário e dura 4 horas. Quando terminar de iniciar, clique na porta **8086** que aparece em cima. O código para criar a conta de administrador aparece no terminal com `docker logs $(docker ps -qf name=mu-web)`, mas para jogar basta registrar uma conta normal.
+Abre o jogo no [GitHub Codespaces](https://github.com/features/codespaces): entra-se com a conta do GitHub, que traz horas grátis por mês, e o jogo sobe sozinho num servidor temporário. Quando terminar de iniciar, ele abre na porta **8086** (aba *Ports*). O código para criar a conta de administrador aparece no terminal com `docker compose -f Mu-Browser/docker-compose.images.yml logs mu-web`, mas para jogar basta registrar uma conta normal. Ao terminar, pare o Codespace para não gastar horas.
 
 ## Início rápido
 
